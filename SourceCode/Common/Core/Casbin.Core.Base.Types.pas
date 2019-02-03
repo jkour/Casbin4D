@@ -23,6 +23,10 @@ type
     ['{54CC7AC8-E892-49A1-9E8D-FF95A2EE6D64}']
   end;
 
+  IBaseInvokableInterface = interface (IInvokable)
+    ['{1D824190-3D2B-4E5B-8F7D-E14923B01DEB}']
+  end;
+
   TBaseInterfacedObject = class (TInterfacedObject, IBaseInterface)
 
   end;

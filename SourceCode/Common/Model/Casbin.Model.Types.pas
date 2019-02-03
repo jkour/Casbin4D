@@ -20,7 +20,7 @@ uses
   System.Generics.Collections, Casbin.Effect.Types;
 
 type
-  IModel = interface (IBaseInterface)
+  IModel = interface (IBaseInvokableInterface)
     ['{A1B8A09F-0562-4C15-B9F3-74537C5A9E27}']
     function section (const aSection: TSectionType;
                                         const aSlim: Boolean = true): string;

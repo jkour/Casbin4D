@@ -22,7 +22,7 @@ uses
 type
   TEnforceParameters = TStringDynArray;
 
-  ICasbin = interface (IBaseInterface)
+  ICasbin = interface (IBaseInvokableInterface)
     ['{7DC6F205-0000-40EF-BA8A-BF18018E5674}']
     function getEnabled: Boolean;
     function getLogger: ILogger;

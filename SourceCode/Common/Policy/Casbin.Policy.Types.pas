@@ -35,7 +35,7 @@ type
     property ID: string read fID write fID;
   end;
 
-  IPolicyManager = interface (IBaseInterface)
+  IPolicyManager = interface (IBaseInvokableInterface)
     ['{B983A830-6107-4283-A45D-D74CDBB5E2EA}']
     function section (const aSlim: Boolean = true): string;
     function toOutputString: string;
