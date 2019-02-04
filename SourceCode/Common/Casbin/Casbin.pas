@@ -20,6 +20,7 @@ uses
   Casbin.Adapter.Types, Casbin.Core.Logger.Types, Casbin.Functions.Types, Casbin.Policy.Types;
 
 type
+  {$RTTI EXPLICIT METHODS([vcPrivate, vcPublic])}
   TCasbin = class (TBaseInterfacedObject, ICasbin)
   private
     fModel: IModel;

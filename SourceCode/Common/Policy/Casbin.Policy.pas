@@ -22,6 +22,7 @@ uses
   System.Generics.Collections;
 
 type
+  {$RTTI EXPLICIT METHODS([vcPrivate, vcPublic])}
   TPolicyManager = class(TBaseInterfacedObject, IPolicyManager)
   private
     fAdapter: IPolicyAdapter;

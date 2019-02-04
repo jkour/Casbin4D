@@ -21,6 +21,7 @@ uses
   System.Generics.Collections, Casbin.Effect.Types;
 
 type
+  {$RTTI EXPLICIT METHODS([vcProtected, vcPublic])}
   TModel = class (TBaseInterfacedObject, IModel)
   private
     fAdapter: IAdapter;  //PALOFF
