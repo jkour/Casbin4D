@@ -84,3 +84,7 @@ Documentation/
 !Demos/Main/*.exe
 Benchmarks/Win32/
 *.ficfg
+Tests/Extensions/Win32/
+*.eof
+Tests/Extensions/TestInsightSettings.ini
+*.otares
