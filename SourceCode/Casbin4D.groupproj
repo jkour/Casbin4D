@@ -18,6 +18,9 @@
         <Projects Include="Packages\Casbin4D102Tokyo.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj">
             <Dependencies/>
         </Projects>
@@ -73,6 +76,15 @@
     </Target>
     <Target Name="Casbin4D102Tokyo:Make">
         <MSBuild Projects="Packages\Casbin4D102Tokyo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic:Clean">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic:Make">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Make"/>
     </Target>
     <Target Name="Casbin4D_Extensions_TMS_Sparkle">
         <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj"/>
