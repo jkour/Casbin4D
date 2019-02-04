@@ -18,6 +18,9 @@
         <Projects Include="Packages\Casbin4D102Tokyo.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -70,6 +73,15 @@
     </Target>
     <Target Name="Casbin4D102Tokyo:Make">
         <MSBuild Projects="Packages\Casbin4D102Tokyo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Casbin4D_Extensions_TMS_Sparkle">
+        <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj"/>
+    </Target>
+    <Target Name="Casbin4D_Extensions_TMS_Sparkle:Clean">
+        <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Casbin4D_Extensions_TMS_Sparkle:Make">
+        <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="Casbin4D103Rio;Tests_Casbin;MainDemo;Benchmarks_Casbin;Casbin4D102Tokyo"/>
