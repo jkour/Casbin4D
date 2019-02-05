@@ -5,13 +5,13 @@ interface
 uses
   Casbin.TMS.Sparkle.Middleware.Types, Sparkle.HttpServer.Module,
   Sparkle.HttpServer.Context, Casbin.Types, Casbin.Model.Types,
-  Casbin.Policy.Types, System.Generics.Collections;
+  Casbin.Policy.Types;
 
 type
   TCasbinMiddleware = class(THttpServerMiddleware, ICasbinMiddleware)
   private
     fCasbin: ICasbin;
-    fMethods: TList<string>;
+//    fMethods: TList<string>;
     procedure loadURIs;
   protected
     procedure ProcessRequest(Context: THttpServerContext; Next: THttpServerProc); override;
@@ -31,13 +31,29 @@ implementation
 
 uses
   Casbin, System.SysUtils, System.Rtti, Casbin.Core.Logger.Types,
-  Casbin.TMS.Sparkle, Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default;
+  Casbin.TMS.Sparkle, Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default,
+  Casbin.TMS.Sparkle.URI, System.Generics.Collections, System.StrUtils,
+  Sparkle.Utils, Casbin.Core.Base.Types, Sparkle.Json.Writer;
+
+function argValue (const aArgs: TArray<TPair<string, string>>;
+                   const aKey: string): string;
+var
+  pair: TPair<string, string>;
+begin
+  Result:='';
+  for pair in aArgs do
+    if UpperCase(pair.Key)=UpperCase(aKey) then
+    begin
+      Result:=pair.Value;
+      Break;
+    end;
+end;
 
 { TCasbinMiddleware }
 
 constructor TCasbinMiddleware.Create;
 begin
-  fMethods:=TList<string>.Create;
+//  fMethods:=TList<string>.Create;
   loadURIs;
   fCasbin:=TCasbin.Create;
 end;
@@ -75,7 +91,7 @@ end;
 
 destructor TCasbinMiddleware.Destroy;
 begin
-  fMethods.free;
+//  fMethods.free;
   inherited;
 end;
 
@@ -86,6 +102,8 @@ var
   methodName: string;
 
 begin
+{$REGION 'RTTI Attempt'}
+{
   // Load ICasbin
   for method in (ctx.GetType(TypeInfo(ICasbin)) as TRttiInterfaceType).GetMethods do
   begin
@@ -125,6 +143,14 @@ begin
            (not fMethods.Contains('/'+methodName)) then
       fMethods.Add('/Logger/'+method.Name);
   end;
+  }
+{$ENDREGION}
+
+  // Initially methods were loaded via RTTI but in executeRequest it is
+  // difficult to RELIABLY check the correct parameters for the
+  // requested methods
+  // For now, the Casbin methods exposed in Sparkle are hard-coded
+
 end;
 
 procedure TCasbinMiddleware.ProcessRequest(Context: THttpServerContext;
@@ -137,23 +163,27 @@ var
   command: string;
   executed: Boolean;
   activeObject: TObject;
+  methodContext: TCasbinMethodContext;
+  methodRec: TCasbinSparkleMethod;
+  args: TArray<TPair<string, string>>;
+  methodResult: TValue;
+  arrParams: TFilterArray;
+  jsonWriter: TJSONWriter;
 begin
   executed:=False;
   request:=Context.Request;
   segments:=request.Uri.Segments;
-  if Length(segments)>2 then
-  begin
-    reqContext:=segments[Length(segments)-2];
-    command:=segments[Length(segments)-1];
-  end;
+  command:=segments[Length(segments)-1];
   if UpperCase(command)='LIST' then
   begin
     if request.MethodType=THTTPMethod.Get then
     begin
       Context.Response.StatusCode:=200;
       Context.Response.ContentType:='text/plain';
+//      Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
+//                                      string.Join(sLineBreak,fMethods.ToArray)));
       Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
-                                      string.Join(sLineBreak,fMethods.ToArray)));
+                                      string.Join(sLineBreak, availableURIPaths)));
     end
     else
     begin
@@ -165,23 +195,74 @@ begin
   end
   else
   begin
-    activeObject:=nil;
-    response:=Context.Response;
-
-    if fMethods.Contains('/'+command) then
-      activeObject:=fCasbin as TCasbin;
-    if fMethods.Contains('/'+reqContext+'/'+command) then
+    if Length(segments)>3 then
     begin
-      if UpperCase(reqContext)='MODEL' then
-        activeObject:= fCasbin.Model as TModel;
-      if UpperCase(reqContext)='POLICYMANAGER' then
-        activeObject:= fCasbin.Policy as TPolicyManager;
-      if UpperCase(reqContext)='LOGGER' then
-        activeObject:= fCasbin.Logger as TDefaultLogger;
-    end;
+      reqContext:=segments[Length(segments)-2];
+      case IndexStr(UpperCase(reqContext),
+                    ['MODEL','POLICYMANAGER','LOGGER']) of
+        0: methodContext:=cmcModel;
+        1: methodContext:=cmcPolicyManager;
+        2: methodContext:=cmcLogger;
+      end;
+    end
+    else
+      methodContext:=cmcCasbin;
 
-    if Assigned(activeObject) then
-      executed:=executeRequest(activeObject, command, request, response);
+    methodRec:=URIDetails(methodContext, Trim(reqContext)+'/'+command);
+    if methodRec.Name='NULL' then
+      executed:=false
+    else
+    begin
+      if TCasbinURLOperation(request.MethodType) <> methodRec.URLOperation then
+      begin
+        executed:=True;
+        Context.Response.StatusCode:=400; // Bad Request
+        Context.Response.ContentType:='text/plain';
+        Context.Response.Close(TEncoding.UTF8.GetBytes
+            ('Wrong Request Type for Method '+Trim(reqContext)+'/'+command));
+      end
+      else
+      begin
+        args:=TSparkleUtils.GetQueryParams(request.Uri.OriginalQuery);
+        if (Length(args)<>Length(methodRec.Tags)) then
+        begin
+          executed:=True;
+          Context.Response.StatusCode:=400; // Bad Request
+          Context.Response.ContentType:='text/plain';
+          Context.Response.Close(TEncoding.UTF8.GetBytes
+                    ('Parameters are wrong'));
+        end
+        else
+        begin
+          executed:=True;
+          Context.Response.StatusCode:=200;
+          Context.Response.ContentType:='text/plain';
+//          Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
+//                                      string.Join(sLineBreak, availableURIPaths)));
+          case methodRec.Context of
+            cmcCasbin: begin
+                         case methodRec.ID of
+                           0: begin  //enforce
+                                arrParams:=argValue(args, methodRec.Tags[0]).Split([',']);
+                                methodResult:=fCasbin.enforce(TFilterArray(arrParams));
+                                jsonWriter:=TJsonWriter.Create(Context.Response.Content);
+                                jsonWriter
+//                                        .WriteBeginObject
+                                            .WriteBoolean(methodResult.AsBoolean)
+//                                          .WriteEndObject
+                                           ;
+                                jsonWriter.Free;
+//                                Context.Response.Close;
+                              end;
+                         end;
+                       end;
+            cmcLogger: ;
+            cmcModel: ;
+            cmcPolicyManager: ;
+          end;
+        end;
+      end;
+    end;
   end;
 
   if not executed then
