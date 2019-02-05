@@ -35,7 +35,6 @@ requires
 contains
   Casbin.TMS.Sparkle.Middleware.Types in 'Casbin.TMS.Sparkle.Middleware.Types.pas',
   Casbin.TMS.Sparkle.Middleware in 'Casbin.TMS.Sparkle.Middleware.pas',
-  Casbin.TMS.Sparkle in 'Casbin.TMS.Sparkle.pas',
   Casbin.TMS.Sparkle.URI in 'Casbin.TMS.Sparkle.URI.pas';
 
 end.

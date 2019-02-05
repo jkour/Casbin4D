@@ -11,8 +11,6 @@ type
   TCasbinMiddleware = class(THttpServerMiddleware, ICasbinMiddleware)
   private
     fCasbin: ICasbin;
-//    fMethods: TList<string>;
-    procedure loadURIs;
   protected
     procedure ProcessRequest(Context: THttpServerContext; Next: THttpServerProc); override;
   public
@@ -24,14 +22,13 @@ type
         overload;
     constructor Create(const aModel: IModel; const aPolicyFile: string);
         overload;
-    destructor Destroy; override;
   end;
 
 implementation
 
 uses
   Casbin, System.SysUtils, System.Rtti, Casbin.Core.Logger.Types,
-  Casbin.TMS.Sparkle, Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default,
+  Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default,
   Casbin.TMS.Sparkle.URI, System.Generics.Collections, System.StrUtils,
   Sparkle.Utils, Casbin.Core.Base.Types, Sparkle.Json.Writer;
 
@@ -53,15 +50,13 @@ end;
 
 constructor TCasbinMiddleware.Create;
 begin
-//  fMethods:=TList<string>.Create;
-  loadURIs;
+  inherited;
   fCasbin:=TCasbin.Create;
 end;
 
 constructor TCasbinMiddleware.Create(const aModelFile, aPolicyFile: string);
 begin
   inherited Create;
-  fCasbin:=nil;
   fCasbin:=TCasbin.Create(aModelFile, aPolicyFile);
 end;
 
@@ -69,7 +64,6 @@ constructor TCasbinMiddleware.Create(const aModel: IModel;
   const aPolicyAdapter: IPolicyManager);
 begin
   inherited Create;
-  fCasbin:=nil;
   fCasbin:=TCasbin.Create(aModel, aPolicyAdapter);
 end;
 
@@ -77,7 +71,6 @@ constructor TCasbinMiddleware.Create(const aModelFile: string;
   const aPolicyAdapter: IPolicyManager);
 begin
   inherited Create;
-  fCasbin:=nil;
   fCasbin:=TCasbin.Create(aModelFile, aPolicyAdapter);
 end;
 
@@ -85,84 +78,17 @@ constructor TCasbinMiddleware.Create(const aModel: IModel;
   const aPolicyFile: string);
 begin
   inherited Create;
-  fCasbin:=nil;
   fCasbin:=TCasbin.Create(aModel, aPolicyFile);
-end;
-
-destructor TCasbinMiddleware.Destroy;
-begin
-//  fMethods.free;
-  inherited;
-end;
-
-procedure TCasbinMiddleware.loadURIs;
-var
-  ctx: TRttiContext;
-  method: TRttiMethod;
-  methodName: string;
-
-begin
-{$REGION 'RTTI Attempt'}
-{
-  // Load ICasbin
-  for method in (ctx.GetType(TypeInfo(ICasbin)) as TRttiInterfaceType).GetMethods do
-  begin
-    methodName:=method.Name;
-    if (not methodName.StartsWith('get')) and
-         (not methodName.StartsWith('set')) and
-           (not fMethods.Contains(methodName)) then
-      fMethods.Add('/'+method.Name);
-  end;
-
-  // Load IModel
-  for method in (ctx.GetType(TypeInfo(IModel)) as TRttiInterfaceType).GetMethods do
-  begin
-    methodName:=method.Name;
-    if (not methodName.StartsWith('get')) and
-         (not methodName.StartsWith('set')) and
-           (not fMethods.Contains('/'+methodName)) then
-      fMethods.Add('/Model/'+method.Name);
-  end;
-
-  // Load IPolicyManager
-  for method in (ctx.GetType(TypeInfo(IPolicyManager)) as TRttiInterfaceType).GetMethods do
-  begin
-    methodName:=method.Name;
-    if (not methodName.StartsWith('get')) and
-         (not methodName.StartsWith('set')) and
-           (not fMethods.Contains('/'+methodName)) then
-      fMethods.Add('/PolicyManager/'+method.Name);
-  end;
-
-  // Logger
-  for method in (ctx.GetType(TypeInfo(ILogger)) as TRttiInterfaceType).GetMethods do
-  begin
-    methodName:=method.Name;
-    if (not methodName.StartsWith('get')) and
-         (not methodName.StartsWith('set')) and
-           (not fMethods.Contains('/'+methodName)) then
-      fMethods.Add('/Logger/'+method.Name);
-  end;
-  }
-{$ENDREGION}
-
-  // Initially methods were loaded via RTTI but in executeRequest it is
-  // difficult to RELIABLY check the correct parameters for the
-  // requested methods
-  // For now, the Casbin methods exposed in Sparkle are hard-coded
-
 end;
 
 procedure TCasbinMiddleware.ProcessRequest(Context: THttpServerContext;
   Next: THttpServerProc);
 var
   request: THttpServerRequest;
-  response: THttpServerResponse;
   segments: TArray<string>;
   reqContext: string;
   command: string;
   executed: Boolean;
-  activeObject: TObject;
   methodContext: TCasbinMethodContext;
   methodRec: TCasbinSparkleMethod;
   args: TArray<TPair<string, string>>;
@@ -180,8 +106,6 @@ begin
     begin
       Context.Response.StatusCode:=200;
       Context.Response.ContentType:='text/plain';
-//      Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
-//                                      string.Join(sLineBreak,fMethods.ToArray)));
       Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
                                       string.Join(sLineBreak, availableURIPaths)));
     end
@@ -237,8 +161,6 @@ begin
           executed:=True;
           Context.Response.StatusCode:=200;
           Context.Response.ContentType:='text/plain';
-//          Context.Response.Close(TEncoding.UTF8.GetBytes('Available URIs:'+sLineBreak+
-//                                      string.Join(sLineBreak, availableURIPaths)));
           case methodRec.Context of
             cmcCasbin: begin
                          case methodRec.ID of
