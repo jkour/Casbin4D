@@ -95,8 +95,8 @@ var
   methodResult: TValue;
   arrParams: TFilterArray;
   jsonWriter: TJSONWriter;
+  uriPath: string;
 begin
-  executed:=False;
   request:=Context.Request;
   segments:=request.Uri.Segments;
   command:=segments[Length(segments)-1];
@@ -130,9 +130,21 @@ begin
       end;
     end
     else
-      methodContext:=cmcCasbin;
+    begin
+      if Length(segments)>2 then
+      begin
+        case IndexStr(UpperCase(segments[Length(segments)-1]),
+                      ['','LOGGER']) of
+          0: methodContext:=cmcCasbin;
+          1: methodContext:=cmcLogger;
+        end;
+      end;
+    end;
 
-    methodRec:=URIDetails(methodContext, Trim(reqContext)+'/'+command);
+    uriPath:='/'+command;
+    if trim(reqContext)<>'' then
+      uriPath:='/'+Trim(reqContext)+uriPath;
+    methodRec:=URIDetails(methodContext, uriPath);
     if methodRec.Name='NULL' then
       executed:=false
     else
@@ -164,7 +176,7 @@ begin
           case methodRec.Context of
             cmcCasbin: begin
                          case methodRec.ID of
-                           0: begin  //enforce
+                           0: begin  // enforce
                                 arrParams:=argValue(args, methodRec.Tags[0]).Split([',']);
                                 methodResult:=fCasbin.enforce(TFilterArray(arrParams));
                                 jsonWriter:=TJsonWriter.Create(Context.Response.Content);
@@ -176,9 +188,31 @@ begin
                                 jsonWriter.Free;
 //                                Context.Response.Close;
                               end;
+                           1: fCasbin.Enabled:=true;
+                           2: fCasbin.Enabled:=False;
                          end;
                        end;
-            cmcLogger: ;
+            cmcLogger: begin
+                          case methodRec.ID of
+                           3: begin  // Logger?enable=true/false
+                                arrParams:=argValue(args, methodRec.Tags[0]).Split([',']);
+                                if Length(arrParams)=1 then
+                                  fCasbin.Logger.Enabled:=
+                                      UpperCase(arrParams[0]) = 'TRUE';
+                              end;
+                           4: begin  // Logger/LastLoggedMessage
+                                methodResult:=fCasbin.Logger.LastLoggedMessage;
+                                jsonWriter:=TJsonWriter.Create(Context.Response.Content);
+                                jsonWriter
+//                                        .WriteBeginObject
+                                            .WriteString(methodResult.AsString);
+//                                          .WriteEndObject
+                                           ;
+                                jsonWriter.Free;
+//                                Context.Response.Close;
+                              end;
+                         end;
+                       end;
             cmcModel: ;
             cmcPolicyManager: ;
           end;
