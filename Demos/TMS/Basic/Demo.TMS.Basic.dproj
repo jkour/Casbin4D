@@ -147,6 +147,7 @@
         <DCCReference Include="..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.pas"/>
         <DCCReference Include="..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.Types.pas"/>
         <DCCReference Include="..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.pas"/>
+        <DCCReference Include="..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.URI.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -173,13 +174,13 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="$(BDS)\Redist\osx64\libcgsqlite3.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
+                <DeployFile LocalName="$(BDS)\Redist\osx64\libcgsqlite3.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

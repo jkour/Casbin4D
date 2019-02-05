@@ -20,7 +20,8 @@ uses
   Sparkle.HttpSys.Server,
   Casbin.TMS.Sparkle.Middleware in '..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.pas',
   Casbin.TMS.Sparkle.Middleware.Types in '..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.Types.pas',
-  Casbin.TMS.Sparkle in '..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.pas';
+  Casbin.TMS.Sparkle in '..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.pas',
+  Casbin.TMS.Sparkle.URI in '..\..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.URI.pas';
 
 type
   TAuthoriseModule = class(THttpServerModule)
@@ -51,7 +52,9 @@ begin
   try
     authModule:=TAuthoriseModule.Create(ServerUrl);
 
-    casbinMiddleware:=TCasbinMiddleware.Create;
+    casbinMiddleware:=TCasbinMiddleware.Create
+      ('..\..\..\..\..\Examples\Default\basic_model.conf',
+        '..\..\..\..\..\Examples\Default\basic_policy.csv');
 
     authModule.AddMiddleware(casbinMiddleware);
 
