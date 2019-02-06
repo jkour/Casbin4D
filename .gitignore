@@ -87,4 +87,5 @@ Tests/Extensions/Win32/
 *.eof
 Tests/Extensions/TestInsightSettings.ini
 *.otares
-Tests/Extensions/dunitx-results.xml
+!dunitx-results.xml
+
