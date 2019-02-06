@@ -6,9 +6,6 @@
         <Projects Include="Packages\Casbin4D103Rio.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Tests\Tests.Casbin.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="..\Demos\Main\MainDemo.dproj">
             <Dependencies/>
         </Projects>
@@ -27,6 +24,9 @@
         <Projects Include="..\Tests\Extensions\Tests.Casbin.Extensions.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\Tests\Main\Tests.Casbin.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -43,15 +43,6 @@
     </Target>
     <Target Name="Casbin4D103Rio:Make">
         <MSBuild Projects="Packages\Casbin4D103Rio.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Tests_Casbin">
-        <MSBuild Projects="..\Tests\Tests.Casbin.dproj"/>
-    </Target>
-    <Target Name="Tests_Casbin:Clean">
-        <MSBuild Projects="..\Tests\Tests.Casbin.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Tests_Casbin:Make">
-        <MSBuild Projects="..\Tests\Tests.Casbin.dproj" Targets="Make"/>
     </Target>
     <Target Name="MainDemo">
         <MSBuild Projects="..\Demos\Main\MainDemo.dproj"/>
@@ -107,14 +98,23 @@
     <Target Name="Tests_Casbin_Extensions:Make">
         <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Tests_Casbin">
+        <MSBuild Projects="..\Tests\Main\Tests.Casbin.dproj"/>
+    </Target>
+    <Target Name="Tests_Casbin:Clean">
+        <MSBuild Projects="..\Tests\Main\Tests.Casbin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Tests_Casbin:Make">
+        <MSBuild Projects="..\Tests\Main\Tests.Casbin.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Casbin4D103Rio;Tests_Casbin;MainDemo;Benchmarks_Casbin;Casbin4D102Tokyo;Demo_TMS_Basic;Casbin4D_Extensions_TMS_Sparkle;Tests_Casbin_Extensions"/>
+        <CallTarget Targets="Casbin4D103Rio;MainDemo;Benchmarks_Casbin;Casbin4D102Tokyo;Demo_TMS_Basic;Casbin4D_Extensions_TMS_Sparkle;Tests_Casbin_Extensions;Tests_Casbin"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Casbin4D103Rio:Clean;Tests_Casbin:Clean;MainDemo:Clean;Benchmarks_Casbin:Clean;Casbin4D102Tokyo:Clean;Demo_TMS_Basic:Clean;Casbin4D_Extensions_TMS_Sparkle:Clean;Tests_Casbin_Extensions:Clean"/>
+        <CallTarget Targets="Casbin4D103Rio:Clean;MainDemo:Clean;Benchmarks_Casbin:Clean;Casbin4D102Tokyo:Clean;Demo_TMS_Basic:Clean;Casbin4D_Extensions_TMS_Sparkle:Clean;Tests_Casbin_Extensions:Clean;Tests_Casbin:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Casbin4D103Rio:Make;Tests_Casbin:Make;MainDemo:Make;Benchmarks_Casbin:Make;Casbin4D102Tokyo:Make;Demo_TMS_Basic:Make;Casbin4D_Extensions_TMS_Sparkle:Make;Tests_Casbin_Extensions:Make"/>
+        <CallTarget Targets="Casbin4D103Rio:Make;MainDemo:Make;Benchmarks_Casbin:Make;Casbin4D102Tokyo:Make;Demo_TMS_Basic:Make;Casbin4D_Extensions_TMS_Sparkle:Make;Tests_Casbin_Extensions:Make;Tests_Casbin:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
