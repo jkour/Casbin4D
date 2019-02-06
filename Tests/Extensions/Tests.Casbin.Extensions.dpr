@@ -64,7 +64,7 @@ uses
   ParseClass in '..\..\SourceCode\Common\Third Party\TExpressionParser\ParseClass.pas',
   oObjects in '..\..\SourceCode\Common\Third Party\TExpressionParser\oObjects.pas',
   Casbin.Functions in '..\..\SourceCode\Common\Functions\Casbin.Functions.pas',
-  Casbin.TMS.Sparkle in '..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.pas';
+  Casbin.TMS.Sparkle.URI in '..\..\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.URI.pas';
 
 var
   runner : ITestRunner;
@@ -110,4 +110,6 @@ begin
       System.Writeln(E.ClassName, ': ', E.Message);
   end;
 end.
+
+
 

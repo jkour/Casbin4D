@@ -4,7 +4,7 @@ interface
 uses
   DUnitX.TestFramework, Sparkle.InProc.Server, Casbin.TMS.Sparkle.Middleware,
   Sparkle.HttpServer.Request, Sparkle.HttpServer.Response, IdHTTP,
-  Sparkle.HttpServer.Module, Sparkle.HttpServer.Context;
+  Sparkle.HttpServer.Module, Sparkle.HttpServer.Context, Sparkle.Indy.Server;
 
 type
 
@@ -21,7 +21,7 @@ type
   [TestFixture]
   TTestCasbinTMSSparkle = class(TObject)
   private
-    fServer: TInProcHttpServer;
+    fServer: TIndySparkleHTTPServer;
     fIdHTTP: TIdHttp;
     fCasbinMiddleware: TTestCasbinMiddleware;
     fModule: THttpServerModule;
@@ -38,15 +38,12 @@ type
     [TearDownFixture]
     procedure TearDownFixture;
 
-    // Sample Methods
-    // Simple single Test
     [Test]
-    procedure Test1;
-    // Test with TestCase Attribute to supply parameters.
-    [Test]
-    [TestCase('TestA','1,2')]
-    [TestCase('TestB','3,4')]
-    procedure Test2(const AValue1 : Integer;const AValue2 : Integer);
+    [TestCase ('Casbin.Enforce.1',
+               '/enforce?params=alice,data1,read#true','#')]
+    [TestCase ('Casbin.Enforce.2',
+               '/enforce?params=alice,data1,write#false','#')]
+    procedure testGetMethods(const url, aResult: string);
   end;
 
 implementation
@@ -55,7 +52,8 @@ uses
   System.SysUtils;
 
 const
-  accessURL = 'http://local://testserver/casbin4D';
+  serverURL = 'http://localhost:8081/casbin4D';
+  accessURL = 'http://localhost:8081/casbin4D';
 
 procedure TTestCasbinTMSSparkle.Setup;
 begin
@@ -63,19 +61,27 @@ end;
 
 procedure TTestCasbinTMSSparkle.SetupFixture;
 begin
-//  fModule:=TTestModule.Create(accessURL);
-//
-//  fCasbinMiddleware:=TTestCasbinMiddleware.Create;
-//  fModule.AddMiddleware(fCasbinMiddleware);
+  fModule:=TTestModule.Create(serverURL);
 
-  fServer:=TInProcHttpServer.Get('testserver');
-  fServer.Get('testserver').Dispatcher.AddModule(TAnonymousServerModule.Create(
-    accessURL+'/authorise',
-    procedure (const C: THttpServerContext)
-    begin
-      C.Response.StatusCode:=200;
-    end));
-//  fServer.Get('testserver').Dispatcher.AddModule(fModule);
+  fCasbinMiddleware:=TTestCasbinMiddleware.Create
+      ('..\..\Examples\Default\basic_model.conf',
+       '..\..\Examples\Default\basic_policy.csv');
+
+  fModule.AddMiddleware(fCasbinMiddleware);
+
+  fServer:=TIndySparkleHTTPServer.Create(nil);
+  fServer.DefaultPort:=8081;
+  fServer.Dispatcher.AddModule(fModule);
+//  fServer.Dispatcher.AddModule(TAnonymousServerModule.Create(
+//      serverURL,
+//      procedure (const C: THttpServerContext)
+//      begin
+//        C.Response.StatusCode:=200;
+//        C.Response.ContentType:='text/plain';
+//  C.Response.Close(TEncoding.UTF8.GetBytes('All Good with server'));
+//      end));
+
+  fServer.Active:=True;
 
   fIdHTTP:=TIdHTTP.Create;
 end;
@@ -87,15 +93,16 @@ end;
 
 procedure TTestCasbinTMSSparkle.TearDownFixture;
 begin
+  fServer.Free;
   fIdHTTP.Free;
 end;
 
-procedure TTestCasbinTMSSparkle.Test1;
+procedure TTestCasbinTMSSparkle.testGetMethods(const url, aResult: string);
+var
+  res: string;
 begin
-end;
-
-procedure TTestCasbinTMSSparkle.Test2(const AValue1 : Integer;const AValue2 : Integer);
-begin
+  res:=fIdHTTP.Get(accessURL+Trim(url));
+  Assert.AreEqual(Trim(aResult), trim(res));
 end;
 
 { TTestCasbinMiddleware }
