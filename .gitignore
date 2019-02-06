@@ -76,9 +76,9 @@ Thumbs.db
 *.vlb
 *.res
 *.$manifest
+Tests/Win32/
 !Tests/Win32/Debug/*.exe
 !Tests/Win32/Debug/*.map
-Tests/Win32/
 Support/
 Documentation/
 
