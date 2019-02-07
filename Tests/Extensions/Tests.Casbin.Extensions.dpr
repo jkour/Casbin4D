@@ -4,17 +4,6 @@ program Tests.Casbin.Extensions;
 {$APPTYPE CONSOLE}
 {$ENDIF}{$STRONGLINKTYPES ON}
 uses
-  {$IFDEF EurekaLog}
-  EMemLeaks,
-  EResLeaks,
-  EDialogConsole,
-  EDebugExports,
-  EDebugJCL,
-  EFixSafeCallException,
-  EMapWin32,
-  EAppConsole,
-  ExceptionLog7,
-  {$ENDIF EurekaLog}
   System.SysUtils,
   {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX,
@@ -110,6 +99,7 @@ begin
       System.Writeln(E.ClassName, ': ', E.Message);
   end;
 end.
+
 
 
 

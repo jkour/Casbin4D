@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\Tests\Extensions\Win32\Debug\Tests.Casbin.Extensions.exe" total="3" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2019-02-07" time="0.224">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="Tests.Casbin.Extensions.exe" executed="true" result="Success" success="True" time="0.224" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="Tests" executed="true" result="Success" success="True" time="0.224" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TTestCasbinTMSSparkle" executed="True" result="Success" success="True" time="0.224" >
+                <results>
+                  <test-case name="testGetMethods.Casbin.Enforce.1" executed="True" result="Success" success="True" time="0.116" asserts="0" />
+                  <test-case name="testGetMethods.Casbin.Enforce.2" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                  <test-case name="testList" executed="True" result="Success" success="True" time="0.036" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

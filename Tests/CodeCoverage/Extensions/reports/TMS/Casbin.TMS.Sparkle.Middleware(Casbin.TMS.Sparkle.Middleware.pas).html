@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.TMS.Sparkle.Middleware (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.pas)</strong>.</p>
+<p> Generated at 07/02/2019 2:18:09 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\Extensions\TMS\Sparkle\Casbin.TMS.Sparkle.Middleware.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>42</td></tr><tr><td>Number of lines with code gen</td><td>89</td></tr><tr><td>Line coverage</td><td>47%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">unit Casbin.TMS.Sparkle.Middleware;</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;"> &nbsp;Casbin.TMS.Sparkle.Middleware.Types, Sparkle.HttpServer.Module,</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;"> &nbsp;Sparkle.HttpServer.Context, Casbin.Types, Casbin.Model.Types,</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;"> &nbsp;Casbin.Policy.Types;</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;"> &nbsp;TCasbinMiddleware = class(THttpServerMiddleware, ICasbinMiddleware)</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;"> &nbsp; &nbsp;fCasbin: ICasbin;</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;"> &nbsp;protected</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure ProcessRequest(Context: THttpServerContext; Next: THttpServerProc); override;</pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create; overload;</pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aModelFile, aPolicyFile: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aModel: IModel; const aPolicyAdapter: IPolicyManager);</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aModelFile: string; const aPolicyAdapter: IPolicyManager);</pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aModel: IModel; const aPolicyFile: string);</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"> &nbsp;Casbin, System.SysUtils, System.Rtti, Casbin.Core.Logger.Types,</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;"> &nbsp;Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default,</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"> &nbsp;Casbin.TMS.Sparkle.URI, System.Generics.Collections, System.StrUtils,</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;"> &nbsp;Sparkle.Utils, Casbin.Core.Base.Types, Bcl.Json;</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;">function argValue (const aArgs: TArray&lt;TPair&lt;string, string&gt;&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const aKey: string): string;</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp;pair: TPair&lt;string, string&gt;;</pre></td></tr>
+<tr class="covered"><td>39</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>40</td><td><pre style="display:inline;"> &nbsp;Result:=&apos;&apos;;</pre></td></tr>
+<tr class="covered"><td>41</td><td><pre style="display:inline;"> &nbsp;for pair in aArgs do</pre></td></tr>
+<tr class="covered"><td>42</td><td><pre style="display:inline;"> &nbsp; &nbsp;if UpperCase(pair.Key)=UpperCase(aKey) then</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>44</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:=pair.Value;</pre></td></tr>
+<tr class="covered"><td>45</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="covered"><td>46</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>47</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;">{ TCasbinMiddleware }</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;">constructor TCasbinMiddleware.Create;</pre></td></tr>
+<tr class="notcovered"><td>52</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>53</td><td><pre style="display:inline;"> &nbsp;inherited;</pre></td></tr>
+<tr class="notcovered"><td>54</td><td><pre style="display:inline;"> &nbsp;fCasbin:=TCasbin.Create;</pre></td></tr>
+<tr class="notcovered"><td>55</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>57</td><td><pre style="display:inline;">constructor TCasbinMiddleware.Create(const aModelFile, aPolicyFile: string);</pre></td></tr>
+<tr class="covered"><td>58</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>59</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="covered"><td>60</td><td><pre style="display:inline;"> &nbsp;fCasbin:=TCasbin.Create(aModelFile, aPolicyFile);</pre></td></tr>
+<tr class="covered"><td>61</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;">constructor TCasbinMiddleware.Create(const aModel: IModel;</pre></td></tr>
+<tr class="nocodegen"><td>64</td><td><pre style="display:inline;"> &nbsp;const aPolicyAdapter: IPolicyManager);</pre></td></tr>
+<tr class="notcovered"><td>65</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>66</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="notcovered"><td>67</td><td><pre style="display:inline;"> &nbsp;fCasbin:=TCasbin.Create(aModel, aPolicyAdapter);</pre></td></tr>
+<tr class="notcovered"><td>68</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>70</td><td><pre style="display:inline;">constructor TCasbinMiddleware.Create(const aModelFile: string;</pre></td></tr>
+<tr class="nocodegen"><td>71</td><td><pre style="display:inline;"> &nbsp;const aPolicyAdapter: IPolicyManager);</pre></td></tr>
+<tr class="notcovered"><td>72</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>73</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="notcovered"><td>74</td><td><pre style="display:inline;"> &nbsp;fCasbin:=TCasbin.Create(aModelFile, aPolicyAdapter);</pre></td></tr>
+<tr class="notcovered"><td>75</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>77</td><td><pre style="display:inline;">constructor TCasbinMiddleware.Create(const aModel: IModel;</pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"> &nbsp;const aPolicyFile: string);</pre></td></tr>
+<tr class="notcovered"><td>79</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>80</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="notcovered"><td>81</td><td><pre style="display:inline;"> &nbsp;fCasbin:=TCasbin.Create(aModel, aPolicyFile);</pre></td></tr>
+<tr class="notcovered"><td>82</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>84</td><td><pre style="display:inline;">procedure TCasbinMiddleware.ProcessRequest(Context: THttpServerContext;</pre></td></tr>
+<tr class="nocodegen"><td>85</td><td><pre style="display:inline;"> &nbsp;Next: THttpServerProc);</pre></td></tr>
+<tr class="nocodegen"><td>86</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>87</td><td><pre style="display:inline;"> &nbsp;request: THttpServerRequest;</pre></td></tr>
+<tr class="nocodegen"><td>88</td><td><pre style="display:inline;"> &nbsp;segments: TArray&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>89</td><td><pre style="display:inline;"> &nbsp;reqContext: string;</pre></td></tr>
+<tr class="nocodegen"><td>90</td><td><pre style="display:inline;"> &nbsp;command: string;</pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;"> &nbsp;executed: Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>92</td><td><pre style="display:inline;"> &nbsp;methodContext: TCasbinMethodContext;</pre></td></tr>
+<tr class="nocodegen"><td>93</td><td><pre style="display:inline;"> &nbsp;methodRec: TCasbinSparkleMethod;</pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;"> &nbsp;args: TArray&lt;TPair&lt;string, string&gt;&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>95</td><td><pre style="display:inline;"> &nbsp;methodResult: TValue;</pre></td></tr>
+<tr class="nocodegen"><td>96</td><td><pre style="display:inline;"> &nbsp;arrParams: TFilterArray;</pre></td></tr>
+<tr class="nocodegen"><td>97</td><td><pre style="display:inline;"> &nbsp;uriPath: string;</pre></td></tr>
+<tr class="covered"><td>98</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>99</td><td><pre style="display:inline;"> &nbsp;request:=Context.Request;</pre></td></tr>
+<tr class="covered"><td>100</td><td><pre style="display:inline;"> &nbsp;segments:=request.Uri.Segments;</pre></td></tr>
+<tr class="covered"><td>101</td><td><pre style="display:inline;"> &nbsp;command:=segments[Length(segments)-1];</pre></td></tr>
+<tr class="covered"><td>102</td><td><pre style="display:inline;"> &nbsp;if UpperCase(command)=&apos;LIST&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>103</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>104</td><td><pre style="display:inline;"> &nbsp; &nbsp;if request.MethodType=THTTPMethod.Get then</pre></td></tr>
+<tr class="nocodegen"><td>105</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>106</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.StatusCode:=200;</pre></td></tr>
+<tr class="covered"><td>107</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.ContentType:=&apos;text/plain&apos;;</pre></td></tr>
+<tr class="covered"><td>108</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.Close(TEncoding.UTF8.GetBytes(&apos;Available URIs:&apos;+sLineBreak+</pre></td></tr>
+<tr class="nocodegen"><td>109</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string.Join(sLineBreak, availableURIPaths)));</pre></td></tr>
+<tr class="nocodegen"><td>110</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>112</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>113</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.StatusCode:=405; // Not Allowed</pre></td></tr>
+<tr class="notcovered"><td>114</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.ContentType:=&apos;text/plain&apos;;</pre></td></tr>
+<tr class="notcovered"><td>115</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Context.Response.Close(TEncoding.UTF8.GetBytes(&apos;Method not allowed. Use GET instead&apos;));</pre></td></tr>
+<tr class="nocodegen"><td>116</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>117</td><td><pre style="display:inline;"> &nbsp; &nbsp;executed:=True;</pre></td></tr>
+<tr class="nocodegen"><td>118</td><td><pre style="display:inline;"> &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>119</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>120</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>121</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Length(segments)&gt;3 then</pre></td></tr>
+<tr class="nocodegen"><td>122</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>123</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;reqContext:=segments[Length(segments)-2];</pre></td></tr>
+<tr class="notcovered"><td>124</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;case IndexStr(UpperCase(reqContext),</pre></td></tr>
+<tr class="nocodegen"><td>125</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[&apos;MODEL&apos;,&apos;POLICYMANAGER&apos;,&apos;LOGGER&apos;]) of</pre></td></tr>
+<tr class="notcovered"><td>126</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;0: methodContext:=cmcModel;</pre></td></tr>
+<tr class="notcovered"><td>127</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;1: methodContext:=cmcPolicyManager;</pre></td></tr>
+<tr class="notcovered"><td>128</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;2: methodContext:=cmcLogger;</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>130</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>131</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>133</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if Length(segments)&gt;2 then</pre></td></tr>
+<tr class="nocodegen"><td>134</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>135</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;case IndexStr(UpperCase(segments[Length(segments)-1]),</pre></td></tr>
+<tr class="nocodegen"><td>136</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[&apos;&apos;,&apos;LOGGER&apos;]) of</pre></td></tr>
+<tr class="notcovered"><td>137</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0: methodContext:=cmcCasbin;</pre></td></tr>
+<tr class="notcovered"><td>138</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1: methodContext:=cmcLogger;</pre></td></tr>
+<tr class="nocodegen"><td>139</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>140</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>141</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>142</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>143</td><td><pre style="display:inline;"> &nbsp; &nbsp;uriPath:=&apos;/&apos;+command;</pre></td></tr>
+<tr class="covered"><td>144</td><td><pre style="display:inline;"> &nbsp; &nbsp;if trim(reqContext)&lt;&gt;&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>145</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;uriPath:=&apos;/&apos;+Trim(reqContext)+uriPath;</pre></td></tr>
+<tr class="covered"><td>146</td><td><pre style="display:inline;"> &nbsp; &nbsp;methodRec:=URIDetails(methodContext, uriPath);</pre></td></tr>
+<tr class="covered"><td>147</td><td><pre style="display:inline;"> &nbsp; &nbsp;if methodRec.Name=&apos;NULL&apos; then</pre></td></tr>
+<tr class="notcovered"><td>148</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;executed:=false</pre></td></tr>
+<tr class="nocodegen"><td>149</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>150</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>151</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if TCasbinURLOperation(request.MethodType) &lt;&gt; methodRec.URLOperation then</pre></td></tr>
+<tr class="nocodegen"><td>152</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>153</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;executed:=True;</pre></td></tr>
+<tr class="notcovered"><td>154</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.StatusCode:=400; // Bad Request</pre></td></tr>
+<tr class="notcovered"><td>155</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.ContentType:=&apos;text/plain&apos;;</pre></td></tr>
+<tr class="notcovered"><td>156</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.Close(TEncoding.UTF8.GetBytes</pre></td></tr>
+<tr class="nocodegen"><td>157</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(&apos;Wrong Request Type for Method &apos;+Trim(reqContext)+&apos;/&apos;+command));</pre></td></tr>
+<tr class="nocodegen"><td>158</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>159</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>160</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>161</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;args:=TSparkleUtils.GetQueryParams(request.Uri.OriginalQuery);</pre></td></tr>
+<tr class="covered"><td>162</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if (Length(args)&lt;&gt;Length(methodRec.Tags)) then</pre></td></tr>
+<tr class="nocodegen"><td>163</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>164</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;executed:=True;</pre></td></tr>
+<tr class="notcovered"><td>165</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.StatusCode:=400; // Bad Request</pre></td></tr>
+<tr class="notcovered"><td>166</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.ContentType:=&apos;text/plain&apos;;</pre></td></tr>
+<tr class="notcovered"><td>167</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.Close(TEncoding.UTF8.GetBytes</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(&apos;Parameters are wrong&apos;));</pre></td></tr>
+<tr class="nocodegen"><td>169</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>171</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>172</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;executed:=True;</pre></td></tr>
+<tr class="covered"><td>173</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.StatusCode:=200;</pre></td></tr>
+<tr class="covered"><td>174</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.ContentType:=&apos;text/plain&apos;;</pre></td></tr>
+<tr class="covered"><td>175</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case methodRec.Context of</pre></td></tr>
+<tr class="nocodegen"><td>176</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cmcCasbin: begin</pre></td></tr>
+<tr class="covered"><td>177</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case methodRec.ID of</pre></td></tr>
+<tr class="nocodegen"><td>178</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0: begin &nbsp;// enforce</pre></td></tr>
+<tr class="covered"><td>179</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrParams:=argValue(args, methodRec.Tags[0]).Split([&apos;,&apos;]);</pre></td></tr>
+<tr class="covered"><td>180</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;methodResult:=fCasbin.enforce(TFilterArray(arrParams));</pre></td></tr>
+<tr class="covered"><td>181</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TJSON.Serialize(methodResult, Context.Response.Content);</pre></td></tr>
+<tr class="covered"><td>182</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.Close;</pre></td></tr>
+<tr class="nocodegen"><td>183</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="notcovered"><td>184</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1: fCasbin.Enabled:=true;</pre></td></tr>
+<tr class="notcovered"><td>185</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2: fCasbin.Enabled:=False;</pre></td></tr>
+<tr class="nocodegen"><td>186</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</pre></td></tr>
+<tr class="nocodegen"><td>187</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</pre></td></tr>
+<tr class="nocodegen"><td>188</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cmcLogger: begin</pre></td></tr>
+<tr class="notcovered"><td>189</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case methodRec.ID of</pre></td></tr>
+<tr class="nocodegen"><td>190</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3: begin &nbsp;// Logger?enable=true/false</pre></td></tr>
+<tr class="notcovered"><td>191</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrParams:=argValue(args, methodRec.Tags[0]).Split([&apos;,&apos;]);</pre></td></tr>
+<tr class="notcovered"><td>192</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if Length(arrParams)=1 then</pre></td></tr>
+<tr class="notcovered"><td>193</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fCasbin.Logger.Enabled:=</pre></td></tr>
+<tr class="nocodegen"><td>194</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(arrParams[0]) = &apos;TRUE&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>195</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>196</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4: begin &nbsp;// Logger/LastLoggedMessage</pre></td></tr>
+<tr class="notcovered"><td>197</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;methodResult:=fCasbin.Logger.LastLoggedMessage;</pre></td></tr>
+<tr class="notcovered"><td>198</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TJSON.Serialize(methodResult, Context.Response.Content);</pre></td></tr>
+<tr class="notcovered"><td>199</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Context.Response.Close;</pre></td></tr>
+<tr class="nocodegen"><td>200</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>201</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</pre></td></tr>
+<tr class="nocodegen"><td>202</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</pre></td></tr>
+<tr class="nocodegen"><td>203</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cmcModel: ;</pre></td></tr>
+<tr class="nocodegen"><td>204</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cmcPolicyManager: ;</pre></td></tr>
+<tr class="nocodegen"><td>205</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>206</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>207</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>208</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>209</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>210</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>211</td><td><pre style="display:inline;"> &nbsp;if not executed then</pre></td></tr>
+<tr class="notcovered"><td>212</td><td><pre style="display:inline;"> &nbsp; &nbsp;Next(Context);</pre></td></tr>
+<tr class="covered"><td>213</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>214</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>215</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

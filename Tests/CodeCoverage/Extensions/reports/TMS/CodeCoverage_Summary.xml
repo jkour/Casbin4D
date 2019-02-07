@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="Windows-1252" standalone="no"?>
+<report>
+  <stats>
+    <packages value="2"/>
+    <classes value="3"/>
+    <methods value="5"/>
+    <srcfiles value="2"/>
+    <srclines value="106"/>
+    <totallines value="106"/>
+    <coveredlines value="58"/>
+    <coveredpercent value="54"/>
+  </stats>
+  <data>
+    <all name="all classes">
+      <coverage type="class, %" value="100%   (3/3)"/>
+      <coverage type="method, %" value="100%   (5/5)"/>
+      <coverage type="block, %" value="55%   (58/106)"/>
+      <coverage type="line, %" value="55%   (58/106)"/>
+      <package name="Casbin.TMS.Sparkle.Middleware">
+        <coverage type="class, %" value="100%   (2/2)"/>
+        <coverage type="method, %" value="100%   (3/3)"/>
+        <coverage type="block, %" value="47%   (42/89)"/>
+        <coverage type="line, %" value="47%   (42/89)"/>
+        <srcfile name="Casbin.TMS.Sparkle.Middleware.pas">
+          <coverage type="class, %" value="100%   (2/2)"/>
+          <coverage type="method, %" value="100%   (3/3)"/>
+          <coverage type="block, %" value="47%   (42/89)"/>
+          <coverage type="line, %" value="47%   (42/89)"/>
+          <class name="Casbin.TMS.Sparkle.Middleware">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (8/8)"/>
+            <coverage type="line, %" value="100%   (8/8)"/>
+            <method name="argValue">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+          </class>
+          <class name="Casbin.TMS.Sparkle.Middleware.TCasbinMiddleware">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (2/2)"/>
+            <coverage type="block, %" value="42%   (34/81)"/>
+            <coverage type="line, %" value="42%   (34/81)"/>
+            <method name="ProcessRequest">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="49%   (30/61)"/>
+              <coverage type="line, %" value="49%   (30/61)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="20%   (4/20)"/>
+              <coverage type="line, %" value="20%   (4/20)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.TMS.Sparkle.URI">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (2/2)"/>
+        <coverage type="block, %" value="94%   (16/17)"/>
+        <coverage type="line, %" value="94%   (16/17)"/>
+        <srcfile name="Casbin.TMS.Sparkle.URI.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (2/2)"/>
+          <coverage type="block, %" value="94%   (16/17)"/>
+          <coverage type="line, %" value="94%   (16/17)"/>
+          <class name="Casbin.TMS.Sparkle.URI">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (2/2)"/>
+            <coverage type="block, %" value="94%   (16/17)"/>
+            <coverage type="line, %" value="94%   (16/17)"/>
+            <method name="URIDetails">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="91%   (10/11)"/>
+              <coverage type="line, %" value="91%   (10/11)"/>
+            </method>
+            <method name="availableURIPaths">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+    </all>
+  </data>
+</report>

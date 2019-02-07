@@ -44,6 +44,9 @@ type
     [TestCase ('Casbin.Enforce.2',
                '/enforce?params=alice,data1,write#false','#')]
     procedure testGetMethods(const url, aResult: string);
+
+    [Test]
+    procedure testList;
   end;
 
 implementation
@@ -60,26 +63,20 @@ begin
 end;
 
 procedure TTestCasbinTMSSparkle.SetupFixture;
+var
+  dir: string;
 begin
   fModule:=TTestModule.Create(serverURL);
 
   fCasbinMiddleware:=TTestCasbinMiddleware.Create
-      ('..\..\Examples\Default\basic_model.conf',
-       '..\..\Examples\Default\basic_policy.csv');
+      ('Definitions\basic_model.conf',
+       'Definitions\basic_policy.csv');
 
   fModule.AddMiddleware(fCasbinMiddleware);
 
   fServer:=TIndySparkleHTTPServer.Create(nil);
   fServer.DefaultPort:=8081;
   fServer.Dispatcher.AddModule(fModule);
-//  fServer.Dispatcher.AddModule(TAnonymousServerModule.Create(
-//      serverURL,
-//      procedure (const C: THttpServerContext)
-//      begin
-//        C.Response.StatusCode:=200;
-//        C.Response.ContentType:='text/plain';
-//  C.Response.Close(TEncoding.UTF8.GetBytes('All Good with server'));
-//      end));
 
   fServer.Active:=True;
 
@@ -103,6 +100,19 @@ var
 begin
   res:=fIdHTTP.Get(accessURL+Trim(url));
   Assert.AreEqual(Trim(aResult), trim(res));
+end;
+
+procedure TTestCasbinTMSSparkle.testList;
+var
+  res: string;
+begin
+  res:=fIdHTTP.Get(accessURL+'/list');
+  Assert.AreEqual('Available URIs:'+sLineBreak+
+                  '/enforce'+sLineBreak+
+                  '/enable'+sLineBreak+
+                  '/disable'+sLineBreak+
+                  '/Logger'+sLineBreak+
+                  '/Logger/LastLoggedMessage' , trim(res));
 end;
 
 { TTestCasbinMiddleware }
