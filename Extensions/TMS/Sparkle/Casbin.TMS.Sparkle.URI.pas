@@ -31,11 +31,11 @@ const
   (
   // Casbin
   (ID:0; Name:'/enforce'; Tags: ['params']; Context: cmcCasbin; URLOperation: THttpMethod.GET),
-  (ID:1; Name:'/enable'; Tags: []; Context: cmcCasbin; URLOperation: THttpMethod.PUT),
-  (ID:2; Name:'/disable'; Tags: []; Context: cmcCasbin; URLOperation: THttpMethod.PUT),
+  (ID:1; Name:'/enable'; Tags: []; Context: cmcCasbin; URLOperation: THttpMethod.POST),
+  (ID:2; Name:'/disable'; Tags: []; Context: cmcCasbin; URLOperation: THttpMethod.POST),
 
   // Logger
-  (ID:3; Name:'/Logger'; Tags: ['enabled']; Context: cmcLogger; URLOperation: THttpMethod.PUT),
+  (ID:3; Name:'/Logger'; Tags: ['enabled']; Context: cmcLogger; URLOperation: THttpMethod.POST),
   (ID:4; Name:'/Logger/LastLoggedMessage';
         Tags: []; Context: cmcLogger; URLOperation: THttpMethod.GET)
   // Model
