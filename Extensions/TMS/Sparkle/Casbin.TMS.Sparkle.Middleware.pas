@@ -30,7 +30,7 @@ uses
   Casbin, System.SysUtils, System.Rtti, Casbin.Core.Logger.Types,
   Casbin.Model, Casbin.Policy, Casbin.Core.Logger.Default,
   Casbin.TMS.Sparkle.URI, System.Generics.Collections, System.StrUtils,
-  Sparkle.Utils, Casbin.Core.Base.Types, Sparkle.Json.Writer;
+  Sparkle.Utils, Casbin.Core.Base.Types, Bcl.Json;
 
 function argValue (const aArgs: TArray<TPair<string, string>>;
                    const aKey: string): string;
@@ -94,7 +94,6 @@ var
   args: TArray<TPair<string, string>>;
   methodResult: TValue;
   arrParams: TFilterArray;
-  jsonWriter: TJSONWriter;
   uriPath: string;
 begin
   request:=Context.Request;
@@ -179,14 +178,8 @@ begin
                            0: begin  // enforce
                                 arrParams:=argValue(args, methodRec.Tags[0]).Split([',']);
                                 methodResult:=fCasbin.enforce(TFilterArray(arrParams));
-                                jsonWriter:=TJsonWriter.Create(Context.Response.Content);
-                                jsonWriter
-//                                        .WriteBeginObject
-                                            .WriteBoolean(methodResult.AsBoolean)
-//                                          .WriteEndObject
-                                           ;
-                                jsonWriter.Free;
-//                                Context.Response.Close;
+                                TJSON.Serialize(methodResult, Context.Response.Content);
+                                Context.Response.Close;
                               end;
                            1: fCasbin.Enabled:=true;
                            2: fCasbin.Enabled:=False;
@@ -202,14 +195,8 @@ begin
                               end;
                            4: begin  // Logger/LastLoggedMessage
                                 methodResult:=fCasbin.Logger.LastLoggedMessage;
-                                jsonWriter:=TJsonWriter.Create(Context.Response.Content);
-                                jsonWriter
-//                                        .WriteBeginObject
-                                            .WriteString(methodResult.AsString);
-//                                          .WriteEndObject
-                                           ;
-                                jsonWriter.Free;
-//                                Context.Response.Close;
+                                TJSON.Serialize(methodResult, Context.Response.Content);
+                                Context.Response.Close;
                               end;
                          end;
                        end;
