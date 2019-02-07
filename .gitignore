@@ -83,9 +83,12 @@ Documentation/
 !Demos/Main/*.exe
 Benchmarks/Win32/
 *.ficfg
-Tests/Extensions/Win32/
 *.eof
-Tests/Extensions/TestInsightSettings.ini
 *.otares
-!dunitx-results.xml
 
+#Unit Tests
+Tests/Extensions/TestInsightSettings.ini
+!dunitx-results.xml
+TestInsightSettings.ini
+!Tests/Main/Win32/Debug/*.exe
+!Tests/Main/Win32/Debug/*.map

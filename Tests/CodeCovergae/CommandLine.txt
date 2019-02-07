@@ -1,3 +1,0 @@
-Execute in /Tests/Win32/Debug
-
-CodeCoverage.exe -m Tests.Casbin.map -e Tests.Casbin.exe -html -xml -dproj ..\..\..\SourceCode\Packages\Casbin4D103Rio.dproj -uf filelist.txt -od reports

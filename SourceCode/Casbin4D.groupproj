@@ -3,28 +3,28 @@
         <ProjectGuid>{4C61AAEF-77DD-4C09-B439-DF6D2E16F7B2}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Packages\Casbin4D103Rio.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="..\Demos\Main\MainDemo.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="..\Benchmarks\Benchmarks.Casbin.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Packages\Casbin4D102Tokyo.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj">
+        <Projects Include="Packages\Casbin4D103Rio.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Tests\Extensions\Tests.Casbin.Extensions.dproj">
+        <Projects Include="..\Benchmarks\Benchmarks.Casbin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Demos\Main\MainDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="..\Tests\Main\Tests.Casbin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Tests\Extensions\Tests.Casbin.Extensions.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -35,33 +35,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Casbin4D103Rio">
-        <MSBuild Projects="Packages\Casbin4D103Rio.dproj"/>
-    </Target>
-    <Target Name="Casbin4D103Rio:Clean">
-        <MSBuild Projects="Packages\Casbin4D103Rio.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Casbin4D103Rio:Make">
-        <MSBuild Projects="Packages\Casbin4D103Rio.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="MainDemo">
-        <MSBuild Projects="..\Demos\Main\MainDemo.dproj"/>
-    </Target>
-    <Target Name="MainDemo:Clean">
-        <MSBuild Projects="..\Demos\Main\MainDemo.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="MainDemo:Make">
-        <MSBuild Projects="..\Demos\Main\MainDemo.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Benchmarks_Casbin">
-        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj"/>
-    </Target>
-    <Target Name="Benchmarks_Casbin:Clean">
-        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Benchmarks_Casbin:Make">
-        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Casbin4D102Tokyo">
         <MSBuild Projects="Packages\Casbin4D102Tokyo.dproj"/>
     </Target>
@@ -71,14 +44,14 @@
     <Target Name="Casbin4D102Tokyo:Make">
         <MSBuild Projects="Packages\Casbin4D102Tokyo.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Demo_TMS_Basic">
-        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj"/>
+    <Target Name="Casbin4D103Rio">
+        <MSBuild Projects="Packages\Casbin4D103Rio.dproj"/>
     </Target>
-    <Target Name="Demo_TMS_Basic:Clean">
-        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Clean"/>
+    <Target Name="Casbin4D103Rio:Clean">
+        <MSBuild Projects="Packages\Casbin4D103Rio.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Demo_TMS_Basic:Make">
-        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Make"/>
+    <Target Name="Casbin4D103Rio:Make">
+        <MSBuild Projects="Packages\Casbin4D103Rio.dproj" Targets="Make"/>
     </Target>
     <Target Name="Casbin4D_Extensions_TMS_Sparkle">
         <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj"/>
@@ -89,14 +62,32 @@
     <Target Name="Casbin4D_Extensions_TMS_Sparkle:Make">
         <MSBuild Projects="..\Extensions\TMS\Sparkle\Casbin4D.Extensions.TMS.Sparkle.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Tests_Casbin_Extensions">
-        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj"/>
+    <Target Name="Benchmarks_Casbin">
+        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj"/>
     </Target>
-    <Target Name="Tests_Casbin_Extensions:Clean">
-        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj" Targets="Clean"/>
+    <Target Name="Benchmarks_Casbin:Clean">
+        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Tests_Casbin_Extensions:Make">
-        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj" Targets="Make"/>
+    <Target Name="Benchmarks_Casbin:Make">
+        <MSBuild Projects="..\Benchmarks\Benchmarks.Casbin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MainDemo">
+        <MSBuild Projects="..\Demos\Main\MainDemo.dproj"/>
+    </Target>
+    <Target Name="MainDemo:Clean">
+        <MSBuild Projects="..\Demos\Main\MainDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MainDemo:Make">
+        <MSBuild Projects="..\Demos\Main\MainDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic:Clean">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Demo_TMS_Basic:Make">
+        <MSBuild Projects="..\Demos\TMS\Basic\Demo.TMS.Basic.dproj" Targets="Make"/>
     </Target>
     <Target Name="Tests_Casbin">
         <MSBuild Projects="..\Tests\Main\Tests.Casbin.dproj"/>
@@ -107,14 +98,23 @@
     <Target Name="Tests_Casbin:Make">
         <MSBuild Projects="..\Tests\Main\Tests.Casbin.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Tests_Casbin_Extensions">
+        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj"/>
+    </Target>
+    <Target Name="Tests_Casbin_Extensions:Clean">
+        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Tests_Casbin_Extensions:Make">
+        <MSBuild Projects="..\Tests\Extensions\Tests.Casbin.Extensions.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Casbin4D103Rio;MainDemo;Benchmarks_Casbin;Casbin4D102Tokyo;Demo_TMS_Basic;Casbin4D_Extensions_TMS_Sparkle;Tests_Casbin_Extensions;Tests_Casbin"/>
+        <CallTarget Targets="Casbin4D102Tokyo;Casbin4D103Rio;Casbin4D_Extensions_TMS_Sparkle;Benchmarks_Casbin;MainDemo;Demo_TMS_Basic;Tests_Casbin;Tests_Casbin_Extensions"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Casbin4D103Rio:Clean;MainDemo:Clean;Benchmarks_Casbin:Clean;Casbin4D102Tokyo:Clean;Demo_TMS_Basic:Clean;Casbin4D_Extensions_TMS_Sparkle:Clean;Tests_Casbin_Extensions:Clean;Tests_Casbin:Clean"/>
+        <CallTarget Targets="Casbin4D102Tokyo:Clean;Casbin4D103Rio:Clean;Casbin4D_Extensions_TMS_Sparkle:Clean;Benchmarks_Casbin:Clean;MainDemo:Clean;Demo_TMS_Basic:Clean;Tests_Casbin:Clean;Tests_Casbin_Extensions:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Casbin4D103Rio:Make;MainDemo:Make;Benchmarks_Casbin:Make;Casbin4D102Tokyo:Make;Demo_TMS_Basic:Make;Casbin4D_Extensions_TMS_Sparkle:Make;Tests_Casbin_Extensions:Make;Tests_Casbin:Make"/>
+        <CallTarget Targets="Casbin4D102Tokyo:Make;Casbin4D103Rio:Make;Casbin4D_Extensions_TMS_Sparkle:Make;Benchmarks_Casbin:Make;MainDemo:Make;Demo_TMS_Basic:Make;Tests_Casbin:Make;Tests_Casbin_Extensions:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
