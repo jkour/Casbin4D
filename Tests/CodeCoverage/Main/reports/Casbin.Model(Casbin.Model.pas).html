@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Model (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Model\Casbin.Model.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Model\Casbin.Model.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>57</td></tr><tr><td>Number of lines with code gen</td><td>61</td></tr><tr><td>Line coverage</td><td>93%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">// Copyright 2018 by John Kouraklis and Contributors. All Rights Reserved.</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">// you may not use this file except in compliance with the License.</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">// You may obtain a copy of the License at</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;http://www.apache.org/licenses/LICENSE-2.0</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">// Unless required by applicable law or agreed to in writing, software</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">// See the License for the specific language governing permissions and</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// limitations under the License.</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">unit Casbin.Model;</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Base.Types, Casbin.Model.Types, Casbin.Adapter.Types,</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp;Casbin.Parser.Types, Casbin.Parser.AST.Types, Casbin.Model.Sections.Types,</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"> &nbsp;System.Generics.Collections, Casbin.Effect.Types;</pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;"> &nbsp;{$RTTI EXPLICIT METHODS([vcProtected, vcPublic])}</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;"> &nbsp;TModel = class (TBaseInterfacedObject, IModel)</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;"> &nbsp; &nbsp;fAdapter: IAdapter; &nbsp;//PALOFF</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"> &nbsp; &nbsp;fParser: IParser; &nbsp; &nbsp;//PALOFF</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;"> &nbsp; &nbsp;fNodes: TNodeCollection;</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"> &nbsp; &nbsp;fAssertions: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure checkSection(const aSection: TSectionType);</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure loadNodes(const aAdapter: IAdapter);</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;"> &nbsp;protected</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;">{$REGION &apos;Interface&apos;}</pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;"> &nbsp; &nbsp;function section(const aSection: TSectionType; const aSlim: Boolean = true):</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;string;</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;"> &nbsp; &nbsp;function assertions(const aSection: TSectionType): TList&lt;System.string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp; &nbsp;function effectCondition: TEffectCondition;</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addDefinition (const aSection: TSectionType; const aTag: string;</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addDefinition (const aSection: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addModel(const aModel: string);</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;"> &nbsp; &nbsp;function assertionExists (const aAssertion: string): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>45</td><td><pre style="display:inline;"> &nbsp; &nbsp;function toOutputString: string;</pre></td></tr>
+<tr class="nocodegen"><td>46</td><td><pre style="display:inline;">{$ENDREGION}</pre></td></tr>
+<tr class="nocodegen"><td>47</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aModelFilename: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aAdapter: IAdapter); overload;</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create; overload;</pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;"> &nbsp; &nbsp;destructor Destroy; override;</pre></td></tr>
+<tr class="nocodegen"><td>52</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>53</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>54</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>55</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>57</td><td><pre style="display:inline;"> &nbsp;Casbin.Exception.Types, Casbin.Adapter.Filesystem,</pre></td></tr>
+<tr class="nocodegen"><td>58</td><td><pre style="display:inline;"> &nbsp;System.IOUtils, System.Classes, Casbin.Parser, Casbin.Core.Utilities,</pre></td></tr>
+<tr class="nocodegen"><td>59</td><td><pre style="display:inline;"> &nbsp;SysUtils, Casbin.Parser.AST, Casbin.Model.Sections.Default, Casbin.Adapter.Memory;</pre></td></tr>
+<tr class="nocodegen"><td>60</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>61</td><td><pre style="display:inline;">constructor TModel.Create(const aModelFilename: string);</pre></td></tr>
+<tr class="covered"><td>62</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>63</td><td><pre style="display:inline;"> &nbsp;Create(TFileAdapter.Create(aModelFilename));</pre></td></tr>
+<tr class="covered"><td>64</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>65</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>66</td><td><pre style="display:inline;">procedure TModel.addDefinition(const aSection: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>67</td><td><pre style="display:inline;"> &nbsp;const aAssertion: string);</pre></td></tr>
+<tr class="nocodegen"><td>68</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"> &nbsp;arrStr: TArray&lt;string&gt;;</pre></td></tr>
+<tr class="covered"><td>70</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>71</td><td><pre style="display:inline;"> &nbsp;if trim(aAssertion)=&apos;&apos; then</pre></td></tr>
+<tr class="covered"><td>72</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>73</td><td><pre style="display:inline;"> &nbsp;arrStr:=aAssertion.Split([&apos;=&apos;]);</pre></td></tr>
+<tr class="covered"><td>74</td><td><pre style="display:inline;"> &nbsp;if Length(arrStr)&lt;&gt;2 then</pre></td></tr>
+<tr class="notcovered"><td>75</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion &apos;+aAssertion+&apos; is wrong&apos;);</pre></td></tr>
+<tr class="covered"><td>76</td><td><pre style="display:inline;"> &nbsp;addDefinition(aSection, arrStr[0], arrStr[1]);</pre></td></tr>
+<tr class="covered"><td>77</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>79</td><td><pre style="display:inline;">procedure TModel.addModel(const aModel: string);</pre></td></tr>
+<tr class="covered"><td>80</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>81</td><td><pre style="display:inline;"> &nbsp;if Trim(aModel)=&apos;&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="covered"><td>83</td><td><pre style="display:inline;"> &nbsp;fAdapter.Assertions.Clear;</pre></td></tr>
+<tr class="covered"><td>84</td><td><pre style="display:inline;"> &nbsp;fAdapter.Assertions.AddRange(aModel.Split([sLineBreak]));</pre></td></tr>
+<tr class="covered"><td>85</td><td><pre style="display:inline;"> &nbsp;loadNodes(fAdapter);</pre></td></tr>
+<tr class="covered"><td>86</td><td><pre style="display:inline;"> &nbsp;fAssertions.Clear;</pre></td></tr>
+<tr class="covered"><td>87</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>88</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>89</td><td><pre style="display:inline;">procedure TModel.addDefinition(const aSection: TSectionType; const aTag,</pre></td></tr>
+<tr class="nocodegen"><td>90</td><td><pre style="display:inline;"> &nbsp;aAssertion: string);</pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>92</td><td><pre style="display:inline;"> &nbsp;header: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>93</td><td><pre style="display:inline;"> &nbsp;assertion: string;</pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;"> &nbsp;foundHeader: Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>95</td><td><pre style="display:inline;"> &nbsp;sec: TSection;</pre></td></tr>
+<tr class="covered"><td>96</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>97</td><td><pre style="display:inline;"> &nbsp;foundHeader:=False;</pre></td></tr>
+<tr class="covered"><td>98</td><td><pre style="display:inline;"> &nbsp;if trim(aTag)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>99</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Tag is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>100</td><td><pre style="display:inline;"> &nbsp;if trim(aAssertion)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>101</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>102</td><td><pre style="display:inline;"> &nbsp;if (aSection=stDefault) or (aSection=stUnknown) or</pre></td></tr>
+<tr class="nocodegen"><td>103</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;(aSection=stPolicyRules) or (aSection=stRoleRules) then</pre></td></tr>
+<tr class="notcovered"><td>104</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Wrong section type&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>105</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>106</td><td><pre style="display:inline;"> &nbsp;assertion:= Trim(aTag)+&apos;=&apos;+trim(aAssertion);</pre></td></tr>
+<tr class="nocodegen"><td>107</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>108</td><td><pre style="display:inline;"> &nbsp;if not (aSection=stMatchers) then</pre></td></tr>
+<tr class="covered"><td>109</td><td><pre style="display:inline;"> &nbsp; &nbsp;while Pos(#32, assertion, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="covered"><td>110</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Delete(assertion, Pos(#32, assertion, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>112</td><td><pre style="display:inline;"> &nbsp;if assertionExists(assertion) then</pre></td></tr>
+<tr class="nocodegen"><td>113</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit</pre></td></tr>
+<tr class="nocodegen"><td>114</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>115</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>116</td><td><pre style="display:inline;"> &nbsp; &nbsp;for header in fNodes.Headers do</pre></td></tr>
+<tr class="covered"><td>117</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if header.SectionType=aSection then</pre></td></tr>
+<tr class="nocodegen"><td>118</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>119</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;addAssertion(header, assertion);</pre></td></tr>
+<tr class="covered"><td>120</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="covered"><td>121</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>122</td><td><pre style="display:inline;"> &nbsp; &nbsp;if not foundHeader then</pre></td></tr>
+<tr class="nocodegen"><td>123</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>124</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;sec:=createDefaultSection(aSection);</pre></td></tr>
+<tr class="covered"><td>125</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;header:=THeaderNode.Create;</pre></td></tr>
+<tr class="covered"><td>126</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;header.Value:=sec.Header;</pre></td></tr>
+<tr class="covered"><td>127</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;header.SectionType:=aSection;</pre></td></tr>
+<tr class="covered"><td>128</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;fNodes.Headers.Add(header);</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>130</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;addAssertion(header, assertion);</pre></td></tr>
+<tr class="covered"><td>131</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;sec.Free;</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>133</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>134</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>135</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>136</td><td><pre style="display:inline;">function TModel.assertionExists(const aAssertion: string): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>137</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>138</td><td><pre style="display:inline;"> &nbsp;child: TChildNode;</pre></td></tr>
+<tr class="nocodegen"><td>139</td><td><pre style="display:inline;"> &nbsp;header: THeaderNode;</pre></td></tr>
+<tr class="covered"><td>140</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>141</td><td><pre style="display:inline;"> &nbsp;Result:=false;</pre></td></tr>
+<tr class="covered"><td>142</td><td><pre style="display:inline;"> &nbsp;if Trim(aAssertion)=&apos;&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>143</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>144</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>145</td><td><pre style="display:inline;"> &nbsp;for header in fNodes.Headers do</pre></td></tr>
+<tr class="nocodegen"><td>146</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>147</td><td><pre style="display:inline;"> &nbsp; &nbsp;for child in header.ChildNodes do</pre></td></tr>
+<tr class="nocodegen"><td>148</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>149</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:= Trim(child.toOutputString) = Trim(aAssertion);</pre></td></tr>
+<tr class="nocodegen"><td>150</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>151</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if Result then</pre></td></tr>
+<tr class="covered"><td>152</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="covered"><td>153</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>154</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>155</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>156</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>157</td><td><pre style="display:inline;">function TModel.assertions(const aSection: TSectionType): TList&lt;System.string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>158</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>159</td><td><pre style="display:inline;"> &nbsp;node: TChildNode;</pre></td></tr>
+<tr class="nocodegen"><td>160</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>161</td><td><pre style="display:inline;"> &nbsp;assertionNode: TAssertionNode;</pre></td></tr>
+<tr class="nocodegen"><td>162</td><td><pre style="display:inline;"> &nbsp;assertion: string;</pre></td></tr>
+<tr class="covered"><td>163</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>164</td><td><pre style="display:inline;"> &nbsp;fAssertions.Clear;</pre></td></tr>
+<tr class="covered"><td>165</td><td><pre style="display:inline;"> &nbsp;checkSection(aSection);</pre></td></tr>
+<tr class="covered"><td>166</td><td><pre style="display:inline;"> &nbsp;for headerNode in fNodes.Headers do</pre></td></tr>
+<tr class="covered"><td>167</td><td><pre style="display:inline;"> &nbsp; &nbsp;if headerNode.SectionType=aSection then</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>169</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for node in headerNode.ChildNodes do</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>171</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if node.AssertionList.Count=0 then</pre></td></tr>
+<tr class="nocodegen"><td>172</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fAssertions.add(node.Value)</pre></td></tr>
+<tr class="nocodegen"><td>173</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>174</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>175</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for assertionNode in node.AssertionList do</pre></td></tr>
+<tr class="nocodegen"><td>176</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>177</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;assertion:=node.Key+&apos;.&apos;+assertionNode.Value;</pre></td></tr>
+<tr class="nocodegen"><td>178</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fAssertions.Add(assertion);</pre></td></tr>
+<tr class="nocodegen"><td>179</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>180</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>181</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>182</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>183</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>184</td><td><pre style="display:inline;"> &nbsp;Result:=fAssertions;</pre></td></tr>
+<tr class="nocodegen"><td>185</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>186</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>187</td><td><pre style="display:inline;">constructor TModel.Create(const aAdapter: IAdapter);</pre></td></tr>
+<tr class="nocodegen"><td>188</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>189</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aAdapter) then</pre></td></tr>
+<tr class="nocodegen"><td>190</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Adapter is nil in &apos;+Self.ClassName);</pre></td></tr>
+<tr class="nocodegen"><td>191</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="nocodegen"><td>192</td><td><pre style="display:inline;"> &nbsp;loadNodes(aAdapter);</pre></td></tr>
+<tr class="nocodegen"><td>193</td><td><pre style="display:inline;"> &nbsp;fAssertions:=TList&lt;string&gt;.Create;</pre></td></tr>
+<tr class="nocodegen"><td>194</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>195</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>196</td><td><pre style="display:inline;">constructor TModel.Create;</pre></td></tr>
+<tr class="nocodegen"><td>197</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>198</td><td><pre style="display:inline;"> &nbsp;Create(TMemoryAdapter.Create);</pre></td></tr>
+<tr class="nocodegen"><td>199</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>200</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>201</td><td><pre style="display:inline;">destructor TModel.Destroy;</pre></td></tr>
+<tr class="nocodegen"><td>202</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>203</td><td><pre style="display:inline;"> &nbsp;fAssertions.Free;</pre></td></tr>
+<tr class="nocodegen"><td>204</td><td><pre style="display:inline;"> &nbsp;inherited;</pre></td></tr>
+<tr class="nocodegen"><td>205</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>206</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>207</td><td><pre style="display:inline;">function TModel.effectCondition: TEffectCondition;</pre></td></tr>
+<tr class="nocodegen"><td>208</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>209</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>210</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>211</td><td><pre style="display:inline;"> &nbsp;Result:=ecUnknown;</pre></td></tr>
+<tr class="nocodegen"><td>212</td><td><pre style="display:inline;"> &nbsp;for headerNode in fParser.Nodes.Headers do</pre></td></tr>
+<tr class="nocodegen"><td>213</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>214</td><td><pre style="display:inline;"> &nbsp; &nbsp;if headerNode.SectionType=stPolicyEffect then</pre></td></tr>
+<tr class="nocodegen"><td>215</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>216</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if (headerNode.ChildNodes.Count&gt;=0) and</pre></td></tr>
+<tr class="nocodegen"><td>217</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;(headerNode.ChildNodes.Items[0] is TEffectNode) then</pre></td></tr>
+<tr class="nocodegen"><td>218</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>219</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Result:=(headerNode.ChildNodes.Items[0] as TEffectNode).EffectCondition;</pre></td></tr>
+<tr class="nocodegen"><td>220</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>221</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>222</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>223</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>224</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>225</td><td><pre style="display:inline;">procedure TModel.checkSection(const aSection: TSectionType);</pre></td></tr>
+<tr class="nocodegen"><td>226</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>227</td><td><pre style="display:inline;"> &nbsp;if not (aSection in [stRequestDefinition, stPolicyDefinition,</pre></td></tr>
+<tr class="nocodegen"><td>228</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stPolicyEffect, stMatchers,</pre></td></tr>
+<tr class="nocodegen"><td>229</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stRoleDefinition]) then</pre></td></tr>
+<tr class="nocodegen"><td>230</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Wrong section type&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>231</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>232</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>233</td><td><pre style="display:inline;">procedure TModel.loadNodes(const aAdapter: IAdapter);</pre></td></tr>
+<tr class="nocodegen"><td>234</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>235</td><td><pre style="display:inline;"> &nbsp;fAdapter:=aAdapter;</pre></td></tr>
+<tr class="nocodegen"><td>236</td><td><pre style="display:inline;"> &nbsp;fAdapter.load;</pre></td></tr>
+<tr class="nocodegen"><td>237</td><td><pre style="display:inline;"> &nbsp;fParser:=TParser.Create(fAdapter.toOutputString, ptModel);</pre></td></tr>
+<tr class="nocodegen"><td>238</td><td><pre style="display:inline;"> &nbsp;fParser.parse;</pre></td></tr>
+<tr class="nocodegen"><td>239</td><td><pre style="display:inline;"> &nbsp;if fParser.Status=psError then</pre></td></tr>
+<tr class="nocodegen"><td>240</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Parsing error in Model: &apos;+fParser.ErrorMessage);</pre></td></tr>
+<tr class="nocodegen"><td>241</td><td><pre style="display:inline;"> &nbsp;fNodes:=fParser.Nodes;</pre></td></tr>
+<tr class="nocodegen"><td>242</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>243</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>244</td><td><pre style="display:inline;">function TModel.section(const aSection: TSectionType; const aSlim: Boolean =</pre></td></tr>
+<tr class="nocodegen"><td>245</td><td><pre style="display:inline;"> &nbsp; &nbsp;true): string;</pre></td></tr>
+<tr class="nocodegen"><td>246</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>247</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>248</td><td><pre style="display:inline;"> &nbsp;strList: TStringList;</pre></td></tr>
+<tr class="nocodegen"><td>249</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>250</td><td><pre style="display:inline;"> &nbsp;Result:=&apos;&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>251</td><td><pre style="display:inline;"> &nbsp;if fNodes.Headers.Count=0 then</pre></td></tr>
+<tr class="nocodegen"><td>252</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>253</td><td><pre style="display:inline;"> &nbsp;checkSection(aSection);</pre></td></tr>
+<tr class="nocodegen"><td>254</td><td><pre style="display:inline;"> &nbsp;for headerNode in fNodes.Headers do</pre></td></tr>
+<tr class="nocodegen"><td>255</td><td><pre style="display:inline;"> &nbsp; &nbsp;if headerNode.SectionType=aSection then</pre></td></tr>
+<tr class="nocodegen"><td>256</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>257</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:=headerNode.toOutputString;</pre></td></tr>
+<tr class="nocodegen"><td>258</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList:=TStringList.Create;</pre></td></tr>
+<tr class="nocodegen"><td>259</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList.Text:=Result;</pre></td></tr>
+<tr class="nocodegen"><td>260</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if (strList.Count&gt;1) then</pre></td></tr>
+<tr class="nocodegen"><td>261</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if aSlim and (strList.Strings[0][findStartPos]=&apos;[&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>262</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Result:=strList.Strings[1];</pre></td></tr>
+<tr class="nocodegen"><td>263</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList.Free;</pre></td></tr>
+<tr class="nocodegen"><td>264</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>265</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>266</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>267</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>268</td><td><pre style="display:inline;">function TModel.toOutputString: string;</pre></td></tr>
+<tr class="nocodegen"><td>269</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>270</td><td><pre style="display:inline;"> &nbsp;secType: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>271</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>272</td><td><pre style="display:inline;"> &nbsp;result:=&apos;&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>273</td><td><pre style="display:inline;"> &nbsp;for secType in modelSections do</pre></td></tr>
+<tr class="nocodegen"><td>274</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>275</td><td><pre style="display:inline;"> &nbsp; &nbsp;if (secType=stRoleDefinition) then</pre></td></tr>
+<tr class="nocodegen"><td>276</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>277</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if (section(stRoleDefinition, False))&lt;&gt;&apos;&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>278</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>279</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Result:=Result+section(secType, false)+sLineBreak;</pre></td></tr>
+<tr class="nocodegen"><td>280</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>281</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>282</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>283</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:=Result+section(secType, false)+sLineBreak;</pre></td></tr>
+<tr class="nocodegen"><td>284</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>285</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>286</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>287</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

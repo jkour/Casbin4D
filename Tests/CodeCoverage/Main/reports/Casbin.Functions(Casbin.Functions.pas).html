@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Functions (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Core\..\..\..\SourceCode\Common\Functions\Casbin.Functions.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Core\..\..\..\SourceCode\Common\Functions\Casbin.Functions.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>55</td></tr><tr><td>Number of lines with code gen</td><td>67</td></tr><tr><td>Line coverage</td><td>82%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">// Copyright 2018 by John Kouraklis and Contributors. All Rights Reserved.</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">// you may not use this file except in compliance with the License.</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">// You may obtain a copy of the License at</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;http://www.apache.org/licenses/LICENSE-2.0</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">// Unless required by applicable law or agreed to in writing, software</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">// See the License for the specific language governing permissions and</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// limitations under the License.</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">unit Casbin.Functions;</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Base.Types, Casbin.Functions.Types,</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp;System.Generics.Collections, System.Classes, System.Types, System.Rtti;</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;"> &nbsp;TFunctions = class (TBaseInterfacedObject, IFunctions)</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;"> &nbsp; &nbsp;fDictionary: TDictionary&lt;string, TCasbinFunc&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"> &nbsp; &nbsp;fObjDictionary: TDictionary&lt;string, TCasbinObjectFunc&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;"> &nbsp; &nbsp;fList: TStringList;</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure loadBuiltInFunctions;</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure loadCustomFunctions; &nbsp;//PALOFF</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;">{$REGION &apos;Interface&apos;}</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure registerFunction(const aName: string;</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;const aFunc: TCasbinFunc); overload;</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure registerFunction(const aName: string;</pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;const aFunc: TCasbinObjectFunc); overload;</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"> &nbsp; &nbsp;function retrieveFunction(const aName: string): TCasbinFunc;</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;"> &nbsp; &nbsp;function retrieveObjFunction(const aName: string): TCasbinObjectFunc;</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp; &nbsp;function list: TStringList;</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure refreshFunctions;</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;">{$ENDREGION}</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create;</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp; &nbsp;destructor Destroy; override;</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>45</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>46</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>47</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;"> &nbsp;System.SysUtils, System.RegularExpressions, System.StrUtils;</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;">constructor TFunctions.Create;</pre></td></tr>
+<tr class="covered"><td>52</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>53</td><td><pre style="display:inline;"> &nbsp;inherited;</pre></td></tr>
+<tr class="covered"><td>54</td><td><pre style="display:inline;"> &nbsp;fDictionary:=TDictionary&lt;string, TCasbinFunc&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>55</td><td><pre style="display:inline;"> &nbsp;fObjDictionary:=TDictionary&lt;string, TCasbinObjectFunc&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>56</td><td><pre style="display:inline;"> &nbsp;fList:=TStringList.Create;</pre></td></tr>
+<tr class="covered"><td>57</td><td><pre style="display:inline;"> &nbsp;fList.Sorted:=true;</pre></td></tr>
+<tr class="covered"><td>58</td><td><pre style="display:inline;"> &nbsp;loadBuiltInFunctions;</pre></td></tr>
+<tr class="covered"><td>59</td><td><pre style="display:inline;"> &nbsp;loadCustomFunctions;</pre></td></tr>
+<tr class="covered"><td>60</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>61</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;">destructor TFunctions.Destroy;</pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>64</td><td><pre style="display:inline;"> &nbsp;item: string;</pre></td></tr>
+<tr class="covered"><td>65</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>66</td><td><pre style="display:inline;"> &nbsp;for item in fDictionary.Keys do</pre></td></tr>
+<tr class="covered"><td>67</td><td><pre style="display:inline;"> &nbsp; &nbsp;fDictionary.AddOrSetValue(item, nil);</pre></td></tr>
+<tr class="covered"><td>68</td><td><pre style="display:inline;"> &nbsp;for item in fDictionary.Keys do</pre></td></tr>
+<tr class="covered"><td>69</td><td><pre style="display:inline;"> &nbsp; &nbsp;fObjDictionary.AddOrSetValue(item, nil);</pre></td></tr>
+<tr class="covered"><td>70</td><td><pre style="display:inline;"> &nbsp;fDictionary.Free;</pre></td></tr>
+<tr class="covered"><td>71</td><td><pre style="display:inline;"> &nbsp;fObjDictionary.Free;</pre></td></tr>
+<tr class="covered"><td>72</td><td><pre style="display:inline;"> &nbsp;fList.Free;</pre></td></tr>
+<tr class="covered"><td>73</td><td><pre style="display:inline;"> &nbsp;inherited;</pre></td></tr>
+<tr class="covered"><td>74</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>75</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;">procedure TFunctions.refreshFunctions;</pre></td></tr>
+<tr class="notcovered"><td>77</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>78</td><td><pre style="display:inline;"> &nbsp;fDictionary.Clear;</pre></td></tr>
+<tr class="notcovered"><td>79</td><td><pre style="display:inline;"> &nbsp;loadBuiltInFunctions;</pre></td></tr>
+<tr class="notcovered"><td>80</td><td><pre style="display:inline;"> &nbsp;loadCustomFunctions;</pre></td></tr>
+<tr class="notcovered"><td>81</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;">procedure TFunctions.registerFunction(const aName: string;</pre></td></tr>
+<tr class="nocodegen"><td>84</td><td><pre style="display:inline;"> &nbsp;const aFunc: TCasbinObjectFunc);</pre></td></tr>
+<tr class="covered"><td>85</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>86</td><td><pre style="display:inline;"> &nbsp;if Trim(aName)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>87</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Obj Function to register must have a name&apos;);</pre></td></tr>
+<tr class="covered"><td>88</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aFunc) then</pre></td></tr>
+<tr class="notcovered"><td>89</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Obj Function to register is nil&apos;);</pre></td></tr>
+<tr class="covered"><td>90</td><td><pre style="display:inline;"> &nbsp;if Assigned(aFunc) then</pre></td></tr>
+<tr class="covered"><td>91</td><td><pre style="display:inline;"> &nbsp; &nbsp;fObjDictionary.AddOrSetValue(Trim(aName), aFunc);</pre></td></tr>
+<tr class="covered"><td>92</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>93</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;">function TFunctions.retrieveFunction(const aName: string): TCasbinFunc;</pre></td></tr>
+<tr class="covered"><td>95</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>96</td><td><pre style="display:inline;"> &nbsp;if not fDictionary.ContainsKey(Trim(aName)) then</pre></td></tr>
+<tr class="notcovered"><td>97</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Function &apos;+aName+&apos; is not registered&apos;);</pre></td></tr>
+<tr class="covered"><td>98</td><td><pre style="display:inline;"> &nbsp;Result:=fDictionary.Items[Trim(aName)];</pre></td></tr>
+<tr class="covered"><td>99</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>100</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>101</td><td><pre style="display:inline;">procedure TFunctions.registerFunction(const aName: string;</pre></td></tr>
+<tr class="nocodegen"><td>102</td><td><pre style="display:inline;"> &nbsp;const aFunc: TCasbinFunc);</pre></td></tr>
+<tr class="covered"><td>103</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>104</td><td><pre style="display:inline;"> &nbsp;if Trim(aName)=&apos;&apos; then</pre></td></tr>
+<tr class="covered"><td>105</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Function to register must have a name&apos;);</pre></td></tr>
+<tr class="covered"><td>106</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aFunc) then</pre></td></tr>
+<tr class="covered"><td>107</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Function to register is nil&apos;);</pre></td></tr>
+<tr class="notcovered"><td>108</td><td><pre style="display:inline;"> &nbsp;if Assigned(aFunc) then</pre></td></tr>
+<tr class="notcovered"><td>109</td><td><pre style="display:inline;"> &nbsp; &nbsp;fDictionary.AddOrSetValue(Trim(aName), aFunc);</pre></td></tr>
+<tr class="notcovered"><td>110</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>112</td><td><pre style="display:inline;">function TFunctions.retrieveObjFunction(const aName: string): TCasbinObjectFunc;</pre></td></tr>
+<tr class="covered"><td>113</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>114</td><td><pre style="display:inline;"> &nbsp;if not fObjDictionary.ContainsKey(Trim(aName)) then</pre></td></tr>
+<tr class="notcovered"><td>115</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;Function &apos;+aName+&apos; is not registered&apos;);</pre></td></tr>
+<tr class="covered"><td>116</td><td><pre style="display:inline;"> &nbsp;Result:=fObjDictionary.Items[Trim(aName)];</pre></td></tr>
+<tr class="covered"><td>117</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>118</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>119</td><td><pre style="display:inline;">// Built-in functions</pre></td></tr>
+<tr class="nocodegen"><td>120</td><td><pre style="display:inline;">// In this section, built-in functions are imported</pre></td></tr>
+<tr class="nocodegen"><td>121</td><td><pre style="display:inline;">{$IFDEF CASBINPACKAGE}</pre></td></tr>
+<tr class="nocodegen"><td>122</td><td><pre style="display:inline;"> &nbsp;{$I ..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>123</td><td><pre style="display:inline;"> &nbsp;{$I ..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch2.pas}</pre></td></tr>
+<tr class="nocodegen"><td>124</td><td><pre style="display:inline;"> &nbsp;{$I ..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch3.pas}</pre></td></tr>
+<tr class="nocodegen"><td>125</td><td><pre style="display:inline;"> &nbsp;{$I ..\..\SourceCode\Common\Functions\Casbin.Functions.RegExMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>126</td><td><pre style="display:inline;"> &nbsp;{$I ..\..\SourceCode\Common\Functions\Casbin.Functions.IPMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>127</td><td><pre style="display:inline;">{$ELSE}</pre></td></tr>
+<tr class="nocodegen"><td>128</td><td><pre style="display:inline;"> &nbsp;{$IFDEF TESTCASBIN}</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>130</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch2.pas}</pre></td></tr>
+<tr class="nocodegen"><td>131</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch3.pas}</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.RegExMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>133</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.IPMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>134</td><td><pre style="display:inline;"> &nbsp;{$ELSE}</pre></td></tr>
+<tr class="nocodegen"><td>135</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>136</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch2.pas}</pre></td></tr>
+<tr class="nocodegen"><td>137</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.KeyMatch3.pas}</pre></td></tr>
+<tr class="nocodegen"><td>138</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.RegExMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>139</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;{$I ..\..\..\SourceCode\Common\Functions\Casbin.Functions.IPMatch.pas}</pre></td></tr>
+<tr class="nocodegen"><td>140</td><td><pre style="display:inline;"> &nbsp;{$ENDIF}</pre></td></tr>
+<tr class="nocodegen"><td>141</td><td><pre style="display:inline;">{$ENDIF}</pre></td></tr>
+<tr class="nocodegen"><td>142</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>143</td><td><pre style="display:inline;">function TFunctions.list: TStringList;</pre></td></tr>
+<tr class="nocodegen"><td>144</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>145</td><td><pre style="display:inline;"> &nbsp;name: string;</pre></td></tr>
+<tr class="covered"><td>146</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>147</td><td><pre style="display:inline;"> &nbsp;fList.Clear;</pre></td></tr>
+<tr class="covered"><td>148</td><td><pre style="display:inline;"> &nbsp;for name in fDictionary.Keys do</pre></td></tr>
+<tr class="covered"><td>149</td><td><pre style="display:inline;"> &nbsp; &nbsp;fList.add(name);</pre></td></tr>
+<tr class="covered"><td>150</td><td><pre style="display:inline;"> &nbsp;for name in fObjDictionary.Keys do</pre></td></tr>
+<tr class="covered"><td>151</td><td><pre style="display:inline;"> &nbsp; &nbsp;fList.add(name);</pre></td></tr>
+<tr class="covered"><td>152</td><td><pre style="display:inline;"> &nbsp;Result:=fList;</pre></td></tr>
+<tr class="covered"><td>153</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>154</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>155</td><td><pre style="display:inline;">procedure TFunctions.loadBuiltInFunctions;</pre></td></tr>
+<tr class="covered"><td>156</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>157</td><td><pre style="display:inline;"> &nbsp;fDictionary.Add(&apos;KeyMatch&apos;, KeyMatch);</pre></td></tr>
+<tr class="covered"><td>158</td><td><pre style="display:inline;"> &nbsp;fDictionary.Add(&apos;KeyMatch2&apos;, KeyMatch2);</pre></td></tr>
+<tr class="covered"><td>159</td><td><pre style="display:inline;"> &nbsp;fDictionary.Add(&apos;KeyMatch3&apos;, KeyMatch2);</pre></td></tr>
+<tr class="covered"><td>160</td><td><pre style="display:inline;"> &nbsp;fDictionary.Add(&apos;RegExMatch&apos;, regexMatch);</pre></td></tr>
+<tr class="covered"><td>161</td><td><pre style="display:inline;"> &nbsp;fDictionary.Add(&apos;IPMatch&apos;, IPMatch);</pre></td></tr>
+<tr class="covered"><td>162</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>163</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>164</td><td><pre style="display:inline;">// Custom functions</pre></td></tr>
+<tr class="nocodegen"><td>165</td><td><pre style="display:inline;">// If you want to add more functions include the files here</pre></td></tr>
+<tr class="nocodegen"><td>166</td><td><pre style="display:inline;">// Then register it in loadCustomFunctions</pre></td></tr>
+<tr class="nocodegen"><td>167</td><td><pre style="display:inline;">// (see loadBuiltInFunctions for examples)</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>169</td><td><pre style="display:inline;">{ $I ..\SourceCode\Common\Functions\NewCustomFunction.pas}</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>171</td><td><pre style="display:inline;">procedure TFunctions.loadCustomFunctions;</pre></td></tr>
+<tr class="covered"><td>172</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>173</td><td><pre style="display:inline;">// Add call to fDictionary.Add to register a custom function</pre></td></tr>
+<tr class="covered"><td>174</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>175</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>176</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

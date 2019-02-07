@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Resolve (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Casbin\Casbin.Resolve.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Casbin\Casbin.Resolve.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>42</td></tr><tr><td>Number of lines with code gen</td><td>49</td></tr><tr><td>Line coverage</td><td>85%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">// Copyright 2018 by John Kouraklis and Contributors. All Rights Reserved.</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">// you may not use this file except in compliance with the License.</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">// You may obtain a copy of the License at</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;http://www.apache.org/licenses/LICENSE-2.0</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">// Unless required by applicable law or agreed to in writing, software</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">// See the License for the specific language governing permissions and</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// limitations under the License.</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">unit Casbin.Resolve;</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp;Casbin.Types, Casbin.Resolve.Types,</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp;System.Generics.Collections, Casbin.Effect.Types, Casbin.Functions.Types;</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;">function resolve (const aResolve: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aResolveType: TResolveType;</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertions: TList&lt;string&gt;):</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TDictionary&lt;string, string&gt;; overload;</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;">function resolve(const aResolvedRequest, aResolvedPolicy: TDictionary&lt;string,</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"> &nbsp; &nbsp;string&gt;; const aFunctions: IFunctions; const aMatcher: string):</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;"> &nbsp; &nbsp;TEffectResult; overload;</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;"> &nbsp;Casbin.Exception.Types, SysUtils, Casbin.Matcher.Types, Casbin.Matcher,</pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Utilities, System.StrUtils, Classes;</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;">function resolve (const aResolve: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aResolveType: TResolveType;</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertions: TList&lt;string&gt;):</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TDictionary&lt;string, string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;"> &nbsp;i: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp;index: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;"> &nbsp;request: TEnforceParameters;</pre></td></tr>
+<tr class="covered"><td>45</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>46</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aAssertions) then</pre></td></tr>
+<tr class="notcovered"><td>47</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Assertions list is nil&apos;);</pre></td></tr>
+<tr class="covered"><td>48</td><td><pre style="display:inline;"> &nbsp;Result:=TDictionary&lt;string, string&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>49</td><td><pre style="display:inline;"> &nbsp;case aResolveType of</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"> &nbsp; &nbsp;rtRequest,</pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;"> &nbsp; &nbsp;rtPolicy: begin</pre></td></tr>
+<tr class="covered"><td>52</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SetLength(request, aResolve.Count);</pre></td></tr>
+<tr class="covered"><td>53</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for i:=0 to aResolve.Count-1 do</pre></td></tr>
+<tr class="covered"><td>54</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request[i]:=UpperCase(Trim(aResolve.Items[i]));</pre></td></tr>
+<tr class="covered"><td>55</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (aResolveType=rtRequest) and</pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(Length(request)&lt;&gt;aAssertions.Count) then</pre></td></tr>
+<tr class="notcovered"><td>57</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise ECasbinException.Create</pre></td></tr>
+<tr class="nocodegen"><td>58</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (&apos;The resolve param has more fields than the definition&apos;);</pre></td></tr>
+<tr class="covered"><td>59</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for index:=0 to aAssertions.Count-1 do</pre></td></tr>
+<tr class="covered"><td>60</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Result.Add(UpperCase(aAssertions.Items[index]),</pre></td></tr>
+<tr class="covered"><td>61</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(aResolve[index]));</pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="notcovered"><td>64</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Resolve Type not correct&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>65</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>66</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>67</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>68</td><td><pre style="display:inline;">function resolve(const aResolvedRequest, aResolvedPolicy: TDictionary&lt;string,</pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"> &nbsp; &nbsp;string&gt;; const aFunctions: IFunctions; const aMatcher: string):</pre></td></tr>
+<tr class="nocodegen"><td>70</td><td><pre style="display:inline;"> &nbsp; &nbsp;TEffectResult;</pre></td></tr>
+<tr class="nocodegen"><td>71</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>72</td><td><pre style="display:inline;"> &nbsp;matcher: IMatcher;</pre></td></tr>
+<tr class="nocodegen"><td>73</td><td><pre style="display:inline;"> &nbsp;resolvedMatcher: string;</pre></td></tr>
+<tr class="nocodegen"><td>74</td><td><pre style="display:inline;"> &nbsp;item: string;</pre></td></tr>
+<tr class="nocodegen"><td>75</td><td><pre style="display:inline;"> &nbsp;args: string;</pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;"> &nbsp;argsArray: TArray&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>77</td><td><pre style="display:inline;"> &nbsp;endArgsPos: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"> &nbsp;startArgsPos: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>79</td><td><pre style="display:inline;"> &nbsp;startFunPos: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>80</td><td><pre style="display:inline;"> &nbsp;funcResult: Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>81</td><td><pre style="display:inline;"> &nbsp;replaceStr: string;</pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;"> &nbsp;boolReplacseStr: string;</pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;"> &nbsp;i: Integer;</pre></td></tr>
+<tr class="covered"><td>84</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>85</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aResolvedRequest) then</pre></td></tr>
+<tr class="notcovered"><td>86</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Resolved Request is nil&apos;);</pre></td></tr>
+<tr class="covered"><td>87</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aResolvedPolicy) then</pre></td></tr>
+<tr class="notcovered"><td>88</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Policy Request is nil&apos;);</pre></td></tr>
+<tr class="covered"><td>89</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aFunctions) then</pre></td></tr>
+<tr class="notcovered"><td>90</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Functions are nil&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>92</td><td><pre style="display:inline;"> &nbsp;resolvedMatcher:=UpperCase(Trim(aMatcher));</pre></td></tr>
+<tr class="covered"><td>93</td><td><pre style="display:inline;"> &nbsp;matcher:=TMatcher.Create;</pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>95</td><td><pre style="display:inline;"> &nbsp;//Fix Owner first</pre></td></tr>
+<tr class="covered"><td>96</td><td><pre style="display:inline;"> &nbsp;if aResolvedRequest.ContainsKey(&apos;R.OBJ.OWNER&apos;) then</pre></td></tr>
+<tr class="covered"><td>97</td><td><pre style="display:inline;"> &nbsp; &nbsp;resolvedMatcher:=resolvedMatcher.Replace</pre></td></tr>
+<tr class="nocodegen"><td>98</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(&apos;R.OBJ.OWNER&apos;,</pre></td></tr>
+<tr class="nocodegen"><td>99</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(aResolvedRequest.Items[&apos;R.OBJ.OWNER&apos;]),</pre></td></tr>
+<tr class="nocodegen"><td>100</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[rfReplaceAll]);</pre></td></tr>
+<tr class="nocodegen"><td>101</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>102</td><td><pre style="display:inline;"> &nbsp;for item in aResolvedRequest.Keys do</pre></td></tr>
+<tr class="nocodegen"><td>103</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>104</td><td><pre style="display:inline;"> &nbsp; &nbsp;resolvedMatcher:=resolvedMatcher.Replace</pre></td></tr>
+<tr class="nocodegen"><td>105</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(UpperCase(item),</pre></td></tr>
+<tr class="nocodegen"><td>106</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(aResolvedRequest.Items[item]),</pre></td></tr>
+<tr class="nocodegen"><td>107</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[rfReplaceAll]);</pre></td></tr>
+<tr class="covered"><td>108</td><td><pre style="display:inline;"> &nbsp; &nbsp;matcher.addIdentifier(UpperCase(aResolvedRequest.Items[item]));</pre></td></tr>
+<tr class="covered"><td>109</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>110</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"> &nbsp;//Fix Owner first</pre></td></tr>
+<tr class="covered"><td>112</td><td><pre style="display:inline;"> &nbsp;if aResolvedPolicy.ContainsKey(&apos;P.OBJ.OWNER&apos;) then</pre></td></tr>
+<tr class="covered"><td>113</td><td><pre style="display:inline;"> &nbsp; &nbsp;resolvedMatcher:=resolvedMatcher.Replace</pre></td></tr>
+<tr class="nocodegen"><td>114</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(&apos;P.OBJ.OWNER&apos;,</pre></td></tr>
+<tr class="nocodegen"><td>115</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(aResolvedPolicy.Items[&apos;P.OBJ.OWNER&apos;]),</pre></td></tr>
+<tr class="nocodegen"><td>116</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[rfReplaceAll]);</pre></td></tr>
+<tr class="covered"><td>117</td><td><pre style="display:inline;"> &nbsp;for item in aResolvedPolicy.Keys do</pre></td></tr>
+<tr class="nocodegen"><td>118</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>119</td><td><pre style="display:inline;"> &nbsp; &nbsp;resolvedMatcher:=resolvedMatcher.Replace</pre></td></tr>
+<tr class="nocodegen"><td>120</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(UpperCase(item),</pre></td></tr>
+<tr class="nocodegen"><td>121</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;UpperCase(aResolvedPolicy.Items[item]),</pre></td></tr>
+<tr class="nocodegen"><td>122</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[rfReplaceAll]);</pre></td></tr>
+<tr class="covered"><td>123</td><td><pre style="display:inline;"> &nbsp; &nbsp;matcher.addIdentifier(UpperCase(aResolvedPolicy.Items[item]));</pre></td></tr>
+<tr class="covered"><td>124</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>125</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>126</td><td><pre style="display:inline;"> &nbsp;//Functions</pre></td></tr>
+<tr class="covered"><td>127</td><td><pre style="display:inline;"> &nbsp;for item in aFunctions.list do</pre></td></tr>
+<tr class="nocodegen"><td>128</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"> &nbsp; &nbsp;// We need to match individual words</pre></td></tr>
+<tr class="nocodegen"><td>130</td><td><pre style="display:inline;"> &nbsp; &nbsp;// This is a workaround to avoid matching individual characters (eg. &apos;g&apos;)</pre></td></tr>
+<tr class="covered"><td>131</td><td><pre style="display:inline;"> &nbsp; &nbsp;if resolvedMatcher.Contains(UpperCase(item+&apos;(&apos;)) or</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; resolvedMatcher.Contains(UpperCase(item+&apos; (&apos;)) then</pre></td></tr>
+<tr class="nocodegen"><td>133</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>134</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;//We need to find the arguments</pre></td></tr>
+<tr class="covered"><td>135</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;startFunPos:=resolvedMatcher.IndexOf(UpperCase(item));</pre></td></tr>
+<tr class="covered"><td>136</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;startArgsPos:=startFunPos+Length(item)+1;</pre></td></tr>
+<tr class="covered"><td>137</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;endArgsPos:=resolvedMatcher.IndexOfAny([&apos;)&apos;], startArgsPos);</pre></td></tr>
+<tr class="covered"><td>138</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;args:= Copy(resolvedMatcher, startArgsPos, endArgsPos-startArgsPos+1);</pre></td></tr>
+<tr class="covered"><td>139</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;argsArray:=args.Split([&apos;,&apos;]);</pre></td></tr>
+<tr class="nocodegen"><td>140</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>141</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for i:=0 to Length(argsArray)-1 do</pre></td></tr>
+<tr class="nocodegen"><td>142</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>143</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;argsArray[i]:=Trim(argsArray[i]);</pre></td></tr>
+<tr class="covered"><td>144</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if argsArray[i][findStartPos]=&apos;(&apos; then</pre></td></tr>
+<tr class="covered"><td>145</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;argsArray[i]:=Copy(argsArray[i],findStartPos+1, Length(argsArray[i]));</pre></td></tr>
+<tr class="covered"><td>146</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if argsArray[i][findEndPos(argsArray[i])]=&apos;)&apos; then</pre></td></tr>
+<tr class="notcovered"><td>147</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;argsArray[i]:=Copy(argsArray[i], findStartPos, Length(argsArray[i])-1);</pre></td></tr>
+<tr class="nocodegen"><td>148</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>149</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>150</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if (UpperCase(item)=&apos;G&apos;) or (UpperCase(item)=&apos;G2&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>151</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;funcResult:=aFunctions.retrieveObjFunction(item)(argsArray)</pre></td></tr>
+<tr class="nocodegen"><td>152</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>153</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;funcResult:=aFunctions.retrieveFunction(item)(argsArray);</pre></td></tr>
+<tr class="nocodegen"><td>154</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;replaceStr:=UpperCase(item);</pre></td></tr>
+<tr class="nocodegen"><td>155</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if args[findStartPos]&lt;&gt;&apos;(&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>156</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;replaceStr:=replaceStr+&apos;(&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>157</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;replaceStr:=replaceStr+args;</pre></td></tr>
+<tr class="nocodegen"><td>158</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if args[findEndPos(args)]&lt;&gt;&apos;)&apos; then</pre></td></tr>
+<tr class="nocodegen"><td>159</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;replaceStr:=replaceStr+&apos;)&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>160</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>161</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if funcResult then</pre></td></tr>
+<tr class="nocodegen"><td>162</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;boolReplacseStr:=&apos;100 = 100&apos;</pre></td></tr>
+<tr class="nocodegen"><td>163</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>164</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;boolReplacseStr:=&apos;100 = 90&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>165</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>166</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;resolvedMatcher:=resolvedMatcher.Replace(replaceStr, boolReplacseStr,</pre></td></tr>
+<tr class="nocodegen"><td>167</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[rfReplaceAll]);</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>169</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>171</td><td><pre style="display:inline;"> &nbsp;// Evaluation</pre></td></tr>
+<tr class="nocodegen"><td>172</td><td><pre style="display:inline;"> &nbsp;Result:=matcher.evaluateMatcher(resolvedMatcher);</pre></td></tr>
+<tr class="nocodegen"><td>173</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>174</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>175</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

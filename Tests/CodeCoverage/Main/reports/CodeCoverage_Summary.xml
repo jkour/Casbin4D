@@ -1,0 +1,1438 @@
+<?xml version="1.0" encoding="Windows-1252" standalone="no"?>
+<report>
+  <stats>
+    <packages value="20"/>
+    <classes value="42"/>
+    <methods value="185"/>
+    <srcfiles value="20"/>
+    <srclines value="1671"/>
+    <totallines value="1671"/>
+    <coveredlines value="1320"/>
+    <coveredpercent value="78"/>
+  </stats>
+  <data>
+    <all name="all classes">
+      <coverage type="class, %" value="76%   (32/42)"/>
+      <coverage type="method, %" value="73%   (135/185)"/>
+      <coverage type="block, %" value="79%   (1320/1671)"/>
+      <coverage type="line, %" value="79%   (1320/1671)"/>
+      <package name="Casbin.Effect">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="100%   (31/31)"/>
+        <coverage type="line, %" value="100%   (31/31)"/>
+        <srcfile name="Casbin.Effect.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="100%   (31/31)"/>
+          <coverage type="line, %" value="100%   (31/31)"/>
+          <class name="Casbin.Effect">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (31/31)"/>
+            <coverage type="line, %" value="100%   (31/31)"/>
+            <method name="mergeEffects">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (31/31)"/>
+              <coverage type="line, %" value="100%   (31/31)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Core.Utilities">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="100%   (2/2)"/>
+        <coverage type="line, %" value="100%   (2/2)"/>
+        <srcfile name="Casbin.Core.Utilities.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="100%   (2/2)"/>
+          <coverage type="line, %" value="100%   (2/2)"/>
+          <class name="Casbin.Core.Utilities">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (2/2)"/>
+            <coverage type="line, %" value="100%   (2/2)"/>
+            <method name="findStartPos">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (2/2)"/>
+              <coverage type="line, %" value="100%   (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Core.Logger.Default">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="100%   (4/4)"/>
+        <coverage type="line, %" value="100%   (4/4)"/>
+        <srcfile name="Casbin.Core.Logger.Default.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="100%   (4/4)"/>
+          <coverage type="line, %" value="100%   (4/4)"/>
+          <class name="Casbin.Core.Logger.Default.TDefaultLogger">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (4/4)"/>
+            <coverage type="line, %" value="100%   (4/4)"/>
+            <method name="log">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Resolve">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="86%   (42/49)"/>
+        <coverage type="line, %" value="86%   (42/49)"/>
+        <srcfile name="Casbin.Resolve.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="86%   (42/49)"/>
+          <coverage type="line, %" value="86%   (42/49)"/>
+          <class name="Casbin.Resolve">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="86%   (42/49)"/>
+            <coverage type="line, %" value="86%   (42/49)"/>
+            <method name="resolve">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="86%   (42/49)"/>
+              <coverage type="line, %" value="86%   (42/49)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Adapter.Filesystem">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="67%   (2/3)"/>
+        <coverage type="block, %" value="77%   (10/13)"/>
+        <coverage type="line, %" value="77%   (10/13)"/>
+        <srcfile name="Casbin.Adapter.Filesystem.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="67%   (2/3)"/>
+          <coverage type="block, %" value="77%   (10/13)"/>
+          <coverage type="line, %" value="77%   (10/13)"/>
+          <class name="Casbin.Adapter.Filesystem.TFileAdapter">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="67%   (2/3)"/>
+            <coverage type="block, %" value="77%   (10/13)"/>
+            <coverage type="line, %" value="77%   (10/13)"/>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="save">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="83%   (5/6)"/>
+              <coverage type="line, %" value="83%   (5/6)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Policy">
+        <coverage type="class, %" value="47%   (8/17)"/>
+        <coverage type="method, %" value="55%   (36/66)"/>
+        <coverage type="block, %" value="66%   (431/655)"/>
+        <coverage type="line, %" value="66%   (431/655)"/>
+        <srcfile name="Casbin.Policy.pas">
+          <coverage type="class, %" value="47%   (8/17)"/>
+          <coverage type="method, %" value="55%   (36/66)"/>
+          <coverage type="block, %" value="66%   (431/655)"/>
+          <coverage type="line, %" value="66%   (431/655)"/>
+          <class name="Casbin.Policy.TPolicyManager">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="96%   (22/23)"/>
+            <coverage type="block, %" value="95%   (374/394)"/>
+            <coverage type="line, %" value="95%   (374/394)"/>
+            <method name="loadRoles">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="95%   (38/40)"/>
+              <coverage type="line, %" value="95%   (38/40)"/>
+            </method>
+            <method name="rolesForEntity">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="93%   (13/14)"/>
+              <coverage type="line, %" value="93%   (13/14)"/>
+            </method>
+            <method name="section">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (17/17)"/>
+              <coverage type="line, %" value="100%   (17/17)"/>
+            </method>
+            <method name="removePolicy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="97%   (29/30)"/>
+              <coverage type="line, %" value="97%   (29/30)"/>
+            </method>
+            <method name="addLink">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (24/24)"/>
+              <coverage type="line, %" value="100%   (24/24)"/>
+            </method>
+            <method name="EntitiesForRole">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="94%   (15/16)"/>
+              <coverage type="line, %" value="94%   (15/16)"/>
+            </method>
+            <method name="clear">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="clearRoles">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+            <method name="policyExists">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="88%   (23/26)"/>
+              <coverage type="line, %" value="88%   (23/26)"/>
+            </method>
+            <method name="findRolesNode">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (9/9)"/>
+              <coverage type="line, %" value="100%   (9/9)"/>
+            </method>
+            <method name="loadPolicies">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="90%   (9/10)"/>
+              <coverage type="line, %" value="90%   (9/10)"/>
+            </method>
+            <method name="policy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (19/19)"/>
+              <coverage type="line, %" value="100%   (19/19)"/>
+            </method>
+            <method name="roles">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (19/19)"/>
+              <coverage type="line, %" value="100%   (19/19)"/>
+            </method>
+            <method name="roleExists">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="96%   (23/24)"/>
+              <coverage type="line, %" value="96%   (23/24)"/>
+            </method>
+            <method name="toOutputString">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="domains">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="95%   (18/19)"/>
+              <coverage type="line, %" value="95%   (18/19)"/>
+            </method>
+            <method name="policies">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (20/20)"/>
+              <coverage type="line, %" value="100%   (20/20)"/>
+            </method>
+            <method name="linkExists">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (40/40)"/>
+              <coverage type="line, %" value="100%   (40/40)"/>
+            </method>
+            <method name="removeLink">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (17/17)"/>
+              <coverage type="line, %" value="100%   (17/17)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+            <method name="addPolicy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="74%   (17/23)"/>
+              <coverage type="line, %" value="74%   (17/23)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.InsertRange&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/12)"/>
+            <coverage type="line, %" value="0%   (0/12)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/12)"/>
+              <coverage type="line, %" value="0%   (0/12)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Contains&lt;System">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (6/6)"/>
+            <coverage type="line, %" value="100%   (6/6)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.IndexOfMin&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/11)"/>
+            <coverage type="line, %" value="0%   (0/11)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/11)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.ForEach&lt;System">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (4/4)"/>
+            <coverage type="line, %" value="100%   (4/4)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Add&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/5)"/>
+            <coverage type="line, %" value="0%   (0/5)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/5)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.{ArrayHelper}TArrayRecord&lt;System.string&gt;">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="23%   (6/26)"/>
+            <coverage type="block, %" value="13%   (19/141)"/>
+            <coverage type="line, %" value="13%   (19/141)"/>
+            <method name="Contains">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="50%   (3/6)"/>
+              <coverage type="line, %" value="50%   (3/6)"/>
+            </method>
+            <method name="Compare">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/12)"/>
+              <coverage type="line, %" value="0%   (0/12)"/>
+            </method>
+            <method name="Insert">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="List">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="IndexOfMax">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="CopyArray">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/11)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+            <method name="BinarySearch">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/9)"/>
+              <coverage type="line, %" value="0%   (0/9)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="57%   (4/7)"/>
+              <coverage type="line, %" value="57%   (4/7)"/>
+            </method>
+            <method name="Clear">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="GetEnumerator">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Find">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Map">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="SetItems">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="Remove">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/7)"/>
+              <coverage type="line, %" value="0%   (0/7)"/>
+            </method>
+            <method name="IndexOf">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="&amp;op_Equality">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Delete">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="&amp;op_Inequality">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Unique">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/8)"/>
+              <coverage type="line, %" value="0%   (0/8)"/>
+            </method>
+            <method name="InsertRange">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="Sort">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/9)"/>
+              <coverage type="line, %" value="0%   (0/9)"/>
+            </method>
+            <method name="Add">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="AddRange">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="50%   (3/6)"/>
+              <coverage type="line, %" value="50%   (3/6)"/>
+            </method>
+            <method name="AddIfNotContains">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/5)"/>
+            </method>
+            <method name="IndexOfMin">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="ForEach">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Insert&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/9)"/>
+            <coverage type="line, %" value="0%   (0/9)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/9)"/>
+              <coverage type="line, %" value="0%   (0/9)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Delete&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/7)"/>
+            <coverage type="line, %" value="0%   (0/7)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/7)"/>
+              <coverage type="line, %" value="0%   (0/7)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Compare&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/9)"/>
+            <coverage type="line, %" value="0%   (0/9)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/9)"/>
+              <coverage type="line, %" value="0%   (0/9)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.List&lt;System">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="86%   (6/7)"/>
+            <coverage type="line, %" value="86%   (6/7)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="86%   (6/7)"/>
+              <coverage type="line, %" value="86%   (6/7)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.IndexOf&lt;System">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="62%   (5/8)"/>
+            <coverage type="line, %" value="62%   (5/8)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="62%   (5/8)"/>
+              <coverage type="line, %" value="62%   (5/8)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.{ArrayHelper}TArrayRecord&lt;System.string&gt;.TEnumerator">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (3/3)"/>
+            <coverage type="block, %" value="100%   (11/11)"/>
+            <coverage type="line, %" value="100%   (11/11)"/>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="MoveNext">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="GetCurrent">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.AddRange&lt;System">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (6/6)"/>
+            <coverage type="line, %" value="100%   (6/6)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.IndexOfMax&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/11)"/>
+            <coverage type="line, %" value="0%   (0/11)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/11)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Find&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/6)"/>
+            <coverage type="line, %" value="0%   (0/6)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+          </class>
+          <class name="Casbin.Policy.TArrayHelper.Map&lt;System">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/8)"/>
+            <coverage type="line, %" value="0%   (0/8)"/>
+            <method name="string&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/8)"/>
+              <coverage type="line, %" value="0%   (0/8)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Policy.Types">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="88%   (7/8)"/>
+        <coverage type="line, %" value="88%   (7/8)"/>
+        <srcfile name="Casbin.Policy.Types.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="88%   (7/8)"/>
+          <coverage type="line, %" value="88%   (7/8)"/>
+          <class name="Casbin.Policy.Types.TRoleNode">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="88%   (7/8)"/>
+            <coverage type="line, %" value="88%   (7/8)"/>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="88%   (7/8)"/>
+              <coverage type="line, %" value="88%   (7/8)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Matcher">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="86%   (6/7)"/>
+        <coverage type="block, %" value="90%   (45/50)"/>
+        <coverage type="line, %" value="90%   (45/50)"/>
+        <srcfile name="Casbin.Matcher.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="86%   (6/7)"/>
+          <coverage type="block, %" value="90%   (45/50)"/>
+          <coverage type="line, %" value="90%   (45/50)"/>
+          <class name="Casbin.Matcher.TMatcher">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="86%   (6/7)"/>
+            <coverage type="block, %" value="90%   (45/50)"/>
+            <coverage type="line, %" value="90%   (45/50)"/>
+            <method name="evaluateMatcher">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="85%   (11/13)"/>
+              <coverage type="line, %" value="85%   (11/13)"/>
+            </method>
+            <method name="replaceIdentifiers">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="cleanMatcher">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (10/10)"/>
+              <coverage type="line, %" value="100%   (10/10)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (10/10)"/>
+              <coverage type="line, %" value="100%   (10/10)"/>
+            </method>
+            <method name="clearIdentifiers">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="addIdentifier">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Functions">
+        <coverage type="class, %" value="100%   (2/2)"/>
+        <coverage type="method, %" value="93%   (13/14)"/>
+        <coverage type="block, %" value="84%   (112/134)"/>
+        <coverage type="line, %" value="84%   (112/134)"/>
+        <srcfile name="Casbin.Functions.pas">
+          <coverage type="class, %" value="100%   (2/2)"/>
+          <coverage type="method, %" value="93%   (13/14)"/>
+          <coverage type="block, %" value="84%   (112/134)"/>
+          <coverage type="line, %" value="84%   (112/134)"/>
+          <class name="Casbin.Functions">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (5/5)"/>
+            <coverage type="block, %" value="85%   (57/67)"/>
+            <coverage type="line, %" value="85%   (57/67)"/>
+            <method name="regExMatch">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="89%   (8/9)"/>
+              <coverage type="line, %" value="89%   (8/9)"/>
+            </method>
+            <method name="KeyMatch">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="83%   (10/12)"/>
+              <coverage type="line, %" value="83%   (10/12)"/>
+            </method>
+            <method name="validIP">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="73%   (8/11)"/>
+              <coverage type="line, %" value="73%   (8/11)"/>
+            </method>
+            <method name="IPMatch">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="86%   (19/22)"/>
+              <coverage type="line, %" value="86%   (19/22)"/>
+            </method>
+            <method name="KeyMatch2">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="92%   (12/13)"/>
+              <coverage type="line, %" value="92%   (12/13)"/>
+            </method>
+          </class>
+          <class name="Casbin.Functions.TFunctions">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="89%   (8/9)"/>
+            <coverage type="block, %" value="82%   (55/67)"/>
+            <coverage type="line, %" value="82%   (55/67)"/>
+            <method name="list">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+            <method name="retrieveObjFunction">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="80%   (4/5)"/>
+              <coverage type="line, %" value="80%   (4/5)"/>
+            </method>
+            <method name="loadCustomFunctions">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (2/2)"/>
+              <coverage type="line, %" value="100%   (2/2)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (9/9)"/>
+              <coverage type="line, %" value="100%   (9/9)"/>
+            </method>
+            <method name="loadBuiltInFunctions">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (7/7)"/>
+              <coverage type="line, %" value="100%   (7/7)"/>
+            </method>
+            <method name="refreshFunctions">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/5)"/>
+            </method>
+            <method name="retrieveFunction">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="80%   (4/5)"/>
+              <coverage type="line, %" value="80%   (4/5)"/>
+            </method>
+            <method name="registerFunction">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="69%   (11/16)"/>
+              <coverage type="line, %" value="69%   (11/16)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (10/10)"/>
+              <coverage type="line, %" value="100%   (10/10)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Parser">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="85%   (11/13)"/>
+        <coverage type="block, %" value="95%   (176/186)"/>
+        <coverage type="line, %" value="95%   (176/186)"/>
+        <srcfile name="Casbin.Parser.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="85%   (11/13)"/>
+          <coverage type="block, %" value="95%   (176/186)"/>
+          <coverage type="line, %" value="95%   (176/186)"/>
+          <class name="Casbin.Parser.TParser">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="85%   (11/13)"/>
+            <coverage type="block, %" value="95%   (176/186)"/>
+            <coverage type="line, %" value="95%   (176/186)"/>
+            <method name="cleanWhiteSpace">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (48/48)"/>
+              <coverage type="line, %" value="100%   (48/48)"/>
+            </method>
+            <method name="getNodes">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getStatus">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="checkSyntaxErrors">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (34/34)"/>
+              <coverage type="line, %" value="100%   (34/34)"/>
+            </method>
+            <method name="checkHeaders">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (17/17)"/>
+              <coverage type="line, %" value="100%   (17/17)"/>
+            </method>
+            <method name="getErrorMessage">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setLogger">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+            <method name="getLogger">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="parseContent">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="88%   (28/32)"/>
+              <coverage type="line, %" value="88%   (28/32)"/>
+            </method>
+            <method name="getParseType">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="parse">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (25/25)"/>
+              <coverage type="line, %" value="100%   (25/25)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Parser.AST.Types">
+        <coverage type="class, %" value="80%   (4/5)"/>
+        <coverage type="method, %" value="91%   (10/11)"/>
+        <coverage type="block, %" value="93%   (43/46)"/>
+        <coverage type="line, %" value="93%   (43/46)"/>
+        <srcfile name="Casbin.Parser.AST.Types.pas">
+          <coverage type="class, %" value="80%   (4/5)"/>
+          <coverage type="method, %" value="91%   (10/11)"/>
+          <coverage type="block, %" value="93%   (43/46)"/>
+          <coverage type="line, %" value="93%   (43/46)"/>
+          <class name="Casbin.Parser.AST.Types.TNodeCollection">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (3/3)"/>
+            <coverage type="block, %" value="100%   (13/13)"/>
+            <coverage type="line, %" value="100%   (13/13)"/>
+            <method name="toOutputString">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+          <class name="Casbin.Parser.AST.Types.TChildNode">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (3/3)"/>
+            <coverage type="block, %" value="100%   (11/11)"/>
+            <coverage type="line, %" value="100%   (11/11)"/>
+            <method name="toOutputString">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+          <class name="Casbin.Parser.AST.Types.TAssertionNode">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="100%   (3/3)"/>
+            <coverage type="line, %" value="100%   (3/3)"/>
+            <method name="toOutputString">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+          <class name="Casbin.Parser.AST.Types.THeaderNode">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (3/3)"/>
+            <coverage type="block, %" value="100%   (16/16)"/>
+            <coverage type="line, %" value="100%   (16/16)"/>
+            <method name="toOutputString">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+          <class name="Casbin.Parser.AST.Types.TBaseNode">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/1)"/>
+            <coverage type="block, %" value="0%   (0/3)"/>
+            <coverage type="line, %" value="0%   (0/3)"/>
+            <method name="toOutputString">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Model.Sections.Default">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="98%   (39/40)"/>
+        <coverage type="line, %" value="98%   (39/40)"/>
+        <srcfile name="Casbin.Model.Sections.Default.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="98%   (39/40)"/>
+          <coverage type="line, %" value="98%   (39/40)"/>
+          <class name="Casbin.Model.Sections.Default">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="98%   (39/40)"/>
+            <coverage type="line, %" value="98%   (39/40)"/>
+            <method name="createDefaultSection">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="98%   (39/40)"/>
+              <coverage type="line, %" value="98%   (39/40)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Adapter.Filesystem.Policy">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="82%   (9/11)"/>
+        <coverage type="block, %" value="80%   (41/51)"/>
+        <coverage type="line, %" value="80%   (41/51)"/>
+        <srcfile name="Casbin.Adapter.Filesystem.Policy.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="82%   (9/11)"/>
+          <coverage type="block, %" value="80%   (41/51)"/>
+          <coverage type="line, %" value="80%   (41/51)"/>
+          <class name="Casbin.Adapter.Filesystem.Policy.TPolicyFileAdapter">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="82%   (9/11)"/>
+            <coverage type="block, %" value="80%   (41/51)"/>
+            <coverage type="line, %" value="80%   (41/51)"/>
+            <method name="setAutoSave">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setCacheSize">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setCached">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (13/13)"/>
+              <coverage type="line, %" value="100%   (13/13)"/>
+            </method>
+            <method name="getAutoSave">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getCacheSize">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getCached">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="remove">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="add">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="save">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Parser.AST">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (1/1)"/>
+        <coverage type="block, %" value="98%   (42/43)"/>
+        <coverage type="line, %" value="98%   (42/43)"/>
+        <srcfile name="Casbin.Parser.AST.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (1/1)"/>
+          <coverage type="block, %" value="98%   (42/43)"/>
+          <coverage type="line, %" value="98%   (42/43)"/>
+          <class name="Casbin.Parser.AST">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (1/1)"/>
+            <coverage type="block, %" value="98%   (42/43)"/>
+            <coverage type="line, %" value="98%   (42/43)"/>
+            <method name="addAssertion">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="98%   (42/43)"/>
+              <coverage type="line, %" value="98%   (42/43)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Model">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (5/5)"/>
+        <coverage type="block, %" value="93%   (57/61)"/>
+        <coverage type="line, %" value="93%   (57/61)"/>
+        <srcfile name="Casbin.Model.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (5/5)"/>
+          <coverage type="block, %" value="93%   (57/61)"/>
+          <coverage type="line, %" value="93%   (57/61)"/>
+          <class name="Casbin.Model.TModel">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (5/5)"/>
+            <coverage type="block, %" value="93%   (57/61)"/>
+            <coverage type="line, %" value="93%   (57/61)"/>
+            <method name="addModel">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (7/7)"/>
+              <coverage type="line, %" value="100%   (7/7)"/>
+            </method>
+            <method name="assertions">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="assertionExists">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (11/11)"/>
+              <coverage type="line, %" value="100%   (11/11)"/>
+            </method>
+            <method name="addDefinition">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="89%   (31/35)"/>
+              <coverage type="line, %" value="89%   (31/35)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Adapter.Base">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="82%   (9/11)"/>
+        <coverage type="block, %" value="79%   (34/43)"/>
+        <coverage type="line, %" value="79%   (34/43)"/>
+        <srcfile name="Casbin.Adapter.Base.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="82%   (9/11)"/>
+          <coverage type="block, %" value="79%   (34/43)"/>
+          <coverage type="line, %" value="79%   (34/43)"/>
+          <class name="Casbin.Adapter.Base.TBaseAdapter">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="82%   (9/11)"/>
+            <coverage type="block, %" value="79%   (34/43)"/>
+            <coverage type="line, %" value="79%   (34/43)"/>
+            <method name="getFilter">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Destroy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="setAssertions">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="setLogger">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="toOutputString">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (6/6)"/>
+              <coverage type="line, %" value="100%   (6/6)"/>
+            </method>
+            <method name="clear">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="getLogger">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getFiltered">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getAssertions">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Adapter.Memory.Policy">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="33%   (4/12)"/>
+        <coverage type="block, %" value="40%   (17/43)"/>
+        <coverage type="line, %" value="40%   (17/43)"/>
+        <srcfile name="Casbin.Adapter.Memory.Policy.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="33%   (4/12)"/>
+          <coverage type="block, %" value="40%   (17/43)"/>
+          <coverage type="line, %" value="40%   (17/43)"/>
+          <class name="Casbin.Adapter.Memory.Policy.TPolicyMemoryAdapter">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="33%   (4/12)"/>
+            <coverage type="block, %" value="40%   (17/43)"/>
+            <coverage type="line, %" value="40%   (17/43)"/>
+            <method name="save">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setAutoSave">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setCacheSize">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setCached">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (5/5)"/>
+              <coverage type="line, %" value="100%   (5/5)"/>
+            </method>
+            <method name="getAutoSave">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getCacheSize">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getCached">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="remove">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/7)"/>
+              <coverage type="line, %" value="0%   (0/7)"/>
+            </method>
+            <method name="add">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="resetSections">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="67%   (4/6)"/>
+              <coverage type="line, %" value="67%   (4/6)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Adapter.Memory">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="75%   (3/4)"/>
+        <coverage type="block, %" value="89%   (16/18)"/>
+        <coverage type="line, %" value="89%   (16/18)"/>
+        <srcfile name="Casbin.Adapter.Memory.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="75%   (3/4)"/>
+          <coverage type="block, %" value="89%   (16/18)"/>
+          <coverage type="line, %" value="89%   (16/18)"/>
+          <class name="Casbin.Adapter.Memory.TMemoryAdapter">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="75%   (3/4)"/>
+            <coverage type="block, %" value="89%   (16/18)"/>
+            <coverage type="line, %" value="89%   (16/18)"/>
+            <method name="load">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="save">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="resetSections">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (8/8)"/>
+              <coverage type="line, %" value="100%   (8/8)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin">
+        <coverage type="class, %" value="100%   (2/2)"/>
+        <coverage type="method, %" value="94%   (15/16)"/>
+        <coverage type="block, %" value="87%   (153/176)"/>
+        <coverage type="line, %" value="87%   (153/176)"/>
+        <srcfile name="Casbin.pas">
+          <coverage type="class, %" value="100%   (2/2)"/>
+          <coverage type="method, %" value="94%   (15/16)"/>
+          <coverage type="block, %" value="87%   (153/176)"/>
+          <coverage type="line, %" value="87%   (153/176)"/>
+          <class name="Casbin.TCasbin">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="93%   (13/14)"/>
+            <coverage type="block, %" value="87%   (148/171)"/>
+            <coverage type="line, %" value="87%   (148/171)"/>
+            <method name="enforce">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="95%   (76/80)"/>
+              <coverage type="line, %" value="95%   (76/80)"/>
+            </method>
+            <method name="getPolicy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setModel">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="80%   (4/5)"/>
+              <coverage type="line, %" value="80%   (4/5)"/>
+            </method>
+            <method name="setEnabled">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getEnabled">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="enforce[0]">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (7/7)"/>
+              <coverage type="line, %" value="100%   (7/7)"/>
+            </method>
+            <method name="setLogger">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="getModel">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="74%   (28/38)"/>
+              <coverage type="line, %" value="74%   (28/38)"/>
+            </method>
+            <method name="getLogger">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="rolesGsInternal">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="89%   (8/9)"/>
+              <coverage type="line, %" value="89%   (8/9)"/>
+            </method>
+            <method name="rolesG">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setPolicy">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="80%   (4/5)"/>
+              <coverage type="line, %" value="80%   (4/5)"/>
+            </method>
+            <method name="rolesG2">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+          <class name="Casbin">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (2/2)"/>
+            <coverage type="block, %" value="100%   (5/5)"/>
+            <coverage type="line, %" value="100%   (5/5)"/>
+            <method name="Finalization">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (2/2)"/>
+              <coverage type="line, %" value="100%   (2/2)"/>
+            </method>
+            <method name="Casbin">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="Casbin.Core.Logger.Base">
+        <coverage type="class, %" value="100%   (1/1)"/>
+        <coverage type="method, %" value="100%   (5/5)"/>
+        <coverage type="block, %" value="100%   (18/18)"/>
+        <coverage type="line, %" value="100%   (18/18)"/>
+        <srcfile name="Casbin.Core.Logger.Base.pas">
+          <coverage type="class, %" value="100%   (1/1)"/>
+          <coverage type="method, %" value="100%   (5/5)"/>
+          <coverage type="block, %" value="100%   (18/18)"/>
+          <coverage type="line, %" value="100%   (18/18)"/>
+          <class name="Casbin.Core.Logger.Base.TBaseLogger">
+            <coverage type="class, %" value="100%   (1/1)"/>
+            <coverage type="method, %" value="100%   (5/5)"/>
+            <coverage type="block, %" value="100%   (18/18)"/>
+            <coverage type="line, %" value="100%   (18/18)"/>
+            <method name="log">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="getEnabled">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="getLastLoggedMessage">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (3/3)"/>
+              <coverage type="line, %" value="100%   (3/3)"/>
+            </method>
+            <method name="setEnabled">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+            <method name="Create">
+              <coverage type="method, %" value="100%   (1/1)"/>
+              <coverage type="block, %" value="100%   (4/4)"/>
+              <coverage type="line, %" value="100%   (4/4)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+    </all>
+  </data>
+</report>

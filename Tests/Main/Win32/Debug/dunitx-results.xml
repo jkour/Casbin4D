@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\Tests\Main\Win32\Debug\Tests.Casbin.exe" total="446" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2019-02-07" time="6.068">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="Tests.Casbin.exe" executed="true" result="Success" success="True" time="6.068" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="Tests" executed="true" result="Success" success="True" time="39.195" asserts="0" >
+          <results>
+              <test-suite type="Namespace" name="Policy" executed="true" result="Success" success="True" time="14.883" asserts="0" >
+                <results>
+                    <test-suite type="Fixture" name="TTestPolicyRBACWithDomainsPolicy" executed="True" result="Success" success="True" time="6.066" >
+                      <results>
+                        <test-case name="testInitialConditions.Initial.1" executed="True" result="Success" success="True" time="0.059" asserts="0" />
+                        <test-case name="testInitialConditions.Initial.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testFilteredPolicies" executed="True" result="Success" success="True" time="0.120" asserts="0" />
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="TTestPolicyManager" executed="True" result="Success" success="True" time="4.636" >
+                      <results>
+                        <test-case name="testPolicies" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRoles" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testSection" executed="True" result="Success" success="True" time="0.093" asserts="0" />
+                        <test-case name="testPolicyExists" executed="True" result="Success" success="True" time="0.069" asserts="0" />
+                        <test-case name="testRolesExist" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testPolicy.Alice" executed="True" result="Success" success="True" time="0.066" asserts="0" />
+                        <test-case name="testPolicy.Bob" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testPolicy.Non-existant" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testAddPolicyFull.Policy.1" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testAddPolicyFull.Policy.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testAddPolicyFull.Policy.3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testAddPolicyCompact.Policy.1" executed="True" result="Success" success="True" time="0.018" asserts="0" />
+                        <test-case name="testAddPolicyCompact.Policy.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testAddPolicyCompact.Policy.3" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testDomains.TestDomains.1" executed="True" result="Success" success="True" time="0.034" asserts="0" />
+                        <test-case name="testDomains.TestDomains.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRemovePolicy" executed="True" result="Success" success="True" time="0.123" asserts="0" />
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="TTestPolicyRoles" executed="True" result="Success" success="True" time="4.181" >
+                      <results>
+                        <test-case name="testRolesNormal.NormalRole.1" executed="True" result="Success" success="True" time="0.083" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.3" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.5" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.6" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.9" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.10" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.11" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormal.NormalRole.12" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.1" executed="True" result="Success" success="True" time="0.041" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.3" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.6" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.8" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.10" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.11" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesNormalDelete.NormalRole.12" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.1" executed="True" result="Success" success="True" time="0.019" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.3" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.8" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.10" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.11" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.12" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.13" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.14" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.15" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainNormal.DomainRole.16" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.1" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.3" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.5" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.8" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.9" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.10" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.11" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.12" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.13" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.14" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.15" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesDomainDelete.DomainRole.16" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testClear.Clear.3" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testClear.Clear.4" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testClear.Clear.5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testClear.Clear.8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.10" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testClear.Clear.11" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testClear.Clear.12" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.1" executed="True" result="Success" success="True" time="0.025" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.5" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.6" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesForEntityNormal.RolesForEntity.7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRolesForEntityDeleted.RolesForEntity.7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.1" executed="True" result="Success" success="True" time="0.042" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.2" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.3" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.5" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEntitiesForRoleNormal.EntitiesForRole.7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      </results>
+                    </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="Fixture" name="TTestEffect" executed="True" result="Success" success="True" time="3.764" >
+                <results>
+                  <test-case name="testSomeAllow" executed="True" result="Success" success="True" time="0.032" asserts="0" />
+                  <test-case name="testNotSomeDeny" executed="True" result="Success" success="True" time="0.018" asserts="0" />
+                  <test-case name="testSomeAllowANDNotDeny" executed="True" result="Success" success="True" time="0.025" asserts="0" />
+                  <test-case name="testPriorityORDeny" executed="True" result="Success" success="True" time="0.019" asserts="0" />
+                  <test-case name="testUnknown" executed="True" result="Success" success="True" time="0.045" asserts="0" />
+                  <test-case name="testEmptyEffects" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="Fixture" name="TTestMatcher" executed="True" result="Success" success="True" time="3.621" >
+                <results>
+                  <test-case name="testMatcher.Common-Go.1" executed="True" result="Success" success="True" time="0.068" asserts="0" />
+                  <test-case name="testMatcher.Common-Go.2" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                  <test-case name="testMatcher.Common-Delphi.1" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testMatcher.Common-Delphi.2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testMatcher.Remove apostrophe" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                  <test-case name="testMatcher.Expression With Spaces" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testMatcher.1 part.1-Allow" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testMatcher.1 part.2-Deny" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testMatcher.2 parts.1-Deny" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="Fixture" name="TTestLogger" executed="True" result="Success" success="True" time="3.470" >
+                <results>
+                  <test-case name="testEnabled" executed="True" result="Success" success="True" time="0.020" asserts="0" />
+                  <test-case name="testLogWhenEnabled" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                  <test-case name="testLogWhenDisabled" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="Fixture" name="TTestFunctions" executed="True" result="Success" success="True" time="3.439" >
+                <results>
+                  <test-case name="testAddNull" executed="True" result="Success" success="True" time="0.042" asserts="0" />
+                  <test-case name="testAddNameIsEmpty" executed="True" result="Success" success="True" time="0.033" asserts="0" />
+                  <test-case name="testLoadBuiltInFunctions.KeyMatch" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch.KeyMatch-9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-10" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-11" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-12" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-13" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-14" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-15" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-16" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-17" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-18" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-19" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-20" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-21" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-22" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch2.KeyMatch2-23" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-7" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-10" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-11" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-12" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-13" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-14" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-15" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-16" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-17" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-18" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testKeyMatch3.KeyMatch3-19" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-8" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testRegExMatch.RegExMatch-9" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-1" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-6" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testIPMatch.IPMatch-7" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="testInvalidIP.InvalidIP" executed="True" result="Success" success="True" time="0.039" asserts="0" />
+                  <test-case name="testInvalidIP.InvalidIP" executed="True" result="Success" success="True" time="0.040" asserts="0" />
+                  <test-case name="testFunctionsList" executed="True" result="Success" success="True" time="0.040" asserts="0" />
+                  <test-case name="testObjectFunction" executed="True" result="Success" success="True" time="0.029" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="Namespace" name="Adapter" executed="true" result="Success" success="True" time="6.146" asserts="0" >
+                <results>
+                    <test-suite type="Fixture" name="TTestAdapterFilesystem" executed="True" result="Success" success="True" time="3.075" >
+                      <results>
+                        <test-case name="testLoad" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testSave" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testOutputString" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testLazyLoad" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="TTestPolicyFileAdapter" executed="True" result="Success" success="True" time="3.071" >
+                      <results>
+                        <test-case name="testCached" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+                        <test-case name="testAutoSave" executed="True" result="Success" success="True" time="0.021" asserts="0" />
+                        <test-case name="testCachSize" executed="True" result="Success" success="True" time="0.017" asserts="0" />
+                        <test-case name="testFiltered" executed="True" result="Success" success="True" time="0.036" asserts="0" />
+                        <test-case name="testload.Without Filter" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testload.First Param" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testload.Two Consecutive Param" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testload.Second Param" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testload.Third Param" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testAdd.Add.1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                      </results>
+                    </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="Namespace" name="Casbin" executed="true" result="Success" success="True" time="3.287" asserts="0" >
+                <results>
+                    <test-suite type="Fixture" name="TTestCasbin" executed="True" result="Success" success="True" time="2.972" >
+                      <results>
+                        <test-case name="testFileConstructor" executed="True" result="Success" success="True" time="0.166" asserts="0" />
+                        <test-case name="testMemoryConstructor" executed="True" result="Success" success="True" time="0.051" asserts="0" />
+                        <test-case name="testAdapterConstructor" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testEnabled" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.1" executed="True" result="Success" success="True" time="0.377" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.2" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.3" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.4" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.5" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.6" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.7" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.8" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.1" executed="True" result="Success" success="True" time="0.084" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.2" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.3" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.4" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.5" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.6" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.7" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.8" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.9" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.10" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.11" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.12" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.13" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.14" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.15" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.16" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.17" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.18" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch.Allow.19" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch2.1" executed="True" result="Success" success="True" time="0.068" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch2.2" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch2.3" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.KeyMatch2.4" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.KeyMatchDeny.1" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.1" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.2" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.3" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.4" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.5" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.6" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.7" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.8" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.9" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.10" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.11" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.Root.12" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoUsers.1" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoUsers.2" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoUsers.3" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoUsers.4" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoResources.1" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoResources.2" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoResources.3" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.Basic Model.NoResources.4" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.1" executed="True" result="Success" success="True" time="0.084" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.2" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.3" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.4" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.5" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.6" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.7" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.8" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.9" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.10" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.11" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.12" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.13" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.14" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.15" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.IPMatchModel.16" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.1" executed="True" result="Success" success="True" time="0.059" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.2" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.3" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.4" executed="True" result="Success" success="True" time="0.018" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.5" executed="True" result="Success" success="True" time="0.017" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.6" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.7" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+                        <test-case name="testEnforce.PriorityModel.8" executed="True" result="Success" success="True" time="0.014" asserts="0" />
+                        <test-case name="testEnforce.Indeterminate.1" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.1" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.2" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.3" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.4" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.5" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.6" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.7" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelNoPolicy.8" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.1" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.2" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.3" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.4" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.5" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.6" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.7" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.8" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.9" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.10" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.11" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestBasicModelWithRootNoPolicy.12" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.1" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.2" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.3" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.4" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.5" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.6" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.7" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModel.8" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.1" executed="True" result="Success" success="True" time="0.022" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.2" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.3" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.4" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.5" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.6" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.7" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithResourcesRoles.8" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithOnlyDeny.1" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.1" executed="True" result="Success" success="True" time="0.059" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.2" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.3" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.4" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.5" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.6" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.7" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelWithDomains.8" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.1" executed="True" result="Success" success="True" time="0.034" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.2" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.3" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.4" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.5" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.6" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.7" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforce.TestRBACModelInMultiLines.8" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.1" executed="True" result="Success" success="True" time="0.030" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.2" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.3" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.4" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.5" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.6" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.7" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforceABAC.ABAC.8" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforceRBACInMemoryIndeterminate" executed="True" result="Success" success="True" time="0.114" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.1" executed="True" result="Success" success="True" time="0.017" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.2" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.3" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.4" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.5" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.6" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.7" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory.RBACInMemory.8" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.1" executed="True" result="Success" success="True" time="0.039" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.2" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.3" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.4" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.5" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.6" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.7" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforceRBACModelInMemory2.RBACInMemory2.8" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.1" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.2" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.3" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.4" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.5" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.6" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.7" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testEnforceNotUsedRBACModelInMemory.NotUsedRBACModelInMemory.8" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testEnforceRBACModelWithDomainsAtRuntime" executed="True" result="Success" success="True" time="0.102" asserts="0" />
+                        <test-case name="testEnableEnforce" executed="True" result="Success" success="True" time="0.021" asserts="0" />
+                        <test-case name="testGetAndSetModel" executed="True" result="Success" success="True" time="0.015" asserts="0" />
+                        <test-case name="testGetAndSetAdapterInMem" executed="True" result="Success" success="True" time="0.030" asserts="0" />
+                        <test-case name="testGetAndSetAAdapterFromFile" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                        <test-case name="testInitEmpty" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="TTestCasbinResolve" executed="True" result="Success" success="True" time="0.315" >
+                      <results>
+                        <test-case name="testResolveRequest" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testResolvePolicy" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testResolveMatcherBasicModel" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        <test-case name="testResolveFunctionIPMatch" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                      </results>
+                    </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="Namespace" name="Parser" executed="true" result="Success" success="True" time="0.445" asserts="0" >
+                <results>
+                    <test-suite type="Fixture" name="TTestParser" executed="True" result="Success" success="True" time="0.294" >
+                      <results>
+                        <test-case name="testLogger" executed="True" result="Success" success="True" time="0.009" asserts="0" />
+                        <test-case name="testHeadersInPolicy.Simple Header" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testHeadersInPolicy.EOL in heading" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testHeadersInPolicy.Tab" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        <test-case name="testHeaderAssignment.Header 1" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testMatchersSection.Matchers respect spaces" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testStatementOutputString.Header 1" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                        <test-case name="testHeadersInConfig.Space before assignment" executed="True" result="Success" success="True" time="0.024" asserts="0" />
+                        <test-case name="testErrors.Double [ in header" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testErrors.Missed [ in header" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                        <test-case name="testErrors.Missing section" executed="True" result="Success" success="True" time="0.007" asserts="0" />
+                        <test-case name="testFix.Missing Header" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testFix.Start with EOL" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testFix.Start with multiple EOL" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testFixParseString.Has double and single quotes" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                        <test-case name="testHeaderOutputString.Header Only" executed="True" result="Success" success="True" time="0.024" asserts="0" />
+                        <test-case name="testHeaderOutputString.Header With Statement" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testHeaderOutputString.Header With Multiple Statement and Sections" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testHeaderOutputString.Roles Rules" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="TTestParserAST" executed="True" result="Success" success="True" time="0.152" >
+                      <results>
+                        <test-case name="testRequest" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testPolicyDefinition" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testPolicyRules" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testRoleDefinition" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testMatchers" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllow.Go" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllow.Delphi" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllow With Underscore.Go" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllow With Underscore.Delphi" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecNotSomeDeny.Go" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecNotSomeDeny.Delphi" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllowANDNotDeny.Go" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        <test-case name="testEffects.ecSomeAllowANDNotDeny.Delphi" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecPriorityORDeny.Go" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecPriorityORDeny.Delphi" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        <test-case name="testEffects.ecUnknown" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                      </results>
+                    </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="Fixture" name="TTestModel" executed="True" result="Success" success="True" time="0.140" >
+                <results>
+                  <test-case name="testSections.Request" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testSections.Policy_Definition" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testSections.Effect" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testSections.Matcher" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertions.Request" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertions.Policy_Definition" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertions.Effect" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertions.Matcher" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testEffect" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertionExists.Request" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                  <test-case name="testAssertionExists.Policy" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertionExists.Effect" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAssertionExists.Matchers" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAddDefinitionFull.Request" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAddDefinitionCompact.Request" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="testAddWrongAssertionType" executed="True" result="Success" success="True" time="0.035" asserts="0" />
+                  <test-case name="testAddEmptyAssertion" executed="True" result="Success" success="True" time="0.030" asserts="0" />
+                  <test-case name="testAddAssertionString" executed="True" result="Success" success="True" time="0.028" asserts="0" />
+                  <test-case name="testToOutputString" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

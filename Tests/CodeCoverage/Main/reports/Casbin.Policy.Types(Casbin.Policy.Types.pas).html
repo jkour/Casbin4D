@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Policy.Types (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Policy\Casbin.Policy.Types.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Policy\Casbin.Policy.Types.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>7</td></tr><tr><td>Number of lines with code gen</td><td>8</td></tr><tr><td>Line coverage</td><td>87%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">// Copyright 2018 by John Kouraklis and Contributors. All Rights Reserved.</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">// you may not use this file except in compliance with the License.</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">// You may obtain a copy of the License at</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;http://www.apache.org/licenses/LICENSE-2.0</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">// Unless required by applicable law or agreed to in writing, software</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">// See the License for the specific language governing permissions and</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// limitations under the License.</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">unit Casbin.Policy.Types;</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Base.Types, Casbin.Model.Sections.Types,</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp;System.Generics.Collections, System.Rtti, System.Types;</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;">const</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;"> &nbsp;DefaultDomain = &apos;default&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"> &nbsp;TRoleNode = class</pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"> &nbsp; &nbsp;fDomain: string;</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;"> &nbsp; &nbsp;fID: string;</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"> &nbsp; &nbsp;fValue: string;</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aValue: String; const aDomain: string = DefaultDomain);</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;"> &nbsp; &nbsp;property Domain: string read fDomain;</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;"> &nbsp; &nbsp;property Value: string read fValue;</pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;"> &nbsp; &nbsp;property ID: string read fID write fID;</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp;IPolicyManager = interface (IBaseInvokableInterface)</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;"> &nbsp; &nbsp;[&apos;{B983A830-6107-4283-A45D-D74CDBB5E2EA}&apos;]</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;"> &nbsp; &nbsp;function section (const aSlim: Boolean = true): string;</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;"> &nbsp; &nbsp;function toOutputString: string;</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp; &nbsp;// Policies</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policies: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>45</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addPolicy (const aSection: TSectionType; const aTag: string;</pre></td></tr>
+<tr class="nocodegen"><td>46</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>47</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addPolicy (const aSection: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure load (const aFilter: TFilterArray = []);</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policy (const aFilter: TFilterArray = []): string;</pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure clear;</pre></td></tr>
+<tr class="nocodegen"><td>52</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policyExists (const aFilter: TFilterArray = []): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>53</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>54</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removePolicy (const aFilter: TFilterArray = []);</pre></td></tr>
+<tr class="nocodegen"><td>55</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;"> &nbsp; &nbsp;// Roles</pre></td></tr>
+<tr class="nocodegen"><td>57</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure clearRoles;</pre></td></tr>
+<tr class="nocodegen"><td>58</td><td><pre style="display:inline;"> &nbsp; &nbsp;function roles: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>59</td><td><pre style="display:inline;"> &nbsp; &nbsp;function domains: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>60</td><td><pre style="display:inline;"> &nbsp; &nbsp;function roleExists (const aFilter: TFilterArray = []): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>61</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottom: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottom: string;</pre></td></tr>
+<tr class="nocodegen"><td>64</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aTopDomain: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>65</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottomDomain: string; const aBottom: string;</pre></td></tr>
+<tr class="nocodegen"><td>66</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aTopDomain: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>67</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeft: string; const aRight: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>68</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>70</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeftDomain: string; const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>71</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>72</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeft: string; const aRight: string):boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>73</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>74</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string):boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>75</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeftDomain: string; const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string):boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>77</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"> &nbsp; &nbsp;function rolesForEntity (const aEntity: string; const aDomain: string =&apos;&apos;):TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>79</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>80</td><td><pre style="display:inline;"> &nbsp; &nbsp;function EntitiesForRole (const aEntity: string; const aDomain: string =&apos;&apos;):TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>81</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>84</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>85</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>86</td><td><pre style="display:inline;"> &nbsp;System.SysUtils;</pre></td></tr>
+<tr class="nocodegen"><td>87</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>88</td><td><pre style="display:inline;">constructor TRoleNode.Create(const aValue: String; const aDomain: string =</pre></td></tr>
+<tr class="nocodegen"><td>89</td><td><pre style="display:inline;"> &nbsp; &nbsp;DefaultDomain);</pre></td></tr>
+<tr class="nocodegen"><td>90</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;"> &nbsp;guid: TGUID;</pre></td></tr>
+<tr class="covered"><td>92</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>93</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="covered"><td>94</td><td><pre style="display:inline;"> &nbsp;fValue:=Trim(aValue);</pre></td></tr>
+<tr class="covered"><td>95</td><td><pre style="display:inline;"> &nbsp;fDomain:=Trim(aDomain);</pre></td></tr>
+<tr class="covered"><td>96</td><td><pre style="display:inline;"> &nbsp;if CreateGUID(guid) &lt;&gt; 0 then</pre></td></tr>
+<tr class="notcovered"><td>97</td><td><pre style="display:inline;"> &nbsp; &nbsp;fID:=GUIDToString(TGUID.Empty)</pre></td></tr>
+<tr class="nocodegen"><td>98</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="covered"><td>99</td><td><pre style="display:inline;"> &nbsp; &nbsp;fID:=GUIDToString(guid);</pre></td></tr>
+<tr class="covered"><td>100</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>101</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>102</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

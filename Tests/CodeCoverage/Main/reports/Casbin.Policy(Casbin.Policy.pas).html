@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Policy (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Policy\Casbin.Policy.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Policy\Casbin.Policy.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>374</td></tr><tr><td>Number of lines with code gen</td><td>394</td></tr><tr><td>Line coverage</td><td>94%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">// Copyright 2018 by John Kouraklis and Contributors. All Rights Reserved.</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">// you may not use this file except in compliance with the License.</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">// You may obtain a copy of the License at</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;http://www.apache.org/licenses/LICENSE-2.0</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">// Unless required by applicable law or agreed to in writing, software</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">// See the License for the specific language governing permissions and</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// limitations under the License.</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">unit Casbin.Policy;</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Base.Types, Casbin.Policy.Types, Casbin.Parser.Types,</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;"> &nbsp;Casbin.Parser.AST.Types, Casbin.Adapter.Policy.Types, System.Rtti,</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;"> &nbsp;System.Types, System.Classes, Casbin.Model.Sections.Types,</pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;"> &nbsp;System.Generics.Collections;</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;"> &nbsp;{$RTTI EXPLICIT METHODS([vcPrivate, vcPublic])}</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;"> &nbsp;TPolicyManager = class(TBaseInterfacedObject, IPolicyManager)</pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;"> &nbsp; &nbsp;fAdapter: IPolicyAdapter;</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;"> &nbsp; &nbsp;fParser: IParser; &nbsp; &nbsp;//PALOFF</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;"> &nbsp; &nbsp;fNodes: TNodeCollection;</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;"> &nbsp; &nbsp;fPoliciesList: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesList: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;"> &nbsp; &nbsp;fDomains: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesNodes: TObjectDictionary&lt;string, TRoleNode&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesLinks: TObjectDictionary&lt;string, TStringList&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure loadPolicies;</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;"> &nbsp; &nbsp;function findRolesNode(const aDomain, aValue: string): TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure loadRoles;</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;">{$REGION &apos;Interface&apos;}</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;"> &nbsp; &nbsp;function section (const aSlim: Boolean = true): string;</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;"> &nbsp; &nbsp;function toOutputString: string;</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>45</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policies: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>46</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure load (const aFilter: TFilterArray = []);</pre></td></tr>
+<tr class="nocodegen"><td>47</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policy(const aFilter: TFilterArray = []): string;</pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure clear;</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"> &nbsp; &nbsp;function policyExists(const aFilter: TFilterArray = []): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removePolicy(const aFilter: TFilterArray = []);</pre></td></tr>
+<tr class="nocodegen"><td>52</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addPolicy (const aSection: TSectionType; const aTag: string;</pre></td></tr>
+<tr class="nocodegen"><td>53</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>54</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addPolicy (const aSection: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>55</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aAssertion: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure clearRoles;</pre></td></tr>
+<tr class="nocodegen"><td>57</td><td><pre style="display:inline;"> &nbsp; &nbsp;function roles: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>58</td><td><pre style="display:inline;"> &nbsp; &nbsp;function domains: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>59</td><td><pre style="display:inline;"> &nbsp; &nbsp;function roleExists (const aFilter: TFilterArray = []): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>60</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottom: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>61</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottom: string;</pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aTopDomain: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure addLink(const aBottomDomain: string; const aBottom: string;</pre></td></tr>
+<tr class="nocodegen"><td>64</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aTopDomain: string; const aTop: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>65</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeft, aRight: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>66</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>67</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string);</pre></td></tr>
+<tr class="nocodegen"><td>68</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; overload;</pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure removeLink(const aLeftDomain, aLeft, aRightDomain, aRight: string);</pre></td></tr>
+<tr class="nocodegen"><td>70</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>71</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeft: string; const aRight: string): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>72</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>73</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeft: string;</pre></td></tr>
+<tr class="nocodegen"><td>74</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const aRightDomain: string; const aRight: string):boolean;</pre></td></tr>
+<tr class="nocodegen"><td>75</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;overload;</pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;"> &nbsp; &nbsp;function linkExists(const aLeftDomain: string; const aLeft: string; const</pre></td></tr>
+<tr class="nocodegen"><td>77</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;aRightDomain: string; const aRight: string): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"> &nbsp; &nbsp;function rolesForEntity (const aEntity: string; const aDomain: string =&apos;&apos;):</pre></td></tr>
+<tr class="nocodegen"><td>79</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>80</td><td><pre style="display:inline;"> &nbsp; &nbsp;function EntitiesForRole (const aEntity: string; const aDomain: string =&apos;&apos;):</pre></td></tr>
+<tr class="nocodegen"><td>81</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;">{$ENDREGION}</pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>84</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aPolicy: string); overload;</pre></td></tr>
+<tr class="nocodegen"><td>85</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const aAdapter: IPolicyAdapter); overload;</pre></td></tr>
+<tr class="nocodegen"><td>86</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create; overload;</pre></td></tr>
+<tr class="nocodegen"><td>87</td><td><pre style="display:inline;"> &nbsp; &nbsp;destructor Destroy; override;</pre></td></tr>
+<tr class="nocodegen"><td>88</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>89</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>90</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>92</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>93</td><td><pre style="display:inline;"> &nbsp;Casbin.Adapter.Filesystem.Policy, Casbin.Exception.Types, Casbin.Parser,</pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;"> &nbsp;Casbin.Core.Utilities, Casbin.Core.Defaults, System.SysUtils,</pre></td></tr>
+<tr class="nocodegen"><td>95</td><td><pre style="display:inline;"> &nbsp;System.StrUtils, Casbin.Model.Sections.Default, Casbin.Adapter.Memory.Policy,</pre></td></tr>
+<tr class="nocodegen"><td>96</td><td><pre style="display:inline;"> &nbsp;Casbin.Parser.AST, ArrayHelper, System.RegularExpressions;</pre></td></tr>
+<tr class="nocodegen"><td>97</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>98</td><td><pre style="display:inline;">{ TPolicyManager }</pre></td></tr>
+<tr class="nocodegen"><td>99</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>100</td><td><pre style="display:inline;">constructor TPolicyManager.Create(const aPolicy: string);</pre></td></tr>
+<tr class="covered"><td>101</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>102</td><td><pre style="display:inline;"> &nbsp;Create(TPolicyFileAdapter.Create(aPolicy));</pre></td></tr>
+<tr class="covered"><td>103</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>104</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>105</td><td><pre style="display:inline;">procedure TPolicyManager.addLink(const aBottom, aTop: string);</pre></td></tr>
+<tr class="covered"><td>106</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>107</td><td><pre style="display:inline;"> &nbsp;addLink(DefaultDomain, aBottom, DefaultDomain, aTop);</pre></td></tr>
+<tr class="covered"><td>108</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>109</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>110</td><td><pre style="display:inline;">procedure TPolicyManager.addLink(const aBottomDomain, aBottom, aTopDomain,</pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"> &nbsp;aTop: string);</pre></td></tr>
+<tr class="nocodegen"><td>112</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>113</td><td><pre style="display:inline;"> &nbsp;bottomNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>114</td><td><pre style="display:inline;"> &nbsp;topNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>115</td><td><pre style="display:inline;"> &nbsp;IDList: TStringList;</pre></td></tr>
+<tr class="covered"><td>116</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>117</td><td><pre style="display:inline;"> &nbsp;bottomNode:=findRolesNode(aBottomDomain, aBottom);</pre></td></tr>
+<tr class="covered"><td>118</td><td><pre style="display:inline;"> &nbsp;if not Assigned(bottomNode) then</pre></td></tr>
+<tr class="nocodegen"><td>119</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>120</td><td><pre style="display:inline;"> &nbsp; &nbsp;bottomNode:=TRoleNode.Create(aBottom, aBottomDomain);</pre></td></tr>
+<tr class="covered"><td>121</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesNodes.add(bottomNode.ID, bottomNode);</pre></td></tr>
+<tr class="nocodegen"><td>122</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>123</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>124</td><td><pre style="display:inline;"> &nbsp;topNode:=findRolesNode(aTopDomain, aTop);</pre></td></tr>
+<tr class="covered"><td>125</td><td><pre style="display:inline;"> &nbsp;if not Assigned(topNode) then</pre></td></tr>
+<tr class="nocodegen"><td>126</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>127</td><td><pre style="display:inline;"> &nbsp; &nbsp;topNode:=TRoleNode.Create(aTop, aTopDomain);</pre></td></tr>
+<tr class="covered"><td>128</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesNodes.add(topNode.ID, topNode);</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>130</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>131</td><td><pre style="display:inline;"> &nbsp;if not fRolesLinks.ContainsKey(bottomNode.ID) then</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>133</td><td><pre style="display:inline;"> &nbsp; &nbsp;IDList:=TStringList.Create;</pre></td></tr>
+<tr class="covered"><td>134</td><td><pre style="display:inline;"> &nbsp; &nbsp;IDList.Sorted:=true;</pre></td></tr>
+<tr class="covered"><td>135</td><td><pre style="display:inline;"> &nbsp; &nbsp;IDList.CaseSensitive:=False;</pre></td></tr>
+<tr class="covered"><td>136</td><td><pre style="display:inline;"> &nbsp; &nbsp;fRolesLinks.add(bottomNode.ID, IDList);</pre></td></tr>
+<tr class="nocodegen"><td>137</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>138</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>139</td><td><pre style="display:inline;"> &nbsp;IDList:=fRolesLinks.Items[bottomNode.ID];</pre></td></tr>
+<tr class="nocodegen"><td>140</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>141</td><td><pre style="display:inline;"> &nbsp;if IDList.IndexOf(topNode.id)=-1 then</pre></td></tr>
+<tr class="covered"><td>142</td><td><pre style="display:inline;"> &nbsp; &nbsp;IDList.add(topNode.ID);</pre></td></tr>
+<tr class="nocodegen"><td>143</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>144</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>145</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>146</td><td><pre style="display:inline;">procedure TPolicyManager.addPolicy(const aSection: TSectionType;</pre></td></tr>
+<tr class="nocodegen"><td>147</td><td><pre style="display:inline;"> &nbsp;const aAssertion: string);</pre></td></tr>
+<tr class="nocodegen"><td>148</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>149</td><td><pre style="display:inline;"> &nbsp;arrStr: TArray&lt;string&gt;;</pre></td></tr>
+<tr class="covered"><td>150</td><td><pre style="display:inline;"> begin</pre></td></tr>
+<tr class="covered"><td>151</td><td><pre style="display:inline;"> &nbsp;if trim(aAssertion)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>152</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>153</td><td><pre style="display:inline;"> &nbsp;arrStr:=aAssertion.Split([&apos;,&apos;]);</pre></td></tr>
+<tr class="covered"><td>154</td><td><pre style="display:inline;"> &nbsp;if Length(arrStr)&lt;=1 then</pre></td></tr>
+<tr class="notcovered"><td>155</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion &apos;+aAssertion+&apos; is wrong&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>156</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>157</td><td><pre style="display:inline;"> &nbsp;addPolicy(aSection, arrStr[0], string.Join(&apos;,&apos;, arrStr, 1, Length(arrStr)-1));</pre></td></tr>
+<tr class="covered"><td>158</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>159</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>160</td><td><pre style="display:inline;">procedure TPolicyManager.addPolicy(const aSection: TSectionType; const aTag,</pre></td></tr>
+<tr class="nocodegen"><td>161</td><td><pre style="display:inline;"> &nbsp;aAssertion: string);</pre></td></tr>
+<tr class="covered"><td>162</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>163</td><td><pre style="display:inline;"> &nbsp;if trim(aTag)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>164</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Tag is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>165</td><td><pre style="display:inline;"> &nbsp;if trim(aAssertion)=&apos;&apos; then</pre></td></tr>
+<tr class="notcovered"><td>166</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Assertion is empty&apos;);</pre></td></tr>
+<tr class="covered"><td>167</td><td><pre style="display:inline;"> &nbsp;if not ((aSection=stDefault) or (aSection=stPolicyRules) or</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(aSection=stRoleRules)) then</pre></td></tr>
+<tr class="notcovered"><td>169</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Wrong section type&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>171</td><td><pre style="display:inline;"> &nbsp;fAdapter.add(Trim(aTag)+&apos;,&apos;+trim(aAssertion));</pre></td></tr>
+<tr class="covered"><td>172</td><td><pre style="display:inline;"> &nbsp;fParser:=TParser.Create(fAdapter.toOutputString, ptPolicy);</pre></td></tr>
+<tr class="covered"><td>173</td><td><pre style="display:inline;"> &nbsp;fParser.parse;</pre></td></tr>
+<tr class="covered"><td>174</td><td><pre style="display:inline;"> &nbsp;if fParser.Status=psError then</pre></td></tr>
+<tr class="notcovered"><td>175</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Parsing error in Model: &apos;+fParser.ErrorMessage);</pre></td></tr>
+<tr class="covered"><td>176</td><td><pre style="display:inline;"> &nbsp;fNodes:=fParser.Nodes;</pre></td></tr>
+<tr class="covered"><td>177</td><td><pre style="display:inline;"> &nbsp;loadRoles;</pre></td></tr>
+<tr class="covered"><td>178</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>179</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>180</td><td><pre style="display:inline;">procedure TPolicyManager.addLink(const aBottom, aTopDomain, aTop: string);</pre></td></tr>
+<tr class="covered"><td>181</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>182</td><td><pre style="display:inline;"> &nbsp;addLink(DefaultDomain, aBottom, aTopDomain, aTop);</pre></td></tr>
+<tr class="covered"><td>183</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>184</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>185</td><td><pre style="display:inline;">procedure TPolicyManager.clear;</pre></td></tr>
+<tr class="covered"><td>186</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>187</td><td><pre style="display:inline;"> &nbsp;fAdapter.clear;</pre></td></tr>
+<tr class="covered"><td>188</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>189</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>190</td><td><pre style="display:inline;">procedure TPolicyManager.clearRoles;</pre></td></tr>
+<tr class="covered"><td>191</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>192</td><td><pre style="display:inline;"> &nbsp;fRolesLinks.Clear;</pre></td></tr>
+<tr class="covered"><td>193</td><td><pre style="display:inline;"> &nbsp;fRolesNodes.Clear;</pre></td></tr>
+<tr class="covered"><td>194</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>195</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>196</td><td><pre style="display:inline;">constructor TPolicyManager.Create(const aAdapter: IPolicyAdapter);</pre></td></tr>
+<tr class="covered"><td>197</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>198</td><td><pre style="display:inline;"> &nbsp;if not Assigned(aAdapter) then</pre></td></tr>
+<tr class="notcovered"><td>199</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Adapter is nil in &apos;+Self.ClassName);</pre></td></tr>
+<tr class="covered"><td>200</td><td><pre style="display:inline;"> &nbsp;inherited Create;</pre></td></tr>
+<tr class="covered"><td>201</td><td><pre style="display:inline;"> &nbsp;fAdapter:=aAdapter;</pre></td></tr>
+<tr class="covered"><td>202</td><td><pre style="display:inline;"> &nbsp;fPoliciesList:=TList&lt;string&gt;.Create; &nbsp;//PALOFF</pre></td></tr>
+<tr class="covered"><td>203</td><td><pre style="display:inline;"> &nbsp;fRolesList:=TList&lt;string&gt;.Create; &nbsp;//PALOFF</pre></td></tr>
+<tr class="covered"><td>204</td><td><pre style="display:inline;"> &nbsp;fRolesNodes:=TObjectDictionary&lt;string, TRoleNode&gt;.Create([doOwnsValues]);</pre></td></tr>
+<tr class="covered"><td>205</td><td><pre style="display:inline;"> &nbsp;fRolesLinks:=TObjectDictionary&lt;string, TStringList&gt;.Create([doOwnsValues]);</pre></td></tr>
+<tr class="covered"><td>206</td><td><pre style="display:inline;"> &nbsp;fDomains:=TList&lt;string&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>207</td><td><pre style="display:inline;"> &nbsp;loadPolicies;</pre></td></tr>
+<tr class="covered"><td>208</td><td><pre style="display:inline;"> &nbsp;loadRoles;</pre></td></tr>
+<tr class="covered"><td>209</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>210</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>211</td><td><pre style="display:inline;">constructor TPolicyManager.Create;</pre></td></tr>
+<tr class="covered"><td>212</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>213</td><td><pre style="display:inline;"> &nbsp;Create(TPolicyMemoryAdapter.Create);</pre></td></tr>
+<tr class="covered"><td>214</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>215</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>216</td><td><pre style="display:inline;">procedure TPolicyManager.removeLink(const aLeftDomain, aLeft, aRightDomain,</pre></td></tr>
+<tr class="nocodegen"><td>217</td><td><pre style="display:inline;"> &nbsp; &nbsp;aRight: string);</pre></td></tr>
+<tr class="nocodegen"><td>218</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>219</td><td><pre style="display:inline;"> &nbsp;leftNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>220</td><td><pre style="display:inline;"> &nbsp;rightNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>221</td><td><pre style="display:inline;"> &nbsp;index: integer;</pre></td></tr>
+<tr class="nocodegen"><td>222</td><td><pre style="display:inline;"> &nbsp;list: TStringList;</pre></td></tr>
+<tr class="covered"><td>223</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>224</td><td><pre style="display:inline;"> &nbsp;leftNode:=findRolesNode(aLeftDomain, aLeft);</pre></td></tr>
+<tr class="covered"><td>225</td><td><pre style="display:inline;"> &nbsp;if not Assigned(leftNode) then</pre></td></tr>
+<tr class="nocodegen"><td>226</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>227</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>228</td><td><pre style="display:inline;"> &nbsp;rightNode:=findRolesNode(aRightDomain, aRight);</pre></td></tr>
+<tr class="covered"><td>229</td><td><pre style="display:inline;"> &nbsp;if not Assigned(rightNode) then</pre></td></tr>
+<tr class="nocodegen"><td>230</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>231</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>232</td><td><pre style="display:inline;"> &nbsp;list:=fRolesLinks.Items[leftNode.ID];</pre></td></tr>
+<tr class="covered"><td>233</td><td><pre style="display:inline;"> &nbsp;if Assigned(list) then</pre></td></tr>
+<tr class="nocodegen"><td>234</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>235</td><td><pre style="display:inline;"> &nbsp; &nbsp;index:=list.IndexOf(rightNode.ID);</pre></td></tr>
+<tr class="covered"><td>236</td><td><pre style="display:inline;"> &nbsp; &nbsp;if (index&gt;-1) and (rightNode.Domain=aRightDomain) then</pre></td></tr>
+<tr class="covered"><td>237</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;list.Delete(index);</pre></td></tr>
+<tr class="nocodegen"><td>238</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>239</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>240</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>241</td><td><pre style="display:inline;">procedure TPolicyManager.removePolicy(const aFilter: TFilterArray);</pre></td></tr>
+<tr class="nocodegen"><td>242</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>243</td><td><pre style="display:inline;"> &nbsp;arrString: TArrayRecord&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>244</td><td><pre style="display:inline;"> &nbsp;item: string;</pre></td></tr>
+<tr class="nocodegen"><td>245</td><td><pre style="display:inline;"> &nbsp;header: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>246</td><td><pre style="display:inline;"> &nbsp;child: TChildNode;</pre></td></tr>
+<tr class="nocodegen"><td>247</td><td><pre style="display:inline;"> &nbsp;outStr: string;</pre></td></tr>
+<tr class="nocodegen"><td>248</td><td><pre style="display:inline;"> &nbsp;itemString: string;</pre></td></tr>
+<tr class="nocodegen"><td>249</td><td><pre style="display:inline;"> &nbsp;regExp: TRegEx;</pre></td></tr>
+<tr class="nocodegen"><td>250</td><td><pre style="display:inline;"> &nbsp;match: TMatch;</pre></td></tr>
+<tr class="nocodegen"><td>251</td><td><pre style="display:inline;"> &nbsp;key: string;</pre></td></tr>
+<tr class="covered"><td>252</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>253</td><td><pre style="display:inline;"> &nbsp;arrString:=TArrayRecord&lt;string&gt;.Create(aFilter);</pre></td></tr>
+<tr class="nocodegen"><td>254</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>255</td><td><pre style="display:inline;"> &nbsp;itemString:=string.Join(&apos;,&apos;, aFilter);</pre></td></tr>
+<tr class="covered"><td>256</td><td><pre style="display:inline;"> &nbsp;while Pos(#32, itemString, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="notcovered"><td>257</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(itemString, Pos(#32, itemString, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>258</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>259</td><td><pre style="display:inline;"> &nbsp;for header in fNodes.Headers do</pre></td></tr>
+<tr class="nocodegen"><td>260</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>261</td><td><pre style="display:inline;"> &nbsp; &nbsp;for child in header.ChildNodes do</pre></td></tr>
+<tr class="nocodegen"><td>262</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>263</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;outStr:=child.toOutputString;</pre></td></tr>
+<tr class="covered"><td>264</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;outStr:=outStr.Replace(&apos;p=&apos;,&apos; &apos;);</pre></td></tr>
+<tr class="covered"><td>265</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;outStr:=outStr.Replace(&apos;g=&apos;,&apos; &apos;);</pre></td></tr>
+<tr class="covered"><td>266</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;outStr:=outStr.Replace(&apos;g2=&apos;,&apos; &apos;);</pre></td></tr>
+<tr class="covered"><td>267</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;while Pos(#32, outStr, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="covered"><td>268</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Delete(outStr, Pos(#32, outStr, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>269</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>270</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if arrString.Contains(&apos;*&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>271</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>272</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;key:=&apos;^&apos;;</pre></td></tr>
+<tr class="covered"><td>273</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;for item in arrString do</pre></td></tr>
+<tr class="nocodegen"><td>274</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>275</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if item&lt;&gt;&apos;*&apos; then</pre></td></tr>
+<tr class="covered"><td>276</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;key:=key+&apos;(?=.*\b&apos;+Trim(item)+&apos;\b)&apos;;</pre></td></tr>
+<tr class="covered"><td>277</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>278</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;key:=key+&apos;.*$&apos;;</pre></td></tr>
+<tr class="covered"><td>279</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;regExp:=TRegEx.Create(key);</pre></td></tr>
+<tr class="covered"><td>280</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;match:=regExp.Match(outStr);</pre></td></tr>
+<tr class="covered"><td>281</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if match.Success then</pre></td></tr>
+<tr class="covered"><td>282</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;header.ChildNodes.Remove(child);</pre></td></tr>
+<tr class="nocodegen"><td>283</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>284</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="covered"><td>285</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if Trim(UpperCase(outStr)) = Trim(UpperCase(itemString)) then</pre></td></tr>
+<tr class="covered"><td>286</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;header.ChildNodes.Remove(child);</pre></td></tr>
+<tr class="covered"><td>287</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>288</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>289</td><td><pre style="display:inline;"> &nbsp;loadRoles;</pre></td></tr>
+<tr class="covered"><td>290</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>291</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>292</td><td><pre style="display:inline;">procedure TPolicyManager.removeLink(const aLeft, aRightDomain, aRight: string);</pre></td></tr>
+<tr class="covered"><td>293</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>294</td><td><pre style="display:inline;"> &nbsp;removeLink(DefaultDomain, aLeft, aRightDomain, aRight);</pre></td></tr>
+<tr class="covered"><td>295</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>296</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>297</td><td><pre style="display:inline;">procedure TPolicyManager.removeLink(const aLeft, aRight: string);</pre></td></tr>
+<tr class="covered"><td>298</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>299</td><td><pre style="display:inline;"> &nbsp;removeLink(DefaultDomain, aLeft, DefaultDomain, aRight);</pre></td></tr>
+<tr class="covered"><td>300</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>301</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>302</td><td><pre style="display:inline;">destructor TPolicyManager.Destroy;</pre></td></tr>
+<tr class="covered"><td>303</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>304</td><td><pre style="display:inline;"> &nbsp;fPoliciesList.Free;</pre></td></tr>
+<tr class="covered"><td>305</td><td><pre style="display:inline;"> &nbsp;fRolesList.Free;</pre></td></tr>
+<tr class="covered"><td>306</td><td><pre style="display:inline;"> &nbsp;fRolesLinks.Free;</pre></td></tr>
+<tr class="covered"><td>307</td><td><pre style="display:inline;"> &nbsp;fRolesNodes.Free;</pre></td></tr>
+<tr class="covered"><td>308</td><td><pre style="display:inline;"> &nbsp;fDomains.Free;</pre></td></tr>
+<tr class="covered"><td>309</td><td><pre style="display:inline;"> &nbsp;inherited;</pre></td></tr>
+<tr class="covered"><td>310</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>311</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>312</td><td><pre style="display:inline;">function TPolicyManager.domains: TList&lt;string&gt;;</pre></td></tr>
+<tr class="covered"><td>313</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>314</td><td><pre style="display:inline;"> &nbsp;Result:=fDomains;</pre></td></tr>
+<tr class="covered"><td>315</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>316</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>317</td><td><pre style="display:inline;">function TPolicyManager.EntitiesForRole(const aEntity,</pre></td></tr>
+<tr class="nocodegen"><td>318</td><td><pre style="display:inline;"> &nbsp;aDomain: string): TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>319</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>320</td><td><pre style="display:inline;"> &nbsp;domain: string;</pre></td></tr>
+<tr class="nocodegen"><td>321</td><td><pre style="display:inline;"> &nbsp;entity: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>322</td><td><pre style="display:inline;"> &nbsp;id: string;</pre></td></tr>
+<tr class="nocodegen"><td>323</td><td><pre style="display:inline;"> &nbsp;linkID: string;</pre></td></tr>
+<tr class="covered"><td>324</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>325</td><td><pre style="display:inline;"> &nbsp;SetLength(Result, 0);</pre></td></tr>
+<tr class="nocodegen"><td>326</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>327</td><td><pre style="display:inline;"> &nbsp;if Trim(aDomain)=&apos;&apos; then</pre></td></tr>
+<tr class="covered"><td>328</td><td><pre style="display:inline;"> &nbsp; &nbsp;domain:=DefaultDomain</pre></td></tr>
+<tr class="nocodegen"><td>329</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="notcovered"><td>330</td><td><pre style="display:inline;"> &nbsp; &nbsp;domain:=Trim(aDomain);</pre></td></tr>
+<tr class="nocodegen"><td>331</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>332</td><td><pre style="display:inline;"> &nbsp;for id in fRolesLinks.Keys do</pre></td></tr>
+<tr class="nocodegen"><td>333</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>334</td><td><pre style="display:inline;"> &nbsp; &nbsp;for linkID in fRolesLinks.Items[id] do</pre></td></tr>
+<tr class="nocodegen"><td>335</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>336</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if fRolesNodes.ContainsKey(linkID) then</pre></td></tr>
+<tr class="nocodegen"><td>337</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>338</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;entity:=fRolesNodes.Items[linkID];</pre></td></tr>
+<tr class="covered"><td>339</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if SameText(entity.Domain, domain) and</pre></td></tr>
+<tr class="nocodegen"><td>340</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SameText(entity.Value, aEntity) then</pre></td></tr>
+<tr class="nocodegen"><td>341</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>342</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetLength(Result, Length(Result)+1);</pre></td></tr>
+<tr class="covered"><td>343</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Result[Length(Result)-1]:=fRolesNodes.items[id].Value;</pre></td></tr>
+<tr class="nocodegen"><td>344</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>345</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>346</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>347</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>348</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>349</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;string&gt;(Result);</pre></td></tr>
+<tr class="covered"><td>350</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>351</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>352</td><td><pre style="display:inline;">function TPolicyManager.findRolesNode(const aDomain, aValue: string): TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>353</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>354</td><td><pre style="display:inline;"> &nbsp;node: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>355</td><td><pre style="display:inline;"> &nbsp;itemNode: TRoleNode;</pre></td></tr>
+<tr class="covered"><td>356</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>357</td><td><pre style="display:inline;"> &nbsp;node:=nil;</pre></td></tr>
+<tr class="covered"><td>358</td><td><pre style="display:inline;"> &nbsp;for itemNode in fRolesNodes.Values do</pre></td></tr>
+<tr class="nocodegen"><td>359</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>360</td><td><pre style="display:inline;"> &nbsp; &nbsp;if SameText(UpperCase(itemNode.Domain), UpperCase(Trim(aDomain))) and</pre></td></tr>
+<tr class="nocodegen"><td>361</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SameText(UpperCase(itemNode.Value), UpperCase(Trim(aValue))) then</pre></td></tr>
+<tr class="nocodegen"><td>362</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>363</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;node:=itemNode;</pre></td></tr>
+<tr class="covered"><td>364</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>365</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>366</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>367</td><td><pre style="display:inline;"> &nbsp;Result := node;</pre></td></tr>
+<tr class="covered"><td>368</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>369</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>370</td><td><pre style="display:inline;">function TPolicyManager.linkExists(const aLeft: string; const aRight: string):</pre></td></tr>
+<tr class="nocodegen"><td>371</td><td><pre style="display:inline;"> &nbsp; &nbsp;Boolean;</pre></td></tr>
+<tr class="covered"><td>372</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>373</td><td><pre style="display:inline;"> &nbsp;Result:=linkExists(DefaultDomain, aLeft, DefaultDomain, aRight);</pre></td></tr>
+<tr class="covered"><td>374</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>375</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>376</td><td><pre style="display:inline;">function TPolicyManager.linkExists(const aLeftDomain: string; const aLeft:</pre></td></tr>
+<tr class="nocodegen"><td>377</td><td><pre style="display:inline;"> &nbsp; &nbsp;string; const aRightDomain: string; const aRight: string): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>378</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>379</td><td><pre style="display:inline;"> &nbsp;leftNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>380</td><td><pre style="display:inline;"> &nbsp;rightNode: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>381</td><td><pre style="display:inline;"> &nbsp;item: string;</pre></td></tr>
+<tr class="nocodegen"><td>382</td><td><pre style="display:inline;"> &nbsp;lDomain,</pre></td></tr>
+<tr class="nocodegen"><td>383</td><td><pre style="display:inline;"> &nbsp;rDomain,</pre></td></tr>
+<tr class="nocodegen"><td>384</td><td><pre style="display:inline;"> &nbsp;lItem,</pre></td></tr>
+<tr class="nocodegen"><td>385</td><td><pre style="display:inline;"> &nbsp;rItem: string;</pre></td></tr>
+<tr class="covered"><td>386</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>387</td><td><pre style="display:inline;"> &nbsp;lDomain:=Trim(aLeftDomain);</pre></td></tr>
+<tr class="covered"><td>388</td><td><pre style="display:inline;"> &nbsp;rDomain:=Trim(aRightDomain);</pre></td></tr>
+<tr class="covered"><td>389</td><td><pre style="display:inline;"> &nbsp;lItem:=Trim(aLeft);</pre></td></tr>
+<tr class="covered"><td>390</td><td><pre style="display:inline;"> &nbsp;rItem:=Trim(aRight);</pre></td></tr>
+<tr class="nocodegen"><td>391</td><td><pre style="display:inline;">{$IFDEF DEBUG}</pre></td></tr>
+<tr class="covered"><td>392</td><td><pre style="display:inline;"> &nbsp;fAdapter.Logger.log(&apos; &nbsp; Roles for Left: &apos;+lItem);</pre></td></tr>
+<tr class="covered"><td>393</td><td><pre style="display:inline;"> &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp;Roles: &apos;);</pre></td></tr>
+<tr class="covered"><td>394</td><td><pre style="display:inline;"> &nbsp;if Length(rolesForEntity(aLeft))=0 then</pre></td></tr>
+<tr class="covered"><td>395</td><td><pre style="display:inline;"> &nbsp; &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp; &nbsp; No Roles found&apos;)</pre></td></tr>
+<tr class="nocodegen"><td>396</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="covered"><td>397</td><td><pre style="display:inline;"> &nbsp; &nbsp;for item in rolesForEntity(lItem) do</pre></td></tr>
+<tr class="covered"><td>398</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp; &nbsp; &apos;+item);</pre></td></tr>
+<tr class="nocodegen"><td>399</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>400</td><td><pre style="display:inline;"> &nbsp;fAdapter.Logger.log(&apos; &nbsp; Roles for Right: &apos;+rItem);</pre></td></tr>
+<tr class="covered"><td>401</td><td><pre style="display:inline;"> &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp;Roles: &apos;);</pre></td></tr>
+<tr class="covered"><td>402</td><td><pre style="display:inline;"> &nbsp;if Length(rolesForEntity(rItem))=0 then</pre></td></tr>
+<tr class="covered"><td>403</td><td><pre style="display:inline;"> &nbsp; &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp; &nbsp; No Roles found&apos;)</pre></td></tr>
+<tr class="nocodegen"><td>404</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="covered"><td>405</td><td><pre style="display:inline;"> &nbsp; &nbsp;for item in rolesForEntity(rItem) do</pre></td></tr>
+<tr class="covered"><td>406</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;fAdapter.Logger.log(&apos; &nbsp; &nbsp; &nbsp; &nbsp; &apos;+item);</pre></td></tr>
+<tr class="nocodegen"><td>407</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>408</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>409</td><td><pre style="display:inline;">{$ENDIF}</pre></td></tr>
+<tr class="covered"><td>410</td><td><pre style="display:inline;"> &nbsp;Result:=False;</pre></td></tr>
+<tr class="nocodegen"><td>411</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>412</td><td><pre style="display:inline;"> &nbsp;if SameText(UpperCase(lDomain), UpperCase(rDomain)) and</pre></td></tr>
+<tr class="nocodegen"><td>413</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;SameText(UpperCase(lItem), UpperCase(rItem)) or</pre></td></tr>
+<tr class="nocodegen"><td>414</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;(IndexStr(lItem, builtinAccounts)&gt;-1) then</pre></td></tr>
+<tr class="nocodegen"><td>415</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>416</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result:=True;</pre></td></tr>
+<tr class="covered"><td>417</td><td><pre style="display:inline;"> &nbsp; &nbsp;exit;</pre></td></tr>
+<tr class="nocodegen"><td>418</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>419</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>420</td><td><pre style="display:inline;"> &nbsp;leftNode:=findRolesNode(lDomain, lItem);</pre></td></tr>
+<tr class="covered"><td>421</td><td><pre style="display:inline;"> &nbsp;if not Assigned(leftNode) then</pre></td></tr>
+<tr class="nocodegen"><td>422</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>423</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>424</td><td><pre style="display:inline;"> &nbsp;rightNode:=findRolesNode(rDomain, rItem);</pre></td></tr>
+<tr class="covered"><td>425</td><td><pre style="display:inline;"> &nbsp;if not Assigned(rightNode) then</pre></td></tr>
+<tr class="nocodegen"><td>426</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>427</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>428</td><td><pre style="display:inline;"> &nbsp;if fRolesLinks.ContainsKey(leftNode.ID) then</pre></td></tr>
+<tr class="nocodegen"><td>429</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>430</td><td><pre style="display:inline;"> &nbsp; &nbsp;if fRolesLinks.Items[leftNode.ID].IndexOf(rightNode.ID)&gt;-1 then</pre></td></tr>
+<tr class="nocodegen"><td>431</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>432</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:=True;</pre></td></tr>
+<tr class="covered"><td>433</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>434</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>435</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>436</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>437</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for item in fRolesLinks.Items[leftNode.ID] do</pre></td></tr>
+<tr class="nocodegen"><td>438</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>439</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;leftNode:=fRolesNodes.Items[item];</pre></td></tr>
+<tr class="nocodegen"><td>440</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>441</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Result:=linkExists(leftNode.Domain, leftNode.Value,</pre></td></tr>
+<tr class="nocodegen"><td>442</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rightNode.Domain, rightNode.Value);</pre></td></tr>
+<tr class="covered"><td>443</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>444</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>445</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>446</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>447</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>448</td><td><pre style="display:inline;">function TPolicyManager.linkExists(const aLeft, aRightDomain,</pre></td></tr>
+<tr class="nocodegen"><td>449</td><td><pre style="display:inline;"> &nbsp;aRight: string): boolean;</pre></td></tr>
+<tr class="covered"><td>450</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>451</td><td><pre style="display:inline;"> &nbsp;Result:=linkExists(DefaultDomain, aLeft, aRightDomain, aRight);</pre></td></tr>
+<tr class="covered"><td>452</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>453</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>454</td><td><pre style="display:inline;">procedure TPolicyManager.load(const aFilter: TFilterArray);</pre></td></tr>
+<tr class="covered"><td>455</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>456</td><td><pre style="display:inline;"> &nbsp;fAdapter.clear;</pre></td></tr>
+<tr class="covered"><td>457</td><td><pre style="display:inline;"> &nbsp;fAdapter.load(aFilter);</pre></td></tr>
+<tr class="covered"><td>458</td><td><pre style="display:inline;"> &nbsp;loadPolicies;</pre></td></tr>
+<tr class="covered"><td>459</td><td><pre style="display:inline;"> &nbsp;loadRoles;</pre></td></tr>
+<tr class="covered"><td>460</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>461</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>462</td><td><pre style="display:inline;">procedure TPolicyManager.loadPolicies;</pre></td></tr>
+<tr class="covered"><td>463</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>464</td><td><pre style="display:inline;"> &nbsp;fPoliciesList.Clear;</pre></td></tr>
+<tr class="covered"><td>465</td><td><pre style="display:inline;"> &nbsp;fAdapter.clear;</pre></td></tr>
+<tr class="covered"><td>466</td><td><pre style="display:inline;"> &nbsp;fAdapter.load(fAdapter.Filter);</pre></td></tr>
+<tr class="covered"><td>467</td><td><pre style="display:inline;"> &nbsp;fParser:=TParser.Create(fAdapter.toOutputString, ptPolicy);</pre></td></tr>
+<tr class="covered"><td>468</td><td><pre style="display:inline;"> &nbsp;fParser.parse;</pre></td></tr>
+<tr class="covered"><td>469</td><td><pre style="display:inline;"> &nbsp;if fParser.Status=psError then</pre></td></tr>
+<tr class="notcovered"><td>470</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise ECasbinException.Create(&apos;Parsing error in Model: &apos;+fParser.ErrorMessage);</pre></td></tr>
+<tr class="covered"><td>471</td><td><pre style="display:inline;"> &nbsp;fNodes:=fParser.Nodes;</pre></td></tr>
+<tr class="covered"><td>472</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>473</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>474</td><td><pre style="display:inline;">procedure TPolicyManager.loadRoles;</pre></td></tr>
+<tr class="nocodegen"><td>475</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>476</td><td><pre style="display:inline;"> &nbsp;role: string;</pre></td></tr>
+<tr class="nocodegen"><td>477</td><td><pre style="display:inline;"> &nbsp;policyItem: string;</pre></td></tr>
+<tr class="nocodegen"><td>478</td><td><pre style="display:inline;"> &nbsp;roleList: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>479</td><td><pre style="display:inline;"> &nbsp;sectionItem: TSection;</pre></td></tr>
+<tr class="nocodegen"><td>480</td><td><pre style="display:inline;"> &nbsp;useDomains: Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>481</td><td><pre style="display:inline;"> &nbsp;tagArrayRec: TArrayRecord&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>482</td><td><pre style="display:inline;"> &nbsp;policyList: TList&lt;string&gt;;</pre></td></tr>
+<tr class="covered"><td>483</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>484</td><td><pre style="display:inline;"> &nbsp;useDomains:=False;</pre></td></tr>
+<tr class="covered"><td>485</td><td><pre style="display:inline;"> &nbsp;clearRoles;</pre></td></tr>
+<tr class="nocodegen"><td>486</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>487</td><td><pre style="display:inline;"> &nbsp;// Domains</pre></td></tr>
+<tr class="covered"><td>488</td><td><pre style="display:inline;"> &nbsp;fDomains.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>489</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>490</td><td><pre style="display:inline;"> &nbsp;// We get the Role Rules</pre></td></tr>
+<tr class="covered"><td>491</td><td><pre style="display:inline;"> &nbsp;sectionItem:=createDefaultSection(stRoleDefinition);</pre></td></tr>
+<tr class="covered"><td>492</td><td><pre style="display:inline;"> &nbsp;for role in roles do</pre></td></tr>
+<tr class="nocodegen"><td>493</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>494</td><td><pre style="display:inline;"> &nbsp; &nbsp;roleList:=TList&lt;string&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>495</td><td><pre style="display:inline;"> &nbsp; &nbsp;roleList.AddRange(role.Split([&apos;,&apos;]));</pre></td></tr>
+<tr class="covered"><td>496</td><td><pre style="display:inline;"> &nbsp; &nbsp;if roleList.Count&gt;=3 then</pre></td></tr>
+<tr class="nocodegen"><td>497</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>498</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;tagArrayRec:=TArrayRecord&lt;string&gt;.Create(sectionItem.Tag);</pre></td></tr>
+<tr class="covered"><td>499</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if tagArrayRec.Contains(roleList[0]) then</pre></td></tr>
+<tr class="nocodegen"><td>500</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>501</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if roleList.Count=3 then &nbsp;//No Domains</pre></td></tr>
+<tr class="covered"><td>502</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;addLink(roleList[1], roleList[2])</pre></td></tr>
+<tr class="nocodegen"><td>503</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="covered"><td>504</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if roleList.Count=4 then &nbsp;//Domains</pre></td></tr>
+<tr class="nocodegen"><td>505</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>506</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; addLink(roleList[1], roleList[3], roleList[2]);</pre></td></tr>
+<tr class="covered"><td>507</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; if (trim(roleList[3])&lt;&gt;DefaultDomain) then</pre></td></tr>
+<tr class="covered"><td>508</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fDomains.Add(trim(roleList[3]));</pre></td></tr>
+<tr class="covered"><td>509</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; useDomains:=true;</pre></td></tr>
+<tr class="nocodegen"><td>510</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>511</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="notcovered"><td>512</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Role Rules are not correct.&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>513</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>514</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="notcovered"><td>515</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;raise ECasbinException.Create(&apos;The Role Rules are not correct.&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>516</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>517</td><td><pre style="display:inline;"> &nbsp; &nbsp;roleList.Free;</pre></td></tr>
+<tr class="covered"><td>518</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>519</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>520</td><td><pre style="display:inline;"> &nbsp;sectionItem.Free;</pre></td></tr>
+<tr class="nocodegen"><td>521</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>522</td><td><pre style="display:inline;"> &nbsp;fDomains.Sort;</pre></td></tr>
+<tr class="nocodegen"><td>523</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>524</td><td><pre style="display:inline;"> &nbsp;// We now need to transverse the other policy rules to build the links</pre></td></tr>
+<tr class="covered"><td>525</td><td><pre style="display:inline;"> &nbsp;for policyItem in policies do</pre></td></tr>
+<tr class="nocodegen"><td>526</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>527</td><td><pre style="display:inline;"> &nbsp; &nbsp;tagArrayRec:=TArrayRecord&lt;string&gt;.Create(fDomains.ToArray);</pre></td></tr>
+<tr class="covered"><td>528</td><td><pre style="display:inline;"> &nbsp; &nbsp;policyList:=TList&lt;string&gt;.Create;</pre></td></tr>
+<tr class="covered"><td>529</td><td><pre style="display:inline;"> &nbsp; &nbsp;policyList.AddRange(policyItem.Split([&apos;,&apos;]));</pre></td></tr>
+<tr class="covered"><td>530</td><td><pre style="display:inline;"> &nbsp; &nbsp;if useDomains then</pre></td></tr>
+<tr class="nocodegen"><td>531</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>532</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;tagArrayRec.ForEach(procedure(var Value: string; Index: integer)</pre></td></tr>
+<tr class="covered"><td>533</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var</pre></td></tr>
+<tr class="nocodegen"><td>534</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domIndex: integer;</pre></td></tr>
+<tr class="nocodegen"><td>535</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>536</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if policyItem.Contains(Value) then</pre></td></tr>
+<tr class="nocodegen"><td>537</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>538</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domIndex:=IndexStr(Value, policyList.ToArray);</pre></td></tr>
+<tr class="covered"><td>539</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (domIndex-1&gt;=0) and</pre></td></tr>
+<tr class="nocodegen"><td>540</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(domIndex+1&lt;=policyList.Count-1) then</pre></td></tr>
+<tr class="covered"><td>541</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;addLink(policyList[domIndex-1], Value,</pre></td></tr>
+<tr class="nocodegen"><td>542</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;policyList[domIndex+1]);</pre></td></tr>
+<tr class="nocodegen"><td>543</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>544</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end);</pre></td></tr>
+<tr class="nocodegen"><td>545</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>546</td><td><pre style="display:inline;"> &nbsp; &nbsp;else</pre></td></tr>
+<tr class="covered"><td>547</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;addLink(policyList[1], policyList[2]);</pre></td></tr>
+<tr class="covered"><td>548</td><td><pre style="display:inline;"> &nbsp; &nbsp;policyList.Free;</pre></td></tr>
+<tr class="covered"><td>549</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>550</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>551</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>552</td><td><pre style="display:inline;">function TPolicyManager.policies: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>553</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>554</td><td><pre style="display:inline;"> &nbsp;node: TChildNode;</pre></td></tr>
+<tr class="nocodegen"><td>555</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>556</td><td><pre style="display:inline;"> &nbsp;sectionItem: TSection;</pre></td></tr>
+<tr class="nocodegen"><td>557</td><td><pre style="display:inline;"> &nbsp;tag: string;</pre></td></tr>
+<tr class="nocodegen"><td>558</td><td><pre style="display:inline;"> &nbsp;foundTag: Boolean;</pre></td></tr>
+<tr class="covered"><td>559</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>560</td><td><pre style="display:inline;"> &nbsp;foundTag:=False;</pre></td></tr>
+<tr class="covered"><td>561</td><td><pre style="display:inline;"> &nbsp;fPoliciesList.Clear;</pre></td></tr>
+<tr class="covered"><td>562</td><td><pre style="display:inline;"> &nbsp;fRolesList.Clear;</pre></td></tr>
+<tr class="covered"><td>563</td><td><pre style="display:inline;"> &nbsp;sectionItem:=createDefaultSection(stPolicyDefinition);</pre></td></tr>
+<tr class="covered"><td>564</td><td><pre style="display:inline;"> &nbsp;for headerNode in fNodes.Headers do</pre></td></tr>
+<tr class="covered"><td>565</td><td><pre style="display:inline;"> &nbsp; &nbsp;if (headerNode.SectionType=stPolicyRules) then</pre></td></tr>
+<tr class="nocodegen"><td>566</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>567</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for node in headerNode.ChildNodes do</pre></td></tr>
+<tr class="nocodegen"><td>568</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>569</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;for tag in sectionItem.Tag do</pre></td></tr>
+<tr class="covered"><td>570</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if node.Key=tag then</pre></td></tr>
+<tr class="nocodegen"><td>571</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>572</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foundTag:=True;</pre></td></tr>
+<tr class="covered"><td>573</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>574</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>575</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="covered"><td>576</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foundTag:=False;</pre></td></tr>
+<tr class="covered"><td>577</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if foundTag then</pre></td></tr>
+<tr class="covered"><td>578</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fPoliciesList.add(node.Key+AssignmentCharForPolicies+node.Value)</pre></td></tr>
+<tr class="covered"><td>579</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>580</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>581</td><td><pre style="display:inline;"> &nbsp;sectionItem.Free;</pre></td></tr>
+<tr class="covered"><td>582</td><td><pre style="display:inline;"> &nbsp;Result:=fPoliciesList;</pre></td></tr>
+<tr class="covered"><td>583</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>584</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>585</td><td><pre style="display:inline;">function TPolicyManager.policy(const aFilter: TFilterArray = []): string;</pre></td></tr>
+<tr class="nocodegen"><td>586</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>587</td><td><pre style="display:inline;"> &nbsp;i: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>588</td><td><pre style="display:inline;"> &nbsp;policyItem: string;</pre></td></tr>
+<tr class="nocodegen"><td>589</td><td><pre style="display:inline;"> &nbsp;test: string;</pre></td></tr>
+<tr class="nocodegen"><td>590</td><td><pre style="display:inline;"> &nbsp;testPolicy: string;</pre></td></tr>
+<tr class="nocodegen"><td>591</td><td><pre style="display:inline;"> &nbsp;strArray: TFilterArray;</pre></td></tr>
+<tr class="covered"><td>592</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>593</td><td><pre style="display:inline;"> &nbsp;Result:=&apos;undefined&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>594</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>595</td><td><pre style="display:inline;"> &nbsp;//Clean aFilter</pre></td></tr>
+<tr class="covered"><td>596</td><td><pre style="display:inline;"> &nbsp;strArray:=aFilter;</pre></td></tr>
+<tr class="covered"><td>597</td><td><pre style="display:inline;"> &nbsp;for i:=0 to Length(strArray)-1 do</pre></td></tr>
+<tr class="nocodegen"><td>598</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>599</td><td><pre style="display:inline;"> &nbsp; &nbsp;strArray[i]:=trim(strArray[i]);</pre></td></tr>
+<tr class="covered"><td>600</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>601</td><td><pre style="display:inline;"> &nbsp;testPolicy:=String.Join(&apos;,&apos;, strArray);</pre></td></tr>
+<tr class="nocodegen"><td>602</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>603</td><td><pre style="display:inline;"> &nbsp;for policyItem in policies do</pre></td></tr>
+<tr class="nocodegen"><td>604</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>605</td><td><pre style="display:inline;"> &nbsp; &nbsp;strArray:=TFilterArray(policyItem.Split([&apos;,&apos;])); //PALOFF</pre></td></tr>
+<tr class="covered"><td>606</td><td><pre style="display:inline;"> &nbsp; &nbsp;for i:=0 to Length(strArray)-1 do</pre></td></tr>
+<tr class="nocodegen"><td>607</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>608</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strArray[i]:=trim(strArray[i]);</pre></td></tr>
+<tr class="covered"><td>609</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>610</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Length(strArray)&gt;=1 then</pre></td></tr>
+<tr class="nocodegen"><td>611</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>612</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;test:=String.Join(&apos;,&apos;, strArray);</pre></td></tr>
+<tr class="covered"><td>613</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if UpperCase(Copy(Trim(test), findStartPos,</pre></td></tr>
+<tr class="nocodegen"><td>614</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;findEndPos(testPolicy)))=UpperCase(Trim(testPolicy)) then</pre></td></tr>
+<tr class="nocodegen"><td>615</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>616</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Result:=Trim(strArray[Length(strArray)-1]);</pre></td></tr>
+<tr class="covered"><td>617</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;exit;</pre></td></tr>
+<tr class="nocodegen"><td>618</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>619</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>620</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>621</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>622</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>623</td><td><pre style="display:inline;">function TPolicyManager.policyExists(const aFilter: TFilterArray): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>624</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>625</td><td><pre style="display:inline;"> &nbsp;i: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>626</td><td><pre style="display:inline;"> &nbsp;policyItem: string;</pre></td></tr>
+<tr class="nocodegen"><td>627</td><td><pre style="display:inline;"> &nbsp;test: string;</pre></td></tr>
+<tr class="nocodegen"><td>628</td><td><pre style="display:inline;"> &nbsp;testPolicy: string;</pre></td></tr>
+<tr class="covered"><td>629</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>630</td><td><pre style="display:inline;"> &nbsp;Result:=False;</pre></td></tr>
+<tr class="covered"><td>631</td><td><pre style="display:inline;"> &nbsp;if Length(aFilter)=0 then</pre></td></tr>
+<tr class="nocodegen"><td>632</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>633</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>634</td><td><pre style="display:inline;"> &nbsp;testPolicy:=string.Join(&apos;,&apos;, aFilter);</pre></td></tr>
+<tr class="nocodegen"><td>635</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>636</td><td><pre style="display:inline;"> &nbsp;while Pos(#32, testPolicy, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="notcovered"><td>637</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(testPolicy, Pos(#32, testPolicy, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>638</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>639</td><td><pre style="display:inline;"> &nbsp;if UpperCase(testPolicy).StartsWith(&apos;P,&apos;) or</pre></td></tr>
+<tr class="covered"><td>640</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; UpperCase(testPolicy).StartsWith(&apos;G,&apos;) or</pre></td></tr>
+<tr class="covered"><td>641</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(testPolicy).StartsWith(&apos;G2,&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>642</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>643</td><td><pre style="display:inline;"> &nbsp; &nbsp;i:=Pos(&apos;,&apos;, testPolicy, findStartPos);</pre></td></tr>
+<tr class="covered"><td>644</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(testPolicy, findStartPos, i);</pre></td></tr>
+<tr class="nocodegen"><td>645</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>646</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>647</td><td><pre style="display:inline;"> &nbsp;for policyItem in policies do</pre></td></tr>
+<tr class="nocodegen"><td>648</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>649</td><td><pre style="display:inline;"> &nbsp; &nbsp;test:=policyItem;</pre></td></tr>
+<tr class="nocodegen"><td>650</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>651</td><td><pre style="display:inline;"> &nbsp; &nbsp;while Pos(#32, test, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="covered"><td>652</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Delete(test, Pos(#32, test, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>653</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>654</td><td><pre style="display:inline;"> &nbsp; &nbsp;if UpperCase(test).StartsWith(&apos;P,&apos;) or</pre></td></tr>
+<tr class="notcovered"><td>655</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(test).StartsWith(&apos;G,&apos;) or</pre></td></tr>
+<tr class="notcovered"><td>656</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(test).StartsWith(&apos;G2,&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>657</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>658</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;i:=Pos(&apos;,&apos;, test, findStartPos);</pre></td></tr>
+<tr class="covered"><td>659</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Delete(test, findStartPos, i);</pre></td></tr>
+<tr class="nocodegen"><td>660</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>661</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>662</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result:=string.Compare(test, testPolicy, [coIgnoreCase]) = 0;</pre></td></tr>
+<tr class="nocodegen"><td>663</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>664</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Result then</pre></td></tr>
+<tr class="nocodegen"><td>665</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>666</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>667</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>668</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>669</td><td><pre style="display:inline;"> &nbsp;if not Result then</pre></td></tr>
+<tr class="covered"><td>670</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result:=roleExists(aFilter);</pre></td></tr>
+<tr class="covered"><td>671</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>672</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>673</td><td><pre style="display:inline;">function TPolicyManager.roleExists(const aFilter: TFilterArray): Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>674</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>675</td><td><pre style="display:inline;"> &nbsp;i: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>676</td><td><pre style="display:inline;"> &nbsp;ruleItem: string;</pre></td></tr>
+<tr class="nocodegen"><td>677</td><td><pre style="display:inline;"> &nbsp;test: string;</pre></td></tr>
+<tr class="nocodegen"><td>678</td><td><pre style="display:inline;"> &nbsp;testRule: string;</pre></td></tr>
+<tr class="covered"><td>679</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>680</td><td><pre style="display:inline;"> &nbsp;Result:=False;</pre></td></tr>
+<tr class="covered"><td>681</td><td><pre style="display:inline;"> &nbsp;if Length(aFilter)=0 then</pre></td></tr>
+<tr class="nocodegen"><td>682</td><td><pre style="display:inline;"> &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="nocodegen"><td>683</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>684</td><td><pre style="display:inline;"> &nbsp;testRule:=string.Join(&apos;,&apos;, aFilter);</pre></td></tr>
+<tr class="nocodegen"><td>685</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>686</td><td><pre style="display:inline;"> &nbsp;while Pos(#32, testRule, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="notcovered"><td>687</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(testRule, Pos(#32, testRule, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>688</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>689</td><td><pre style="display:inline;"> &nbsp;if UpperCase(testRule).StartsWith(&apos;P,&apos;) or</pre></td></tr>
+<tr class="covered"><td>690</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; UpperCase(testRule).StartsWith(&apos;G,&apos;) or</pre></td></tr>
+<tr class="covered"><td>691</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(testRule).StartsWith(&apos;G2,&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>692</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>693</td><td><pre style="display:inline;"> &nbsp; &nbsp;i:=Pos(&apos;,&apos;, testRule, findStartPos);</pre></td></tr>
+<tr class="covered"><td>694</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(testRule, findStartPos, i);</pre></td></tr>
+<tr class="nocodegen"><td>695</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>696</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>697</td><td><pre style="display:inline;"> &nbsp;for ruleItem in roles do</pre></td></tr>
+<tr class="nocodegen"><td>698</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>699</td><td><pre style="display:inline;"> &nbsp; &nbsp;test:=ruleItem;</pre></td></tr>
+<tr class="nocodegen"><td>700</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>701</td><td><pre style="display:inline;"> &nbsp; &nbsp;while Pos(#32, test, findStartPos)&lt;&gt;0 do</pre></td></tr>
+<tr class="covered"><td>702</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Delete(test, Pos(#32, test, findStartPos), 1);</pre></td></tr>
+<tr class="nocodegen"><td>703</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>704</td><td><pre style="display:inline;"> &nbsp; &nbsp;if UpperCase(test).StartsWith(&apos;P,&apos;) or</pre></td></tr>
+<tr class="covered"><td>705</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(test).StartsWith(&apos;G,&apos;) or</pre></td></tr>
+<tr class="covered"><td>706</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UpperCase(test).StartsWith(&apos;G2,&apos;) then</pre></td></tr>
+<tr class="nocodegen"><td>707</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>708</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;i:=Pos(&apos;,&apos;, test, findStartPos);</pre></td></tr>
+<tr class="covered"><td>709</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Delete(test, findStartPos, i);</pre></td></tr>
+<tr class="nocodegen"><td>710</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>711</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>712</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result:=string.Compare(test, testRule, [coIgnoreCase]) = 0;</pre></td></tr>
+<tr class="nocodegen"><td>713</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>714</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Result then</pre></td></tr>
+<tr class="nocodegen"><td>715</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>716</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>717</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>718</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>719</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>720</td><td><pre style="display:inline;">function TPolicyManager.roles: TList&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>721</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>722</td><td><pre style="display:inline;"> &nbsp;node: TChildNode;</pre></td></tr>
+<tr class="nocodegen"><td>723</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>724</td><td><pre style="display:inline;"> &nbsp;sectionItem: TSection;</pre></td></tr>
+<tr class="nocodegen"><td>725</td><td><pre style="display:inline;"> &nbsp;tag: string;</pre></td></tr>
+<tr class="nocodegen"><td>726</td><td><pre style="display:inline;"> &nbsp;foundTag: Boolean;</pre></td></tr>
+<tr class="covered"><td>727</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>728</td><td><pre style="display:inline;"> &nbsp;foundTag:=False;</pre></td></tr>
+<tr class="covered"><td>729</td><td><pre style="display:inline;"> &nbsp;fRolesList.Clear;</pre></td></tr>
+<tr class="covered"><td>730</td><td><pre style="display:inline;"> &nbsp;sectionItem:=createDefaultSection(stRoleDefinition);</pre></td></tr>
+<tr class="covered"><td>731</td><td><pre style="display:inline;"> &nbsp;for headerNode in fNodes.Headers do</pre></td></tr>
+<tr class="covered"><td>732</td><td><pre style="display:inline;"> &nbsp; &nbsp;if (headerNode.SectionType=stPolicyRules) then</pre></td></tr>
+<tr class="nocodegen"><td>733</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>734</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for node in headerNode.ChildNodes do</pre></td></tr>
+<tr class="nocodegen"><td>735</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>736</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;for tag in sectionItem.Tag do</pre></td></tr>
+<tr class="covered"><td>737</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if node.Key=tag then</pre></td></tr>
+<tr class="nocodegen"><td>738</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>739</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foundTag:=True;</pre></td></tr>
+<tr class="covered"><td>740</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Break;</pre></td></tr>
+<tr class="nocodegen"><td>741</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>742</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else</pre></td></tr>
+<tr class="covered"><td>743</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foundTag:=False;</pre></td></tr>
+<tr class="covered"><td>744</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if foundTag then</pre></td></tr>
+<tr class="covered"><td>745</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fRolesList.add(node.Key+AssignmentCharForRoles+node.Value)</pre></td></tr>
+<tr class="covered"><td>746</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>747</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>748</td><td><pre style="display:inline;"> &nbsp;sectionItem.Free;</pre></td></tr>
+<tr class="covered"><td>749</td><td><pre style="display:inline;"> &nbsp;Result:=fRolesList;</pre></td></tr>
+<tr class="covered"><td>750</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>751</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>752</td><td><pre style="display:inline;">function TPolicyManager.rolesForEntity(const aEntity,</pre></td></tr>
+<tr class="nocodegen"><td>753</td><td><pre style="display:inline;"> &nbsp;aDomain: string): TStringDynArray;</pre></td></tr>
+<tr class="nocodegen"><td>754</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>755</td><td><pre style="display:inline;"> &nbsp;nodeEntity: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>756</td><td><pre style="display:inline;"> &nbsp;entity: TRoleNode;</pre></td></tr>
+<tr class="nocodegen"><td>757</td><td><pre style="display:inline;"> &nbsp;domain: string;</pre></td></tr>
+<tr class="nocodegen"><td>758</td><td><pre style="display:inline;"> &nbsp;id: string;</pre></td></tr>
+<tr class="covered"><td>759</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>760</td><td><pre style="display:inline;"> &nbsp;if Trim(aDomain)=&apos;&apos; then</pre></td></tr>
+<tr class="covered"><td>761</td><td><pre style="display:inline;"> &nbsp; &nbsp;domain:=DefaultDomain</pre></td></tr>
+<tr class="nocodegen"><td>762</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="notcovered"><td>763</td><td><pre style="display:inline;"> &nbsp; &nbsp;domain:=Trim(aDomain);</pre></td></tr>
+<tr class="nocodegen"><td>764</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>765</td><td><pre style="display:inline;"> &nbsp;nodeEntity:=findRolesNode(domain, aEntity);</pre></td></tr>
+<tr class="covered"><td>766</td><td><pre style="display:inline;"> &nbsp;if Assigned(nodeEntity) then</pre></td></tr>
+<tr class="nocodegen"><td>767</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>768</td><td><pre style="display:inline;"> &nbsp; &nbsp;if fRolesLinks.ContainsKey(nodeEntity.ID) then</pre></td></tr>
+<tr class="nocodegen"><td>769</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>770</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;for id in fRolesLinks.Items[nodeEntity.ID] do</pre></td></tr>
+<tr class="nocodegen"><td>771</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>772</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;entity:=fRolesNodes.Items[id];</pre></td></tr>
+<tr class="covered"><td>773</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;SetLength(Result, Length(Result)+1);</pre></td></tr>
+<tr class="covered"><td>774</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Result[Length(Result)-1]:=entity.Value;</pre></td></tr>
+<tr class="covered"><td>775</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>776</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>777</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>778</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="covered"><td>779</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;string&gt;(Result);</pre></td></tr>
+<tr class="covered"><td>780</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>781</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>782</td><td><pre style="display:inline;">function TPolicyManager.section(const aSlim: Boolean): string;</pre></td></tr>
+<tr class="nocodegen"><td>783</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>784</td><td><pre style="display:inline;"> &nbsp;headerNode: THeaderNode;</pre></td></tr>
+<tr class="nocodegen"><td>785</td><td><pre style="display:inline;"> &nbsp;strList: TStringList;</pre></td></tr>
+<tr class="nocodegen"><td>786</td><td><pre style="display:inline;"> &nbsp;policyItem: string;</pre></td></tr>
+<tr class="covered"><td>787</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>788</td><td><pre style="display:inline;"> &nbsp;Result:=&apos;&apos;;</pre></td></tr>
+<tr class="covered"><td>789</td><td><pre style="display:inline;"> &nbsp;for headerNode in fNodes.Headers do</pre></td></tr>
+<tr class="covered"><td>790</td><td><pre style="display:inline;"> &nbsp; &nbsp;if headerNode.SectionType=stPolicyRules then</pre></td></tr>
+<tr class="nocodegen"><td>791</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>792</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result:=headerNode.toOutputString;</pre></td></tr>
+<tr class="covered"><td>793</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList:=TStringList.Create;</pre></td></tr>
+<tr class="covered"><td>794</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList.Text:=Result;</pre></td></tr>
+<tr class="covered"><td>795</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if (strList.Count&gt;1) then</pre></td></tr>
+<tr class="nocodegen"><td>796</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="covered"><td>797</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Result:=&apos;&apos;;</pre></td></tr>
+<tr class="covered"><td>798</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;if aSlim and (strList.Strings[0][findStartPos]=&apos;[&apos;) then</pre></td></tr>
+<tr class="covered"><td>799</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;strList.Delete(0);</pre></td></tr>
+<tr class="covered"><td>800</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;for policyItem in strList do</pre></td></tr>
+<tr class="covered"><td>801</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Result:=Result+policyItem+sLineBreak;</pre></td></tr>
+<tr class="nocodegen"><td>802</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>803</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;strList.Free;</pre></td></tr>
+<tr class="covered"><td>804</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Exit;</pre></td></tr>
+<tr class="covered"><td>805</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="covered"><td>806</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>807</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>808</td><td><pre style="display:inline;">function TPolicyManager.toOutputString: string;</pre></td></tr>
+<tr class="notcovered"><td>809</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>810</td><td><pre style="display:inline;"> &nbsp;Result:=section;</pre></td></tr>
+<tr class="notcovered"><td>811</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>812</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>813</td><td><pre style="display:inline;">end.</pre></td></tr>
+</table>
+</body>
+</html>

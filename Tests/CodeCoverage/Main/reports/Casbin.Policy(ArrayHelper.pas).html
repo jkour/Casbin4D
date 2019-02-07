@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Delphi CodeCoverage Coverage Report</title>
+<style type="text/css">
+table {border-spacing:0; border-collapse:collapse;}
+table, td, th {border: 1px solid black;}
+td, th {background: white; margin: 0; padding: 2px 0.5em 2px 0.5em}
+td {border-width: 0 1px 0 0;}
+th {border-width: 1px 1px 1px 0;}
+p, h1, h2, h3, th {font-family: verdana,arial,sans-serif; font-size: 10pt;}
+td {font-family: courier,monospace; font-size: 10pt;}
+th {background: #CCCCCC;}
+table.o tr td:nth-child(1) {font-weight: bold;}
+table.o tr td:nth-child(2) {text-align: right;}
+table.o tr td {border-width: 1px;}
+table.s {width: 100%;}
+table.s tr td {padding: 0 0.25em 0 0.25em;}
+table.s tr td:first-child {text-align: right; font-weight: bold;}
+table.s tr.notcovered td {background: #DDDDFF;}
+table.s tr.nocodegen td {background: #FFFFEE;}
+table.s tr.covered td {background: #CCFFCC;}
+table.s tr.covered td:first-child {color: green;}
+table.s {border-width: 1px 0 1px 1px;}
+table.sum tr td {border-width: 1px;}
+table.sum tr th {text-align:right;}
+table.sum tr th:first-child {text-align:center;}
+table.sum tr td {text-align:right;}
+table.sum tr td:first-child {text-align:left;}
+</style>
+</head>
+<body>
+<p>Coverage report for <strong>Casbin.Policy (Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Third Party\ArrayHelper\ArrayHelper.pas)</strong>.</p>
+<p> Generated at 07/02/2019 1:35:05 by <a href="http://code.google.com/p/delphi-code-coverage/" title="Code Coverage for Delphi 5+">DelphiCodeCoverage</a> - an open source tool for Delphi Code Coverage.</p>
+<p> Statistics for Z:\NusEnvision\Components\Delphi\Casbin4D-JKour\SourceCode\Common\Third Party\ArrayHelper\ArrayHelper.pas </p>
+<table  class="o"><tr><td>Number of lines covered</td><td>57</td></tr><tr><td>Number of lines with code gen</td><td>261</td></tr><tr><td>Line coverage</td><td>21%</td></tr></table>
+<br /><br />
+<table  class="s">
+<tr class="nocodegen"><td>1</td><td><pre style="display:inline;">unit ArrayHelper;</pre></td></tr>
+<tr class="nocodegen"><td>2</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>3</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>4</td><td><pre style="display:inline;">///////////////////////////////////////////////////////////////////////////////</pre></td></tr>
+<tr class="nocodegen"><td>5</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>6</td><td><pre style="display:inline;">// &nbsp;ArrayHelper &nbsp;version 1.3</pre></td></tr>
+<tr class="nocodegen"><td>7</td><td><pre style="display:inline;">// &nbsp;extends class TArray and add TArrayRecord&lt;T&gt; to make dynamic arrays</pre></td></tr>
+<tr class="nocodegen"><td>8</td><td><pre style="display:inline;">// &nbsp;as simple, as TList</pre></td></tr>
+<tr class="nocodegen"><td>9</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>10</td><td><pre style="display:inline;">// &nbsp;Copyright(c) 2017 by Willi Commer (wcs)</pre></td></tr>
+<tr class="nocodegen"><td>11</td><td><pre style="display:inline;">// &nbsp;Licence GNU</pre></td></tr>
+<tr class="nocodegen"><td>12</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>13</td><td><pre style="display:inline;">// &nbsp;Dynamic arrays are smart because its memore usage is handled by the memory</pre></td></tr>
+<tr class="nocodegen"><td>14</td><td><pre style="display:inline;">// &nbsp;manager. But the funtion libraries are lean and differs from object based.</pre></td></tr>
+<tr class="nocodegen"><td>15</td><td><pre style="display:inline;">// &nbsp;Based on TArray class, that gives Sort and Binary search, this unit will</pre></td></tr>
+<tr class="nocodegen"><td>16</td><td><pre style="display:inline;">// &nbsp;extend TArray with functions available for TList or TStrings.</pre></td></tr>
+<tr class="nocodegen"><td>17</td><td><pre style="display:inline;">// &nbsp;The next level is TArrayRecord&lt;T&gt; record type. It wraps a record around</pre></td></tr>
+<tr class="nocodegen"><td>18</td><td><pre style="display:inline;">// &nbsp;the dynamic array. This give us the ability to use dynamic arrays like</pre></td></tr>
+<tr class="nocodegen"><td>19</td><td><pre style="display:inline;">// &nbsp;objects with out the pain to organize the final Free call.</pre></td></tr>
+<tr class="nocodegen"><td>20</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>21</td><td><pre style="display:inline;">// &nbsp;var</pre></td></tr>
+<tr class="nocodegen"><td>22</td><td><pre style="display:inline;">// &nbsp; &nbsp;A: TArrayRecord&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>23</td><td><pre style="display:inline;">// &nbsp; &nbsp;S: string;</pre></td></tr>
+<tr class="nocodegen"><td>24</td><td><pre style="display:inline;">// &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>25</td><td><pre style="display:inline;">// &nbsp; &nbsp;A.SetValues([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);</pre></td></tr>
+<tr class="nocodegen"><td>26</td><td><pre style="display:inline;">// &nbsp; &nbsp;A.Add(&apos;d&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>27</td><td><pre style="display:inline;">// &nbsp; &nbsp;assert( &nbsp;A.Count = 4 ); &nbsp; &nbsp;// same as length(A.Items);</pre></td></tr>
+<tr class="nocodegen"><td>28</td><td><pre style="display:inline;">// &nbsp; &nbsp;assert( &nbsp;A[1] = &apos;b&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>29</td><td><pre style="display:inline;">// &nbsp; &nbsp;assert( &nbsp;A.IndexOf(&apos;a&apos;) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>30</td><td><pre style="display:inline;">// &nbsp; &nbsp;for S in A do</pre></td></tr>
+<tr class="nocodegen"><td>31</td><td><pre style="display:inline;">// &nbsp; &nbsp; &nbsp;..</pre></td></tr>
+<tr class="nocodegen"><td>32</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>33</td><td><pre style="display:inline;">// &nbsp;For more examples see procedure Test_All_Helper_Functions</pre></td></tr>
+<tr class="nocodegen"><td>34</td><td><pre style="display:inline;">// &nbsp;For updates check https://github.com/WilliCommer/ArrayHelper</pre></td></tr>
+<tr class="nocodegen"><td>35</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>36</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>37</td><td><pre style="display:inline;">// &nbsp;History:</pre></td></tr>
+<tr class="nocodegen"><td>38</td><td><pre style="display:inline;">// &nbsp;version 1.3</pre></td></tr>
+<tr class="nocodegen"><td>39</td><td><pre style="display:inline;">// &nbsp; &nbsp;Enumeration added</pre></td></tr>
+<tr class="nocodegen"><td>40</td><td><pre style="display:inline;">// &nbsp; &nbsp;new functions &apos;Unique&apos; and &apos;CopyArray&apos;</pre></td></tr>
+<tr class="nocodegen"><td>41</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>42</td><td><pre style="display:inline;">// &nbsp;version 1.2</pre></td></tr>
+<tr class="nocodegen"><td>43</td><td><pre style="display:inline;">// &nbsp; &nbsp;TArrayRecord&lt;T&gt;</pre></td></tr>
+<tr class="nocodegen"><td>44</td><td><pre style="display:inline;">//</pre></td></tr>
+<tr class="nocodegen"><td>45</td><td><pre style="display:inline;">///////////////////////////////////////////////////////////////////////////////</pre></td></tr>
+<tr class="nocodegen"><td>46</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>47</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>48</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>49</td><td><pre style="display:inline;">{ &nbsp;$DEFINE TEST_FUNCTION} &nbsp;// change to active test function</pre></td></tr>
+<tr class="nocodegen"><td>50</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>51</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>52</td><td><pre style="display:inline;">interface</pre></td></tr>
+<tr class="nocodegen"><td>53</td><td><pre style="display:inline;">uses</pre></td></tr>
+<tr class="nocodegen"><td>54</td><td><pre style="display:inline;"> &nbsp;System.Classes, System.SysUtils, System.RTLConsts,</pre></td></tr>
+<tr class="nocodegen"><td>55</td><td><pre style="display:inline;"> &nbsp;System.Generics.Defaults, System.Generics.Collections;</pre></td></tr>
+<tr class="nocodegen"><td>56</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>57</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>58</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>59</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>60</td><td><pre style="display:inline;"> &nbsp;// callback function for function ForEach</pre></td></tr>
+<tr class="nocodegen"><td>61</td><td><pre style="display:inline;"> &nbsp;TArrayForEachCallback&lt;T&gt; = reference to procedure(var Value: T; Index: integer);</pre></td></tr>
+<tr class="nocodegen"><td>62</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>63</td><td><pre style="display:inline;"> &nbsp;// callback function for function Map</pre></td></tr>
+<tr class="nocodegen"><td>64</td><td><pre style="display:inline;"> &nbsp;TArrayMapCallback&lt;T&gt; = reference to function(var Value: T; Index: integer): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>65</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>66</td><td><pre style="display:inline;"> &nbsp;// callback function for function MapTo</pre></td></tr>
+<tr class="nocodegen"><td>67</td><td><pre style="display:inline;"> &nbsp;TArrayConvert&lt;T,TTo&gt; = reference to function(const Value: T): TTo;</pre></td></tr>
+<tr class="nocodegen"><td>68</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>69</td><td><pre style="display:inline;"> &nbsp;// callback function for function Find</pre></td></tr>
+<tr class="nocodegen"><td>70</td><td><pre style="display:inline;"> &nbsp;TArrayFindCallback&lt;T&gt; = reference to function(const Value: T): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>71</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>72</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>73</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>74</td><td><pre style="display:inline;"> &nbsp;// extends class TArray</pre></td></tr>
+<tr class="nocodegen"><td>75</td><td><pre style="display:inline;"> &nbsp;TArrayHelper = class helper for TArray</pre></td></tr>
+<tr class="nocodegen"><td>76</td><td><pre style="display:inline;"> &nbsp; &nbsp;// add item to array</pre></td></tr>
+<tr class="nocodegen"><td>77</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Add&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): integer; static;</pre></td></tr>
+<tr class="nocodegen"><td>78</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>79</td><td><pre style="display:inline;"> &nbsp; &nbsp;// delete item at index</pre></td></tr>
+<tr class="nocodegen"><td>80</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure Delete&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: integer); static;</pre></td></tr>
+<tr class="nocodegen"><td>81</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>82</td><td><pre style="display:inline;"> &nbsp; &nbsp;// insert item at index</pre></td></tr>
+<tr class="nocodegen"><td>83</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure Insert&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: integer; Value: T); static;</pre></td></tr>
+<tr class="nocodegen"><td>84</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>85</td><td><pre style="display:inline;"> &nbsp; &nbsp;// append array</pre></td></tr>
+<tr class="nocodegen"><td>86</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure AddRange&lt;T&gt;(var Values: TArray&lt;T&gt;; const ValuesToInsert: array of T); static;</pre></td></tr>
+<tr class="nocodegen"><td>87</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>88</td><td><pre style="display:inline;"> &nbsp; &nbsp;// insert array at index</pre></td></tr>
+<tr class="nocodegen"><td>89</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure InsertRange&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: Integer; const ValuesToInsert: array of T); static;</pre></td></tr>
+<tr class="nocodegen"><td>90</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>91</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of equal item</pre></td></tr>
+<tr class="nocodegen"><td>92</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOf&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>93</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>94</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of equal item (using IComparer)</pre></td></tr>
+<tr class="nocodegen"><td>95</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOf&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T; const Comparer: IComparer&lt;T&gt;): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>96</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>97</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of maximal item</pre></td></tr>
+<tr class="nocodegen"><td>98</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOfMax&lt;T&gt;(var Values: TArray&lt;T&gt;): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>99</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>100</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of maximal item (using IComparer)</pre></td></tr>
+<tr class="nocodegen"><td>101</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOfMax&lt;T&gt;(var Values: TArray&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>102</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>103</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of minimal item</pre></td></tr>
+<tr class="nocodegen"><td>104</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOfMin&lt;T&gt;(var Values: TArray&lt;T&gt;): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>105</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>106</td><td><pre style="display:inline;"> &nbsp; &nbsp;// get index of minimal item (using IComparer)</pre></td></tr>
+<tr class="nocodegen"><td>107</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function IndexOfMin&lt;T&gt;(var Values: TArray&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>108</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>109</td><td><pre style="display:inline;"> &nbsp; &nbsp;// is a equal item is member of values</pre></td></tr>
+<tr class="nocodegen"><td>110</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Contains&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): boolean; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>111</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>112</td><td><pre style="display:inline;"> &nbsp; &nbsp;// is a equal item is member of values (using IComparer)</pre></td></tr>
+<tr class="nocodegen"><td>113</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Contains&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T; const Comparer: IComparer&lt;T&gt;): boolean; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>114</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>115</td><td><pre style="display:inline;"> &nbsp; &nbsp;// compare two arrays</pre></td></tr>
+<tr class="nocodegen"><td>116</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Compare&lt;T&gt;(const Values, ValuesToCompare: array of T): boolean; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>117</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>118</td><td><pre style="display:inline;"> &nbsp; &nbsp;// compare two arrays (using IComparer)</pre></td></tr>
+<tr class="nocodegen"><td>119</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Compare&lt;T&gt;(const Values, ValuesToCompare: array of T; const Comparer: IComparer&lt;T&gt;): boolean; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>120</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>121</td><td><pre style="display:inline;"> &nbsp; &nbsp;// ForEach</pre></td></tr>
+<tr class="nocodegen"><td>122</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure ForEach&lt;T&gt;(var Values: TArray&lt;T&gt;; const Callback: TArrayForEachCallback&lt;T&gt;); static;</pre></td></tr>
+<tr class="nocodegen"><td>123</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>124</td><td><pre style="display:inline;"> &nbsp; &nbsp;// find with callback</pre></td></tr>
+<tr class="nocodegen"><td>125</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Find&lt;T&gt;(const Values: TArray&lt;T&gt;; const Callback: TArrayFindCallback&lt;T&gt;; const StartIndex: integer = 0): integer; overload; static;</pre></td></tr>
+<tr class="nocodegen"><td>126</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>127</td><td><pre style="display:inline;"> &nbsp; &nbsp;// return an array filtered and converted by callback function</pre></td></tr>
+<tr class="nocodegen"><td>128</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function Map&lt;T&gt;(const Values: TArray&lt;T&gt;; const Callback: TArrayMapCallback&lt;T&gt;): TArray&lt;T&gt;; static;</pre></td></tr>
+<tr class="nocodegen"><td>129</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>130</td><td><pre style="display:inline;"> &nbsp; &nbsp;// return the array as TList</pre></td></tr>
+<tr class="nocodegen"><td>131</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure List&lt;T&gt;(const Values: TArray&lt;T&gt;; var ValList: TList&lt;T&gt;); static;</pre></td></tr>
+<tr class="nocodegen"><td>132</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>133</td><td><pre style="display:inline;">{$IFDEF TEST_FUNCTION}</pre></td></tr>
+<tr class="nocodegen"><td>134</td><td><pre style="display:inline;"> &nbsp; &nbsp;// test, debug and example function</pre></td></tr>
+<tr class="nocodegen"><td>135</td><td><pre style="display:inline;"> &nbsp; &nbsp;class procedure Test_All_Helper_Functions;</pre></td></tr>
+<tr class="nocodegen"><td>136</td><td><pre style="display:inline;">{$ENDIF TEST_FUNCTION}</pre></td></tr>
+<tr class="nocodegen"><td>137</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>138</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>139</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>140</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>141</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>142</td><td><pre style="display:inline;"> &nbsp;TArrayRecord&lt;T&gt; = record</pre></td></tr>
+<tr class="nocodegen"><td>143</td><td><pre style="display:inline;"> &nbsp;strict private type</pre></td></tr>
+<tr class="nocodegen"><td>144</td><td><pre style="display:inline;"> &nbsp; &nbsp;TEnumerator = class</pre></td></tr>
+<tr class="nocodegen"><td>145</td><td><pre style="display:inline;"> &nbsp; &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>146</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;FValue: ^TArrayRecord&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>147</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;FIndex: integer;</pre></td></tr>
+<tr class="nocodegen"><td>148</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;function GetCurrent: T;</pre></td></tr>
+<tr class="nocodegen"><td>149</td><td><pre style="display:inline;"> &nbsp; &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>150</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;constructor Create(var AValue: TArrayRecord&lt;T&gt;);</pre></td></tr>
+<tr class="nocodegen"><td>151</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;function MoveNext: Boolean;</pre></td></tr>
+<tr class="nocodegen"><td>152</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;property Current: T read GetCurrent;</pre></td></tr>
+<tr class="nocodegen"><td>153</td><td><pre style="display:inline;"> &nbsp; &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>154</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>155</td><td><pre style="display:inline;"> &nbsp; &nbsp;function GetEnumerator(): TEnumerator;</pre></td></tr>
+<tr class="nocodegen"><td>156</td><td><pre style="display:inline;"> &nbsp;private</pre></td></tr>
+<tr class="nocodegen"><td>157</td><td><pre style="display:inline;"> &nbsp; &nbsp;function GetCount: integer;</pre></td></tr>
+<tr class="nocodegen"><td>158</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure SetCount(const Value: integer);</pre></td></tr>
+<tr class="nocodegen"><td>159</td><td><pre style="display:inline;"> &nbsp; &nbsp;function GetItemAt(Index: integer): T;</pre></td></tr>
+<tr class="nocodegen"><td>160</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure SetItemAt(Index: integer; Value: T);</pre></td></tr>
+<tr class="nocodegen"><td>161</td><td><pre style="display:inline;"> &nbsp;public</pre></td></tr>
+<tr class="nocodegen"><td>162</td><td><pre style="display:inline;"> &nbsp; &nbsp;Items: TArray&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>163</td><td><pre style="display:inline;"> &nbsp; &nbsp;property Count: integer read GetCount write SetCount;</pre></td></tr>
+<tr class="nocodegen"><td>164</td><td><pre style="display:inline;"> &nbsp; &nbsp;property ItemAt[Index: Integer]: T read GetItemAt write SetItemAt; default;</pre></td></tr>
+<tr class="nocodegen"><td>165</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>166</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(ACapacity: integer); overload;</pre></td></tr>
+<tr class="nocodegen"><td>167</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(const AValues: array of T); overload;</pre></td></tr>
+<tr class="nocodegen"><td>168</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Clear;</pre></td></tr>
+<tr class="nocodegen"><td>169</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure SetItems(const Values: array of T);</pre></td></tr>
+<tr class="nocodegen"><td>170</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Add(const Value: T): integer;</pre></td></tr>
+<tr class="nocodegen"><td>171</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Delete(Index: integer);</pre></td></tr>
+<tr class="nocodegen"><td>172</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Insert(Index: integer; Value: T);</pre></td></tr>
+<tr class="nocodegen"><td>173</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Remove(const AItem: T): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>174</td><td><pre style="display:inline;"> &nbsp; &nbsp;function AddIfNotContains(const AItem: T): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>175</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>176</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure AddRange(const ValuesToInsert: array of T); overload;</pre></td></tr>
+<tr class="nocodegen"><td>177</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure AddRange(const ValuesToInsert: TArrayRecord&lt;T&gt;); overload;</pre></td></tr>
+<tr class="nocodegen"><td>178</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>179</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure InsertRange(Index: Integer; const ValuesToInsert: array of T); overload;</pre></td></tr>
+<tr class="nocodegen"><td>180</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure InsertRange(Index: Integer; const ValuesToInsert: TArrayRecord&lt;T&gt;); overload;</pre></td></tr>
+<tr class="nocodegen"><td>181</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>182</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOf(Item: T): integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>183</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOf(Item: T; const Comparer: IComparer&lt;T&gt;): integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>184</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>185</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOfMax: integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>186</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOfMax(const Comparer: IComparer&lt;T&gt;): integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>187</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOfMin: integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>188</td><td><pre style="display:inline;"> &nbsp; &nbsp;function IndexOfMin(const Comparer: IComparer&lt;T&gt;): integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>189</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>190</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Contains(Item: T): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>191</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Contains(Item: T; const Comparer: IComparer&lt;T&gt;): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>192</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>193</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Compare(const ValuesToCompare: array of T): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>194</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Compare(const ValuesToCompare: array of T; const Comparer: IComparer&lt;T&gt;): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>195</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Compare(const ValuesToCompare: TArrayRecord&lt;T&gt;): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>196</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Compare(const ValuesToCompare: TArrayRecord&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>197</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>198</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure ForEach(const Callback: TArrayForEachCallback&lt;T&gt;);</pre></td></tr>
+<tr class="nocodegen"><td>199</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Find(const Callback: TArrayFindCallback&lt;T&gt;; const StartIndex: integer = 0): integer; overload;</pre></td></tr>
+<tr class="nocodegen"><td>200</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Map(const Callback: TArrayMapCallback&lt;T&gt;): TArrayRecord&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>201</td><td><pre style="display:inline;"> &nbsp; &nbsp;function Convert&lt;TTo&gt;(const Callback: TArrayConvert&lt;T,TTo&gt;): TArrayRecord&lt;TTo&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>202</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>203</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Sort; overload;</pre></td></tr>
+<tr class="nocodegen"><td>204</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Sort(const AComparer: IComparer&lt;T&gt;); overload;</pre></td></tr>
+<tr class="nocodegen"><td>205</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Sort(const AComparer: IComparer&lt;T&gt;; AIndex, ACount: Integer); overload;</pre></td></tr>
+<tr class="nocodegen"><td>206</td><td><pre style="display:inline;"> &nbsp; &nbsp;function BinarySearch(const AItem: T; out AFoundIndex: Integer; const AComparer: IComparer&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>207</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;AIndex, ACount: Integer): Boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>208</td><td><pre style="display:inline;"> &nbsp; &nbsp;function BinarySearch(const AItem: T; out AFoundIndex: Integer; const AComparer: IComparer&lt;T&gt;): Boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>209</td><td><pre style="display:inline;"> &nbsp; &nbsp;function BinarySearch(const AItem: T; out AFoundIndex: Integer): Boolean; overload;</pre></td></tr>
+<tr class="nocodegen"><td>210</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>211</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure Unique; // remove duplicates</pre></td></tr>
+<tr class="nocodegen"><td>212</td><td><pre style="display:inline;"> &nbsp; &nbsp;function CopyArray(FromIndex: integer; Count: integer = -1): TArrayRecord&lt;T&gt;; &nbsp;// return array slice</pre></td></tr>
+<tr class="nocodegen"><td>213</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>214</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure List(var ValList: TList&lt;T&gt;);</pre></td></tr>
+<tr class="nocodegen"><td>215</td><td><pre style="display:inline;"> &nbsp; &nbsp;// operator overloads</pre></td></tr>
+<tr class="nocodegen"><td>216</td><td><pre style="display:inline;"> &nbsp; &nbsp;class operator Equal(const L, R: TArrayRecord&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>217</td><td><pre style="display:inline;"> &nbsp; &nbsp;class operator NotEqual(const L, R: TArrayRecord&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>218</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>219</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>220</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>221</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>222</td><td><pre style="display:inline;">implementation</pre></td></tr>
+<tr class="nocodegen"><td>223</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>224</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>225</td><td><pre style="display:inline;">{ TArrayHelper }</pre></td></tr>
+<tr class="nocodegen"><td>226</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>227</td><td><pre style="display:inline;">class function TArrayHelper.Add&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): integer;</pre></td></tr>
+<tr class="notcovered"><td>228</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>229</td><td><pre style="display:inline;"> &nbsp;Result := Length(Values);</pre></td></tr>
+<tr class="notcovered"><td>230</td><td><pre style="display:inline;"> &nbsp;SetLength(Values,Result+1);</pre></td></tr>
+<tr class="notcovered"><td>231</td><td><pre style="display:inline;"> &nbsp;Values[Result] := Item;</pre></td></tr>
+<tr class="notcovered"><td>232</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>233</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>234</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>235</td><td><pre style="display:inline;">class procedure TArrayHelper.Delete&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: integer);</pre></td></tr>
+<tr class="nocodegen"><td>236</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>237</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>238</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>239</td><td><pre style="display:inline;"> &nbsp;if (Index &lt; Low(Values)) or (Index &gt; High(Values)) then</pre></td></tr>
+<tr class="notcovered"><td>240</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise EArgumentOutOfRangeException.CreateRes(@SArgumentOutOfRange);</pre></td></tr>
+<tr class="notcovered"><td>241</td><td><pre style="display:inline;"> &nbsp;for I := Index+1 to High(Values) do</pre></td></tr>
+<tr class="notcovered"><td>242</td><td><pre style="display:inline;"> &nbsp; &nbsp;Values[I-1] := Values[I];</pre></td></tr>
+<tr class="notcovered"><td>243</td><td><pre style="display:inline;"> &nbsp;SetLength(Values, length(Values)-1);</pre></td></tr>
+<tr class="notcovered"><td>244</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>245</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>246</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>247</td><td><pre style="display:inline;">class procedure TArrayHelper.Insert&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: integer; Value: T);</pre></td></tr>
+<tr class="nocodegen"><td>248</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>249</td><td><pre style="display:inline;"> &nbsp;I,H: Integer;</pre></td></tr>
+<tr class="notcovered"><td>250</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>251</td><td><pre style="display:inline;"> &nbsp;if (Index &lt; Low(Values)) or (Index &gt; length(Values)) then</pre></td></tr>
+<tr class="notcovered"><td>252</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise EArgumentOutOfRangeException.CreateRes(@SArgumentOutOfRange);</pre></td></tr>
+<tr class="notcovered"><td>253</td><td><pre style="display:inline;"> &nbsp;H := High(Values);</pre></td></tr>
+<tr class="notcovered"><td>254</td><td><pre style="display:inline;"> &nbsp;SetLength(Values, length(Values)+1);</pre></td></tr>
+<tr class="notcovered"><td>255</td><td><pre style="display:inline;"> &nbsp;for I := H downto Index do</pre></td></tr>
+<tr class="notcovered"><td>256</td><td><pre style="display:inline;"> &nbsp; &nbsp;Values[I+1] := Values[I];</pre></td></tr>
+<tr class="notcovered"><td>257</td><td><pre style="display:inline;"> &nbsp;Values[Index] := Value;</pre></td></tr>
+<tr class="notcovered"><td>258</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>259</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>260</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>261</td><td><pre style="display:inline;">class procedure TArrayHelper.InsertRange&lt;T&gt;(var Values: TArray&lt;T&gt;; Index: Integer; const ValuesToInsert: array of T);</pre></td></tr>
+<tr class="nocodegen"><td>262</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>263</td><td><pre style="display:inline;"> &nbsp;I,L,H: Integer;</pre></td></tr>
+<tr class="notcovered"><td>264</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>265</td><td><pre style="display:inline;"> &nbsp;L := length(ValuesToInsert);</pre></td></tr>
+<tr class="notcovered"><td>266</td><td><pre style="display:inline;"> &nbsp;if L = 0 then EXIT;</pre></td></tr>
+<tr class="notcovered"><td>267</td><td><pre style="display:inline;"> &nbsp;if (Index &lt; Low(Values)) or (Index &gt; length(Values)) then</pre></td></tr>
+<tr class="notcovered"><td>268</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise EArgumentOutOfRangeException.CreateRes(@SArgumentOutOfRange);</pre></td></tr>
+<tr class="notcovered"><td>269</td><td><pre style="display:inline;"> &nbsp;H := High(Values);</pre></td></tr>
+<tr class="notcovered"><td>270</td><td><pre style="display:inline;"> &nbsp;SetLength(Values, length(Values) + L);</pre></td></tr>
+<tr class="notcovered"><td>271</td><td><pre style="display:inline;"> &nbsp;for I := H downto Index do</pre></td></tr>
+<tr class="notcovered"><td>272</td><td><pre style="display:inline;"> &nbsp; &nbsp;Values[I+L] := Values[I];</pre></td></tr>
+<tr class="notcovered"><td>273</td><td><pre style="display:inline;"> &nbsp;for I := Low(ValuesToInsert) to High(ValuesToInsert) do</pre></td></tr>
+<tr class="notcovered"><td>274</td><td><pre style="display:inline;"> &nbsp; &nbsp;Values[Index+I] := ValuesToInsert[I];</pre></td></tr>
+<tr class="notcovered"><td>275</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>276</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>277</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>278</td><td><pre style="display:inline;">class procedure TArrayHelper.List&lt;T&gt;(const Values: TArray&lt;T&gt;; var ValList:</pre></td></tr>
+<tr class="nocodegen"><td>279</td><td><pre style="display:inline;"> &nbsp; &nbsp;TList&lt;T&gt;);</pre></td></tr>
+<tr class="nocodegen"><td>280</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>281</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="covered"><td>282</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>283</td><td><pre style="display:inline;"> &nbsp;if not Assigned(ValList) then</pre></td></tr>
+<tr class="notcovered"><td>284</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise Exception.Create(&apos;ValList is nil&apos;);</pre></td></tr>
+<tr class="covered"><td>285</td><td><pre style="display:inline;"> &nbsp;ValList.Clear;</pre></td></tr>
+<tr class="covered"><td>286</td><td><pre style="display:inline;"> &nbsp;for I := Low(Values) to High(Values) do</pre></td></tr>
+<tr class="covered"><td>287</td><td><pre style="display:inline;"> &nbsp; &nbsp;ValList.Add(Values[I]);</pre></td></tr>
+<tr class="covered"><td>288</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>289</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>290</td><td><pre style="display:inline;">class procedure TArrayHelper.AddRange&lt;T&gt;(var Values: TArray&lt;T&gt;; const ValuesToInsert: array of T);</pre></td></tr>
+<tr class="nocodegen"><td>291</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>292</td><td><pre style="display:inline;"> &nbsp;I,Index: Integer;</pre></td></tr>
+<tr class="covered"><td>293</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>294</td><td><pre style="display:inline;"> &nbsp;Index := length(Values);</pre></td></tr>
+<tr class="covered"><td>295</td><td><pre style="display:inline;"> &nbsp;SetLength(Values, length(Values) + length(ValuesToInsert));</pre></td></tr>
+<tr class="covered"><td>296</td><td><pre style="display:inline;"> &nbsp;for I := Low(ValuesToInsert) to High(ValuesToInsert) do</pre></td></tr>
+<tr class="covered"><td>297</td><td><pre style="display:inline;"> &nbsp; &nbsp;Values[Index+I] := ValuesToInsert[I];</pre></td></tr>
+<tr class="covered"><td>298</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>299</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>300</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>301</td><td><pre style="display:inline;">class function TArrayHelper.IndexOf&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T; const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="covered"><td>302</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>303</td><td><pre style="display:inline;"> &nbsp;for Result := Low(Values) to High(Values) do</pre></td></tr>
+<tr class="covered"><td>304</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Comparer.Compare(Values[Result], Item) = 0 then EXIT;</pre></td></tr>
+<tr class="covered"><td>305</td><td><pre style="display:inline;"> &nbsp;Result := -1;</pre></td></tr>
+<tr class="covered"><td>306</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>307</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>308</td><td><pre style="display:inline;">class function TArrayHelper.IndexOf&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): integer;</pre></td></tr>
+<tr class="notcovered"><td>309</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>310</td><td><pre style="display:inline;"> &nbsp;Result := IndexOf&lt;T&gt;(Values, Item, TComparer&lt;T&gt;.Default);</pre></td></tr>
+<tr class="notcovered"><td>311</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>312</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>313</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>314</td><td><pre style="display:inline;">class function TArrayHelper.IndexOfMax&lt;T&gt;(var Values: TArray&lt;T&gt;): integer;</pre></td></tr>
+<tr class="notcovered"><td>315</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>316</td><td><pre style="display:inline;"> &nbsp;Result := IndexOfMax&lt;T&gt;(Values, TComparer&lt;T&gt;.Default);</pre></td></tr>
+<tr class="notcovered"><td>317</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>318</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>319</td><td><pre style="display:inline;">class function TArrayHelper.IndexOfMax&lt;T&gt;(var Values: TArray&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="nocodegen"><td>320</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>321</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>322</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>323</td><td><pre style="display:inline;"> &nbsp;if length(Values) = 0 then</pre></td></tr>
+<tr class="notcovered"><td>324</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise EArgumentOutOfRangeException.CreateRes(@SArgumentOutOfRange);</pre></td></tr>
+<tr class="notcovered"><td>325</td><td><pre style="display:inline;"> &nbsp;Result := 0;</pre></td></tr>
+<tr class="notcovered"><td>326</td><td><pre style="display:inline;"> &nbsp;for I := 1 to High(Values) do</pre></td></tr>
+<tr class="notcovered"><td>327</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Comparer.Compare(Values[I], Values[Result]) &gt; 0 then</pre></td></tr>
+<tr class="notcovered"><td>328</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := I;</pre></td></tr>
+<tr class="notcovered"><td>329</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>330</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>331</td><td><pre style="display:inline;">class function TArrayHelper.IndexOfMin&lt;T&gt;(var Values: TArray&lt;T&gt;): integer;</pre></td></tr>
+<tr class="notcovered"><td>332</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>333</td><td><pre style="display:inline;"> &nbsp;Result := IndexOfMin&lt;T&gt;(Values, TComparer&lt;T&gt;.Default);</pre></td></tr>
+<tr class="notcovered"><td>334</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>335</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>336</td><td><pre style="display:inline;">class function TArrayHelper.IndexOfMin&lt;T&gt;(var Values: TArray&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="nocodegen"><td>337</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>338</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>339</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>340</td><td><pre style="display:inline;"> &nbsp;if length(Values) = 0 then</pre></td></tr>
+<tr class="notcovered"><td>341</td><td><pre style="display:inline;"> &nbsp; &nbsp;raise EArgumentOutOfRangeException.CreateRes(@SArgumentOutOfRange);</pre></td></tr>
+<tr class="notcovered"><td>342</td><td><pre style="display:inline;"> &nbsp;Result := 0;</pre></td></tr>
+<tr class="notcovered"><td>343</td><td><pre style="display:inline;"> &nbsp;for I := 1 to High(Values) do</pre></td></tr>
+<tr class="notcovered"><td>344</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Comparer.Compare(Values[I], Values[Result]) &lt; 0 then</pre></td></tr>
+<tr class="notcovered"><td>345</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := I;</pre></td></tr>
+<tr class="notcovered"><td>346</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>347</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>348</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>349</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>350</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>351</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>352</td><td><pre style="display:inline;">class function TArrayHelper.Contains&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T; const Comparer: IComparer&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="covered"><td>353</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>354</td><td><pre style="display:inline;"> &nbsp;Result := IndexOf&lt;T&gt;(Values, Item, Comparer) &lt;&gt; -1;</pre></td></tr>
+<tr class="covered"><td>355</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>356</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>357</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>358</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>359</td><td><pre style="display:inline;">class function TArrayHelper.Contains&lt;T&gt;(var Values: TArray&lt;T&gt;; Item: T): boolean;</pre></td></tr>
+<tr class="covered"><td>360</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>361</td><td><pre style="display:inline;"> &nbsp;Result := Contains&lt;T&gt;(Values, Item, TComparer&lt;T&gt;.Default);</pre></td></tr>
+<tr class="covered"><td>362</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>363</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>364</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>365</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>366</td><td><pre style="display:inline;">class function TArrayHelper.Compare&lt;T&gt;(const Values, ValuesToCompare: array of T; const Comparer: IComparer&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>367</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>368</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>369</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>370</td><td><pre style="display:inline;"> &nbsp;if length(Values) &lt;&gt; length(ValuesToCompare) then EXIT( FALSE );</pre></td></tr>
+<tr class="notcovered"><td>371</td><td><pre style="display:inline;"> &nbsp;for I := Low(Values) to High(Values) do</pre></td></tr>
+<tr class="notcovered"><td>372</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Comparer.Compare(Values[I], ValuesToCompare[I]) &lt;&gt; 0 then EXIT( FALSE );</pre></td></tr>
+<tr class="notcovered"><td>373</td><td><pre style="display:inline;"> &nbsp;Result := TRUE;</pre></td></tr>
+<tr class="notcovered"><td>374</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>375</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>376</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>377</td><td><pre style="display:inline;">class function TArrayHelper.Compare&lt;T&gt;(const Values, ValuesToCompare: array of T): boolean;</pre></td></tr>
+<tr class="notcovered"><td>378</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>379</td><td><pre style="display:inline;"> &nbsp;Result := Compare&lt;T&gt;(Values, ValuesToCompare, TComparer&lt;T&gt;.Default);</pre></td></tr>
+<tr class="notcovered"><td>380</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>381</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>382</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>383</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>384</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>385</td><td><pre style="display:inline;">class procedure TArrayHelper.ForEach&lt;T&gt;(var Values: TArray&lt;T&gt;; const Callback: TArrayForEachCallback&lt;T&gt;);</pre></td></tr>
+<tr class="nocodegen"><td>386</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>387</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="covered"><td>388</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>389</td><td><pre style="display:inline;"> &nbsp;for I := Low(Values) to High(Values) do</pre></td></tr>
+<tr class="covered"><td>390</td><td><pre style="display:inline;"> &nbsp; &nbsp;Callback(Values[I], I);</pre></td></tr>
+<tr class="covered"><td>391</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>392</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>393</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>394</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>395</td><td><pre style="display:inline;">class function TArrayHelper.Find&lt;T&gt;(const Values: TArray&lt;T&gt;; const Callback: TArrayFindCallback&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>396</td><td><pre style="display:inline;"> &nbsp;const StartIndex: integer): integer;</pre></td></tr>
+<tr class="notcovered"><td>397</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>398</td><td><pre style="display:inline;"> &nbsp;if (length(Values) = 0) or (StartIndex &lt; 0) or (StartIndex &gt; High(Values)) then EXIT( -1 );</pre></td></tr>
+<tr class="notcovered"><td>399</td><td><pre style="display:inline;"> &nbsp;for Result := StartIndex to High(Values) do</pre></td></tr>
+<tr class="notcovered"><td>400</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Callback(Values[Result]) then EXIT;</pre></td></tr>
+<tr class="notcovered"><td>401</td><td><pre style="display:inline;"> &nbsp;Result := -1;</pre></td></tr>
+<tr class="notcovered"><td>402</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>403</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>404</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>405</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>406</td><td><pre style="display:inline;">class function TArrayHelper.Map&lt;T&gt;(const Values: TArray&lt;T&gt;; const Callback: TArrayMapCallback&lt;T&gt;): TArray&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>407</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>408</td><td><pre style="display:inline;"> &nbsp;Item: T;</pre></td></tr>
+<tr class="nocodegen"><td>409</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>410</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>411</td><td><pre style="display:inline;"> &nbsp;Result := NIL;</pre></td></tr>
+<tr class="notcovered"><td>412</td><td><pre style="display:inline;"> &nbsp;for I := Low(Values) to High(Values) do</pre></td></tr>
+<tr class="nocodegen"><td>413</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>414</td><td><pre style="display:inline;"> &nbsp; &nbsp;Item := Values[I];</pre></td></tr>
+<tr class="notcovered"><td>415</td><td><pre style="display:inline;"> &nbsp; &nbsp;if Callback(Item, I) then</pre></td></tr>
+<tr class="notcovered"><td>416</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Add&lt;T&gt;(Result, Item);</pre></td></tr>
+<tr class="notcovered"><td>417</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="notcovered"><td>418</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>419</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>420</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>421</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>422</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>423</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>424</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>425</td><td><pre style="display:inline;">{ TArrayRecord&lt;T&gt;.TEnumerator }</pre></td></tr>
+<tr class="nocodegen"><td>426</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>427</td><td><pre style="display:inline;">constructor TArrayRecord&lt;T&gt;.TEnumerator.Create(var AValue: TArrayRecord&lt;T&gt;);</pre></td></tr>
+<tr class="covered"><td>428</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>429</td><td><pre style="display:inline;"> &nbsp;FValue := @AValue;</pre></td></tr>
+<tr class="covered"><td>430</td><td><pre style="display:inline;"> &nbsp;FIndex := -1;</pre></td></tr>
+<tr class="covered"><td>431</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>432</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>433</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.TEnumerator.GetCurrent: T;</pre></td></tr>
+<tr class="covered"><td>434</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>435</td><td><pre style="display:inline;"> &nbsp;Result := FValue^.Items[FIndex];</pre></td></tr>
+<tr class="covered"><td>436</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>437</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>438</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.TEnumerator.MoveNext: Boolean;</pre></td></tr>
+<tr class="covered"><td>439</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>440</td><td><pre style="display:inline;"> &nbsp;Result := FIndex &lt; High(FValue^.Items);</pre></td></tr>
+<tr class="covered"><td>441</td><td><pre style="display:inline;"> &nbsp;Inc(FIndex);</pre></td></tr>
+<tr class="covered"><td>442</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>443</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>444</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>445</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>446</td><td><pre style="display:inline;">{ TArrayRecord&lt;T&gt; }</pre></td></tr>
+<tr class="nocodegen"><td>447</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>448</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>449</td><td><pre style="display:inline;">constructor TArrayRecord&lt;T&gt;.Create(ACapacity: integer);</pre></td></tr>
+<tr class="notcovered"><td>450</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>451</td><td><pre style="display:inline;"> &nbsp;SetLength(Items, ACapacity);</pre></td></tr>
+<tr class="notcovered"><td>452</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>453</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>454</td><td><pre style="display:inline;">constructor TArrayRecord&lt;T&gt;.Create(const AValues: array of T);</pre></td></tr>
+<tr class="covered"><td>455</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>456</td><td><pre style="display:inline;"> &nbsp;SetLength(Items, 0);</pre></td></tr>
+<tr class="covered"><td>457</td><td><pre style="display:inline;"> &nbsp;AddRange(AValues);</pre></td></tr>
+<tr class="covered"><td>458</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>459</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>460</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Clear;</pre></td></tr>
+<tr class="notcovered"><td>461</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>462</td><td><pre style="display:inline;"> &nbsp;SetLength(Items, 0);</pre></td></tr>
+<tr class="notcovered"><td>463</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>464</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>465</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>466</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>467</td><td><pre style="display:inline;">class operator TArrayRecord&lt;T&gt;.Equal(const L, R: TArrayRecord&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>468</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>469</td><td><pre style="display:inline;"> &nbsp;Result := L.Compare(R);</pre></td></tr>
+<tr class="notcovered"><td>470</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>471</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>472</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>473</td><td><pre style="display:inline;">class operator TArrayRecord&lt;T&gt;.NotEqual(const L, R: TArrayRecord&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>474</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>475</td><td><pre style="display:inline;"> &nbsp;Result := not L.Compare(R);</pre></td></tr>
+<tr class="notcovered"><td>476</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>477</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>478</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>479</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>480</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.GetCount: integer;</pre></td></tr>
+<tr class="nocodegen"><td>481</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>482</td><td><pre style="display:inline;"> &nbsp;Result := length(Items);</pre></td></tr>
+<tr class="nocodegen"><td>483</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>484</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>485</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.GetEnumerator: TEnumerator;</pre></td></tr>
+<tr class="covered"><td>486</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>487</td><td><pre style="display:inline;"> &nbsp;Result := TEnumerator.Create(Self);</pre></td></tr>
+<tr class="covered"><td>488</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>489</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>490</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.SetCount(const Value: integer);</pre></td></tr>
+<tr class="nocodegen"><td>491</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>492</td><td><pre style="display:inline;"> &nbsp;SetLength(Items, Value);</pre></td></tr>
+<tr class="nocodegen"><td>493</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>494</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>495</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.SetItemAt(Index: integer; Value: T);</pre></td></tr>
+<tr class="nocodegen"><td>496</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>497</td><td><pre style="display:inline;"> &nbsp;Items[Index] := Value;</pre></td></tr>
+<tr class="nocodegen"><td>498</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>499</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>500</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.SetItems(const Values: array of T);</pre></td></tr>
+<tr class="notcovered"><td>501</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>502</td><td><pre style="display:inline;"> &nbsp;SetLength(Items, 0);</pre></td></tr>
+<tr class="notcovered"><td>503</td><td><pre style="display:inline;"> &nbsp;AddRange(Values);</pre></td></tr>
+<tr class="notcovered"><td>504</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>505</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>506</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.GetItemAt(Index: integer): T;</pre></td></tr>
+<tr class="nocodegen"><td>507</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>508</td><td><pre style="display:inline;"> &nbsp;Result := Items[Index];</pre></td></tr>
+<tr class="nocodegen"><td>509</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>510</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>511</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>512</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.AddRange(const ValuesToInsert: array of T);</pre></td></tr>
+<tr class="covered"><td>513</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>514</td><td><pre style="display:inline;"> &nbsp;TArray.AddRange&lt;T&gt;(Items, ValuesToInsert);</pre></td></tr>
+<tr class="covered"><td>515</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>516</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>517</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.AddRange(const ValuesToInsert: TArrayRecord&lt;T&gt;);</pre></td></tr>
+<tr class="notcovered"><td>518</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>519</td><td><pre style="display:inline;"> &nbsp;TArray.AddRange&lt;T&gt;(Items, ValuesToInsert.Items);</pre></td></tr>
+<tr class="notcovered"><td>520</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>521</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>522</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>523</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>524</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.BinarySearch(const AItem: T; out AFoundIndex: Integer; const AComparer: IComparer&lt;T&gt;; AIndex,</pre></td></tr>
+<tr class="nocodegen"><td>525</td><td><pre style="display:inline;"> &nbsp;ACount: Integer): Boolean;</pre></td></tr>
+<tr class="notcovered"><td>526</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>527</td><td><pre style="display:inline;"> &nbsp;Result := TArray.BinarySearch&lt;T&gt;(Items, AItem, AFoundIndex, AComparer, AIndex, ACount);</pre></td></tr>
+<tr class="notcovered"><td>528</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>529</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>530</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.BinarySearch(const AItem: T; out AFoundIndex: Integer; const AComparer: IComparer&lt;T&gt;): Boolean;</pre></td></tr>
+<tr class="notcovered"><td>531</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>532</td><td><pre style="display:inline;"> &nbsp;Result := TArray.BinarySearch&lt;T&gt;(Items, AItem, AFoundIndex, AComparer);</pre></td></tr>
+<tr class="notcovered"><td>533</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>534</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>535</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.BinarySearch(const AItem: T; out AFoundIndex: Integer): Boolean;</pre></td></tr>
+<tr class="notcovered"><td>536</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>537</td><td><pre style="display:inline;"> &nbsp;Result := TArray.BinarySearch&lt;T&gt;(Items, AItem, AFoundIndex);</pre></td></tr>
+<tr class="notcovered"><td>538</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>539</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>540</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>541</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Delete(Index: integer);</pre></td></tr>
+<tr class="notcovered"><td>542</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>543</td><td><pre style="display:inline;"> &nbsp;TArray.Delete&lt;T&gt;(Items, Index);</pre></td></tr>
+<tr class="notcovered"><td>544</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>545</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>546</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>547</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>548</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Remove(const AItem: T): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>549</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>550</td><td><pre style="display:inline;"> &nbsp;I: integer;</pre></td></tr>
+<tr class="notcovered"><td>551</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>552</td><td><pre style="display:inline;"> &nbsp;I := IndexOf(AItem);</pre></td></tr>
+<tr class="notcovered"><td>553</td><td><pre style="display:inline;"> &nbsp;if I &lt; 0 then</pre></td></tr>
+<tr class="notcovered"><td>554</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result := FALSE</pre></td></tr>
+<tr class="nocodegen"><td>555</td><td><pre style="display:inline;"> &nbsp;else</pre></td></tr>
+<tr class="nocodegen"><td>556</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>557</td><td><pre style="display:inline;"> &nbsp; &nbsp;Delete(I);</pre></td></tr>
+<tr class="notcovered"><td>558</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result := TRUE;</pre></td></tr>
+<tr class="nocodegen"><td>559</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="notcovered"><td>560</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>561</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>562</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>563</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.AddIfNotContains(const AItem: T): boolean;</pre></td></tr>
+<tr class="notcovered"><td>564</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>565</td><td><pre style="display:inline;"> &nbsp;Result := not Contains(AItem);</pre></td></tr>
+<tr class="notcovered"><td>566</td><td><pre style="display:inline;"> &nbsp;if not Result then</pre></td></tr>
+<tr class="notcovered"><td>567</td><td><pre style="display:inline;"> &nbsp; &nbsp;Add(AItem);</pre></td></tr>
+<tr class="notcovered"><td>568</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>569</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>570</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>571</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>572</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Find(const Callback: TArrayFindCallback&lt;T&gt;; const StartIndex: integer): integer;</pre></td></tr>
+<tr class="notcovered"><td>573</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>574</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Find&lt;T&gt;(Items, Callback, StartIndex);</pre></td></tr>
+<tr class="notcovered"><td>575</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>576</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>577</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.ForEach(const Callback: TArrayForEachCallback&lt;T&gt;);</pre></td></tr>
+<tr class="covered"><td>578</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>579</td><td><pre style="display:inline;"> &nbsp;TArray.ForEach&lt;T&gt;(Items, Callback);</pre></td></tr>
+<tr class="covered"><td>580</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>581</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>582</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>583</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>584</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Compare(const ValuesToCompare: TArrayRecord&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>585</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>586</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Compare&lt;T&gt;(Items, ValuesToCompare.Items);</pre></td></tr>
+<tr class="notcovered"><td>587</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>588</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>589</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Compare(const ValuesToCompare: TArrayRecord&lt;T&gt;; const Comparer: IComparer&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>590</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>591</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Compare&lt;T&gt;(Items, ValuesToCompare.Items, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>592</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>593</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>594</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Compare(const ValuesToCompare: array of T): boolean;</pre></td></tr>
+<tr class="notcovered"><td>595</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>596</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Compare&lt;T&gt;(Items, ValuesToCompare);</pre></td></tr>
+<tr class="notcovered"><td>597</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>598</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>599</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Compare(const ValuesToCompare: array of T; const Comparer: IComparer&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>600</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>601</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Compare&lt;T&gt;(Items, ValuesToCompare, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>602</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>603</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>604</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>605</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>606</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>607</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Contains(Item: T; const Comparer: IComparer&lt;T&gt;): boolean;</pre></td></tr>
+<tr class="notcovered"><td>608</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>609</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Contains&lt;T&gt;(Items, Item, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>610</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>611</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>612</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>613</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Contains(Item: T): boolean;</pre></td></tr>
+<tr class="covered"><td>614</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>615</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Contains&lt;T&gt;(Items, Item);</pre></td></tr>
+<tr class="covered"><td>616</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>617</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>618</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>619</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>620</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>621</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOf(Item: T; const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="notcovered"><td>622</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>623</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOf&lt;T&gt;(Items, Item, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>624</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>625</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>626</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>627</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOfMax: integer;</pre></td></tr>
+<tr class="notcovered"><td>628</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>629</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOfMax&lt;T&gt;(Items);</pre></td></tr>
+<tr class="notcovered"><td>630</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>631</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>632</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOfMax(const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="notcovered"><td>633</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>634</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOfMax&lt;T&gt;(Items, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>635</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>636</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>637</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOfMin: integer;</pre></td></tr>
+<tr class="notcovered"><td>638</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>639</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOfMin&lt;T&gt;(Items);</pre></td></tr>
+<tr class="notcovered"><td>640</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>641</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>642</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOfMin(const Comparer: IComparer&lt;T&gt;): integer;</pre></td></tr>
+<tr class="notcovered"><td>643</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>644</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOfMin&lt;T&gt;(Items, Comparer);</pre></td></tr>
+<tr class="notcovered"><td>645</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>646</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>647</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.IndexOf(Item: T): integer;</pre></td></tr>
+<tr class="notcovered"><td>648</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>649</td><td><pre style="display:inline;"> &nbsp;Result := TArray.IndexOf&lt;T&gt;(Items, Item);</pre></td></tr>
+<tr class="notcovered"><td>650</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>651</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>652</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>653</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Insert(Index: integer; Value: T);</pre></td></tr>
+<tr class="notcovered"><td>654</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>655</td><td><pre style="display:inline;"> &nbsp;TArray.Insert&lt;T&gt;(Items, Index, Value);</pre></td></tr>
+<tr class="notcovered"><td>656</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>657</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>658</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>659</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>660</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.InsertRange(Index: Integer; const ValuesToInsert: TArrayRecord&lt;T&gt;);</pre></td></tr>
+<tr class="notcovered"><td>661</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>662</td><td><pre style="display:inline;"> &nbsp;TArray.InsertRange&lt;T&gt;(Items, Index, ValuesToInsert.Items);</pre></td></tr>
+<tr class="notcovered"><td>663</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>664</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>665</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.List(var ValList: TList&lt;T&gt;);</pre></td></tr>
+<tr class="covered"><td>666</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="covered"><td>667</td><td><pre style="display:inline;"> &nbsp;TArray.List&lt;T&gt;(Items, ValList);</pre></td></tr>
+<tr class="covered"><td>668</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>669</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>670</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.InsertRange(Index: Integer; const ValuesToInsert: array of T);</pre></td></tr>
+<tr class="notcovered"><td>671</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>672</td><td><pre style="display:inline;"> &nbsp;TArray.InsertRange&lt;T&gt;(Items, Index, ValuesToInsert);</pre></td></tr>
+<tr class="notcovered"><td>673</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>674</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>675</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>676</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>677</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Map(const Callback: TArrayMapCallback&lt;T&gt;): TArrayRecord&lt;T&gt;;</pre></td></tr>
+<tr class="notcovered"><td>678</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>679</td><td><pre style="display:inline;"> &nbsp;Result.Items := TArray.Map&lt;T&gt;(Items, Callback);</pre></td></tr>
+<tr class="notcovered"><td>680</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>681</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>682</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>683</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>684</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Convert&lt;TTo&gt;(const Callback: TArrayConvert&lt;T,TTo&gt;): TArrayRecord&lt;TTo&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>685</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>686</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>687</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>688</td><td><pre style="display:inline;"> &nbsp;Result.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>689</td><td><pre style="display:inline;"> &nbsp;for I := Low(Items) to High(Items) do</pre></td></tr>
+<tr class="nocodegen"><td>690</td><td><pre style="display:inline;"> &nbsp; &nbsp;Result.Add(Callback(Items[I]));</pre></td></tr>
+<tr class="nocodegen"><td>691</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>692</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>693</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>694</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>695</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.CopyArray(FromIndex: integer; Count: integer): TArrayRecord&lt;T&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>696</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>697</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>698</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>699</td><td><pre style="display:inline;"> &nbsp;Result.Clear;</pre></td></tr>
+<tr class="notcovered"><td>700</td><td><pre style="display:inline;"> &nbsp;if Count &lt; 0 then</pre></td></tr>
+<tr class="notcovered"><td>701</td><td><pre style="display:inline;"> &nbsp; &nbsp;Count := length(Items);</pre></td></tr>
+<tr class="notcovered"><td>702</td><td><pre style="display:inline;"> &nbsp;if length(Items) &lt; (FromIndex + Count) then</pre></td></tr>
+<tr class="notcovered"><td>703</td><td><pre style="display:inline;"> &nbsp; &nbsp;Count := length(Items) - FromIndex;</pre></td></tr>
+<tr class="notcovered"><td>704</td><td><pre style="display:inline;"> &nbsp;if Count &gt; 0 then</pre></td></tr>
+<tr class="nocodegen"><td>705</td><td><pre style="display:inline;"> &nbsp;begin</pre></td></tr>
+<tr class="notcovered"><td>706</td><td><pre style="display:inline;"> &nbsp; &nbsp;SetLength(Result.Items, Count);</pre></td></tr>
+<tr class="notcovered"><td>707</td><td><pre style="display:inline;"> &nbsp; &nbsp;for I := 0 to Count-1 do</pre></td></tr>
+<tr class="notcovered"><td>708</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result.Items[I] := Items[I + FromIndex];</pre></td></tr>
+<tr class="nocodegen"><td>709</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="notcovered"><td>710</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>711</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>712</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>713</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>714</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Sort;</pre></td></tr>
+<tr class="notcovered"><td>715</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>716</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;T&gt;(Items);</pre></td></tr>
+<tr class="notcovered"><td>717</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>718</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>719</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Sort(const AComparer: IComparer&lt;T&gt;);</pre></td></tr>
+<tr class="notcovered"><td>720</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>721</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;T&gt;(Items, AComparer);</pre></td></tr>
+<tr class="notcovered"><td>722</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>723</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>724</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Sort(const AComparer: IComparer&lt;T&gt;; AIndex, ACount: Integer);</pre></td></tr>
+<tr class="notcovered"><td>725</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>726</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;T&gt;(Items, AComparer, AIndex, ACount);</pre></td></tr>
+<tr class="notcovered"><td>727</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>728</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>729</td><td><pre style="display:inline;">function TArrayRecord&lt;T&gt;.Add(const Value: T): integer;</pre></td></tr>
+<tr class="notcovered"><td>730</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>731</td><td><pre style="display:inline;"> &nbsp;Result := TArray.Add&lt;T&gt;(Items, Value);</pre></td></tr>
+<tr class="notcovered"><td>732</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>733</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>734</td><td><pre style="display:inline;">procedure TArrayRecord&lt;T&gt;.Unique;</pre></td></tr>
+<tr class="nocodegen"><td>735</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>736</td><td><pre style="display:inline;"> &nbsp;Hash: TDictionary&lt;T,integer&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>737</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="notcovered"><td>738</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="notcovered"><td>739</td><td><pre style="display:inline;"> &nbsp;Hash := TDictionary&lt;T,integer&gt;.Create(length(Items));</pre></td></tr>
+<tr class="notcovered"><td>740</td><td><pre style="display:inline;"> &nbsp;try</pre></td></tr>
+<tr class="notcovered"><td>741</td><td><pre style="display:inline;"> &nbsp; &nbsp;for I := Low(Items) to High(Items) do</pre></td></tr>
+<tr class="notcovered"><td>742</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Hash.AddOrSetValue(Items[I], 0);</pre></td></tr>
+<tr class="notcovered"><td>743</td><td><pre style="display:inline;"> &nbsp; &nbsp;Items := Hash.Keys.ToArray;</pre></td></tr>
+<tr class="nocodegen"><td>744</td><td><pre style="display:inline;"> &nbsp;finally</pre></td></tr>
+<tr class="notcovered"><td>745</td><td><pre style="display:inline;"> &nbsp; &nbsp;Hash.Free;</pre></td></tr>
+<tr class="nocodegen"><td>746</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="notcovered"><td>747</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>748</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>749</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>750</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>751</td><td><pre style="display:inline;">{$IFDEF TEST_FUNCTION}</pre></td></tr>
+<tr class="nocodegen"><td>752</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>753</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>754</td><td><pre style="display:inline;">type</pre></td></tr>
+<tr class="nocodegen"><td>755</td><td><pre style="display:inline;"> &nbsp;TTestRecord = record</pre></td></tr>
+<tr class="nocodegen"><td>756</td><td><pre style="display:inline;"> &nbsp; &nbsp;Name: string;</pre></td></tr>
+<tr class="nocodegen"><td>757</td><td><pre style="display:inline;"> &nbsp; &nbsp;Age: integer;</pre></td></tr>
+<tr class="nocodegen"><td>758</td><td><pre style="display:inline;"> &nbsp; &nbsp;constructor Create(AName: string; AAge: integer);</pre></td></tr>
+<tr class="nocodegen"><td>759</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function NameComparer: IComparer&lt;TTestRecord&gt;; static;</pre></td></tr>
+<tr class="nocodegen"><td>760</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function AgeComparer: IComparer&lt;TTestRecord&gt;; static;</pre></td></tr>
+<tr class="nocodegen"><td>761</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function ConvertToNames(const Value: TTestRecord): string; static;</pre></td></tr>
+<tr class="nocodegen"><td>762</td><td><pre style="display:inline;"> &nbsp; &nbsp;class function ConvertToAges(const Value: TTestRecord): integer; static;</pre></td></tr>
+<tr class="nocodegen"><td>763</td><td><pre style="display:inline;"> &nbsp;end;</pre></td></tr>
+<tr class="nocodegen"><td>764</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>765</td><td><pre style="display:inline;">constructor TTestRecord.Create(AName: string; AAge: integer);</pre></td></tr>
+<tr class="nocodegen"><td>766</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>767</td><td><pre style="display:inline;"> &nbsp;Name := AName;</pre></td></tr>
+<tr class="nocodegen"><td>768</td><td><pre style="display:inline;"> &nbsp;Age &nbsp;:= AAge;</pre></td></tr>
+<tr class="nocodegen"><td>769</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>770</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>771</td><td><pre style="display:inline;">class function TTestRecord.ConvertToNames(const Value: TTestRecord): string;</pre></td></tr>
+<tr class="nocodegen"><td>772</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>773</td><td><pre style="display:inline;"> &nbsp;Result := Value.Name;</pre></td></tr>
+<tr class="nocodegen"><td>774</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>775</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>776</td><td><pre style="display:inline;">class function TTestRecord.ConvertToAges(const Value: TTestRecord): integer;</pre></td></tr>
+<tr class="nocodegen"><td>777</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>778</td><td><pre style="display:inline;"> &nbsp;Result := Value.Age;</pre></td></tr>
+<tr class="nocodegen"><td>779</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>780</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>781</td><td><pre style="display:inline;">class function TTestRecord.AgeComparer: IComparer&lt;TTestRecord&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>782</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>783</td><td><pre style="display:inline;"> &nbsp;Result := TComparer&lt;TTestRecord&gt;.Construct(</pre></td></tr>
+<tr class="nocodegen"><td>784</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(const Left, Right: TTestRecord): Integer</pre></td></tr>
+<tr class="nocodegen"><td>785</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>786</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := TComparer&lt;integer&gt;.Default.Compare(Left.Age, Right.Age);</pre></td></tr>
+<tr class="nocodegen"><td>787</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>788</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>789</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>790</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>791</td><td><pre style="display:inline;">class function TTestRecord.NameComparer: IComparer&lt;TTestRecord&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>792</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>793</td><td><pre style="display:inline;"> &nbsp;Result := TComparer&lt;TTestRecord&gt;.Construct(</pre></td></tr>
+<tr class="nocodegen"><td>794</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(const Left, Right: TTestRecord): Integer</pre></td></tr>
+<tr class="nocodegen"><td>795</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>796</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := TComparer&lt;string&gt;.Default.Compare(Left.Name, Right.Name);</pre></td></tr>
+<tr class="nocodegen"><td>797</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>798</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>799</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>800</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>801</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>802</td><td><pre style="display:inline;">procedure Test_TestRecord;</pre></td></tr>
+<tr class="nocodegen"><td>803</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>804</td><td><pre style="display:inline;"> &nbsp;List: TArrayRecord&lt;TTestRecord&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>805</td><td><pre style="display:inline;"> &nbsp;StrList: TArrayRecord&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>806</td><td><pre style="display:inline;"> &nbsp;I: integer;</pre></td></tr>
+<tr class="nocodegen"><td>807</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>808</td><td><pre style="display:inline;"> &nbsp;// create list</pre></td></tr>
+<tr class="nocodegen"><td>809</td><td><pre style="display:inline;"> &nbsp;List.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>810</td><td><pre style="display:inline;"> &nbsp;List.Add( TTestRecord.Create(&apos;Jack&apos;, 26) );</pre></td></tr>
+<tr class="nocodegen"><td>811</td><td><pre style="display:inline;"> &nbsp;List.Add( TTestRecord.Create(&apos;Anton&apos;, 28) );</pre></td></tr>
+<tr class="nocodegen"><td>812</td><td><pre style="display:inline;"> &nbsp;List.Add( TTestRecord.Create(&apos;Barbie&apos;, 50) );</pre></td></tr>
+<tr class="nocodegen"><td>813</td><td><pre style="display:inline;"> &nbsp;List.Add( TTestRecord.Create(&apos;Mickey Mouse&apos;, 90) );</pre></td></tr>
+<tr class="nocodegen"><td>814</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>815</td><td><pre style="display:inline;"> &nbsp;// sort by name</pre></td></tr>
+<tr class="nocodegen"><td>816</td><td><pre style="display:inline;"> &nbsp;List.Sort( TTestRecord.NameComparer );</pre></td></tr>
+<tr class="nocodegen"><td>817</td><td><pre style="display:inline;"> &nbsp;// convert to string array</pre></td></tr>
+<tr class="nocodegen"><td>818</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>819</td><td><pre style="display:inline;"> &nbsp;StrList := List.Convert&lt;string&gt;(TTestRecord.ConvertToNames);</pre></td></tr>
+<tr class="nocodegen"><td>820</td><td><pre style="display:inline;"> &nbsp;assert( StrList.Compare([&apos;Anton&apos;,&apos;Barbie&apos;,&apos;Jack&apos;,&apos;Mickey Mouse&apos;]) );</pre></td></tr>
+<tr class="nocodegen"><td>821</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>822</td><td><pre style="display:inline;"> &nbsp;// convert to integer array</pre></td></tr>
+<tr class="nocodegen"><td>823</td><td><pre style="display:inline;"> &nbsp;assert( List.Convert&lt;integer&gt;(TTestRecord.ConvertToAges).Compare([28,50,26,90]) );</pre></td></tr>
+<tr class="nocodegen"><td>824</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>825</td><td><pre style="display:inline;"> &nbsp;// sort by age</pre></td></tr>
+<tr class="nocodegen"><td>826</td><td><pre style="display:inline;"> &nbsp;List.Sort( TTestRecord.AgeComparer );</pre></td></tr>
+<tr class="nocodegen"><td>827</td><td><pre style="display:inline;"> &nbsp;assert( List[0].Name = &apos;Jack&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>828</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>829</td><td><pre style="display:inline;"> &nbsp;// IndexOf Min / Max</pre></td></tr>
+<tr class="nocodegen"><td>830</td><td><pre style="display:inline;"> &nbsp;assert( List.IndexOfMax(TTestRecord.AgeComparer) = 3 );</pre></td></tr>
+<tr class="nocodegen"><td>831</td><td><pre style="display:inline;"> &nbsp;assert( List.IndexOfMin(TTestRecord.AgeComparer) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>832</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>833</td><td><pre style="display:inline;"> &nbsp;I := List.IndexOfMax(TTestRecord.NameComparer);</pre></td></tr>
+<tr class="nocodegen"><td>834</td><td><pre style="display:inline;"> &nbsp;assert( List[I].Name = &apos;Mickey Mouse&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>835</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>836</td><td><pre style="display:inline;"> &nbsp;I := List.IndexOfMin(TTestRecord.NameComparer);</pre></td></tr>
+<tr class="nocodegen"><td>837</td><td><pre style="display:inline;"> &nbsp;assert( List[I].Name = &apos;Anton&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>838</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>839</td><td><pre style="display:inline;"> &nbsp;// Unique</pre></td></tr>
+<tr class="nocodegen"><td>840</td><td><pre style="display:inline;"> &nbsp;List.Add(List[0]);</pre></td></tr>
+<tr class="nocodegen"><td>841</td><td><pre style="display:inline;"> &nbsp;List.Insert(2, List[1]);</pre></td></tr>
+<tr class="nocodegen"><td>842</td><td><pre style="display:inline;"> &nbsp;List.Insert(4, List[1]);</pre></td></tr>
+<tr class="nocodegen"><td>843</td><td><pre style="display:inline;"> &nbsp;List.Unique;</pre></td></tr>
+<tr class="nocodegen"><td>844</td><td><pre style="display:inline;"> &nbsp;List.Sort(TTestRecord.NameComparer);</pre></td></tr>
+<tr class="nocodegen"><td>845</td><td><pre style="display:inline;"> &nbsp;StrList := List.Convert&lt;string&gt;(TTestRecord.ConvertToNames);</pre></td></tr>
+<tr class="nocodegen"><td>846</td><td><pre style="display:inline;"> &nbsp;assert( StrList.Compare([&apos;Anton&apos;,&apos;Barbie&apos;,&apos;Jack&apos;,&apos;Mickey Mouse&apos;]) );</pre></td></tr>
+<tr class="nocodegen"><td>847</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>848</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>849</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>850</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>851</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>852</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>853</td><td><pre style="display:inline;">function CompareJokerFunction(const Value: string): boolean;</pre></td></tr>
+<tr class="nocodegen"><td>854</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>855</td><td><pre style="display:inline;"> &nbsp;Result := LowerCase(Value) = &apos;joker&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>856</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>857</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>858</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>859</td><td><pre style="display:inline;">procedure TestArrayContainer;</pre></td></tr>
+<tr class="nocodegen"><td>860</td><td><pre style="display:inline;">const</pre></td></tr>
+<tr class="nocodegen"><td>861</td><td><pre style="display:inline;"> &nbsp;CWeek: array[1..8] of string = (&apos;Mon&apos;,&apos;Tues&apos;,&apos;Wednes&apos;,&apos;Bug&apos;,&apos;Thurs&apos;,&apos;Fri&apos;,&apos;Satur&apos;,&apos;Sun&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>862</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>863</td><td><pre style="display:inline;"> &nbsp;AStr: TArrayRecord&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>864</td><td><pre style="display:inline;"> &nbsp;AI,AI2: TArrayRecord&lt;integer&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>865</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>866</td><td><pre style="display:inline;"> &nbsp;S: string;</pre></td></tr>
+<tr class="nocodegen"><td>867</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>868</td><td><pre style="display:inline;"> &nbsp;AI := TArrayRecord&lt;integer&gt;.Create(0);</pre></td></tr>
+<tr class="nocodegen"><td>869</td><td><pre style="display:inline;"> &nbsp;assert(AI.Count = 0);</pre></td></tr>
+<tr class="nocodegen"><td>870</td><td><pre style="display:inline;"> &nbsp;AStr := TArrayRecord&lt;string&gt;.Create(10);</pre></td></tr>
+<tr class="nocodegen"><td>871</td><td><pre style="display:inline;"> &nbsp;assert((AStr.Count = 10) and (AStr[1] = &apos;&apos;));</pre></td></tr>
+<tr class="nocodegen"><td>872</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>873</td><td><pre style="display:inline;"> &nbsp;// Create</pre></td></tr>
+<tr class="nocodegen"><td>874</td><td><pre style="display:inline;"> &nbsp;AI.Create([1,2,3]);</pre></td></tr>
+<tr class="nocodegen"><td>875</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([1,2,3]) );</pre></td></tr>
+<tr class="nocodegen"><td>876</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>877</td><td><pre style="display:inline;"> &nbsp;// Add</pre></td></tr>
+<tr class="nocodegen"><td>878</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>879</td><td><pre style="display:inline;"> &nbsp;assert( AI.Add(1) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>880</td><td><pre style="display:inline;"> &nbsp;assert( AI.Add(2) = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>881</td><td><pre style="display:inline;"> &nbsp;assert( AI.Add(3) = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>882</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>883</td><td><pre style="display:inline;"> &nbsp;// IndexOf</pre></td></tr>
+<tr class="nocodegen"><td>884</td><td><pre style="display:inline;"> &nbsp;assert( AI.IndexOf(1) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>885</td><td><pre style="display:inline;"> &nbsp;assert( AI.IndexOf(2) = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>886</td><td><pre style="display:inline;"> &nbsp;assert( AI.IndexOf(5) = -1 );</pre></td></tr>
+<tr class="nocodegen"><td>887</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>888</td><td><pre style="display:inline;"> &nbsp;// Contains</pre></td></tr>
+<tr class="nocodegen"><td>889</td><td><pre style="display:inline;"> &nbsp;assert( AI.Contains(2) = TRUE );</pre></td></tr>
+<tr class="nocodegen"><td>890</td><td><pre style="display:inline;"> &nbsp;assert( AI.Contains(5) = FALSE );</pre></td></tr>
+<tr class="nocodegen"><td>891</td><td><pre style="display:inline;"> &nbsp;assert( AI.Contains(5, TComparer&lt;integer&gt;.Construct(</pre></td></tr>
+<tr class="nocodegen"><td>892</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(const Left, Right: integer): Integer</pre></td></tr>
+<tr class="nocodegen"><td>893</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>894</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := (Left + 4) - Right;</pre></td></tr>
+<tr class="nocodegen"><td>895</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>896</td><td><pre style="display:inline;"> &nbsp;)) = TRUE );</pre></td></tr>
+<tr class="nocodegen"><td>897</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>898</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>899</td><td><pre style="display:inline;"> &nbsp;// Delete</pre></td></tr>
+<tr class="nocodegen"><td>900</td><td><pre style="display:inline;"> &nbsp;AI.Delete(1);</pre></td></tr>
+<tr class="nocodegen"><td>901</td><td><pre style="display:inline;"> &nbsp;assert( AI.Contains(2) = FALSE );</pre></td></tr>
+<tr class="nocodegen"><td>902</td><td><pre style="display:inline;"> &nbsp;assert( AI.Count = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>903</td><td><pre style="display:inline;"> &nbsp;try AI.Delete(2); assert(TRUE); except end; &nbsp;// exception expected</pre></td></tr>
+<tr class="nocodegen"><td>904</td><td><pre style="display:inline;"> &nbsp;AI.Delete(0); &nbsp;assert( AI.Count = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>905</td><td><pre style="display:inline;"> &nbsp;AI.Delete(0); &nbsp;assert( AI.Count = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>906</td><td><pre style="display:inline;"> &nbsp;try AI.Delete(0); assert(TRUE); except end; &nbsp;// exception expected</pre></td></tr>
+<tr class="nocodegen"><td>907</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>908</td><td><pre style="display:inline;"> &nbsp;// Insert</pre></td></tr>
+<tr class="nocodegen"><td>909</td><td><pre style="display:inline;"> &nbsp;AStr.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>910</td><td><pre style="display:inline;"> &nbsp;AStr.Insert(0, &apos;one&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>911</td><td><pre style="display:inline;"> &nbsp;AStr.Insert(0, &apos;two&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>912</td><td><pre style="display:inline;"> &nbsp;assert( AStr.Count = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>913</td><td><pre style="display:inline;"> &nbsp;assert( AStr[0] = &apos;two&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>914</td><td><pre style="display:inline;"> &nbsp;assert( AStr[1] = &apos;one&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>915</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>916</td><td><pre style="display:inline;"> &nbsp;AStr.Insert(2, &apos;three&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>917</td><td><pre style="display:inline;"> &nbsp;assert( (AStr.Count = 3) and (AStr[2] = &apos;three&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>918</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>919</td><td><pre style="display:inline;"> &nbsp;// AddRange</pre></td></tr>
+<tr class="nocodegen"><td>920</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>921</td><td><pre style="display:inline;"> &nbsp;AI.AddRange( TArray&lt;integer&gt;.Create(4,5,6) );</pre></td></tr>
+<tr class="nocodegen"><td>922</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 3) and (AI[2] = 6) );</pre></td></tr>
+<tr class="nocodegen"><td>923</td><td><pre style="display:inline;"> &nbsp;AI.AddRange( TArray&lt;integer&gt;.Create(10,11,12) );</pre></td></tr>
+<tr class="nocodegen"><td>924</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 6) and (AI[5] = 12) and (AI[0] = 4) );</pre></td></tr>
+<tr class="nocodegen"><td>925</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>926</td><td><pre style="display:inline;"> &nbsp;// Compare</pre></td></tr>
+<tr class="nocodegen"><td>927</td><td><pre style="display:inline;"> &nbsp;AI.Create([1,2,3]);</pre></td></tr>
+<tr class="nocodegen"><td>928</td><td><pre style="display:inline;"> &nbsp;AI2 := AI;</pre></td></tr>
+<tr class="nocodegen"><td>929</td><td><pre style="display:inline;"> &nbsp;Assert( AI.Compare([1,2,3]) );</pre></td></tr>
+<tr class="nocodegen"><td>930</td><td><pre style="display:inline;"> &nbsp;Assert( AI.Compare(AI.Items) );</pre></td></tr>
+<tr class="nocodegen"><td>931</td><td><pre style="display:inline;"> &nbsp;Assert( AI.Compare(AI2) );</pre></td></tr>
+<tr class="nocodegen"><td>932</td><td><pre style="display:inline;"> &nbsp;AI2.Add(4);</pre></td></tr>
+<tr class="nocodegen"><td>933</td><td><pre style="display:inline;"> &nbsp;Assert( not AI.Compare(AI2) );</pre></td></tr>
+<tr class="nocodegen"><td>934</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>935</td><td><pre style="display:inline;"> &nbsp;// Equal</pre></td></tr>
+<tr class="nocodegen"><td>936</td><td><pre style="display:inline;"> &nbsp;AI.Create([1,2,3,4,5,6]);</pre></td></tr>
+<tr class="nocodegen"><td>937</td><td><pre style="display:inline;"> &nbsp;AI2 := AI;</pre></td></tr>
+<tr class="nocodegen"><td>938</td><td><pre style="display:inline;"> &nbsp;assert( AI = AI2 );</pre></td></tr>
+<tr class="nocodegen"><td>939</td><td><pre style="display:inline;"> &nbsp;AI.AddRange( AI2 );</pre></td></tr>
+<tr class="nocodegen"><td>940</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 12) and (AI &lt;&gt; AI2) );</pre></td></tr>
+<tr class="nocodegen"><td>941</td><td><pre style="display:inline;"> &nbsp;AI2.InsertRange( AI2.Count, AI2 );</pre></td></tr>
+<tr class="nocodegen"><td>942</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = AI2.Count) and (AI = AI2) );</pre></td></tr>
+<tr class="nocodegen"><td>943</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>944</td><td><pre style="display:inline;"> &nbsp;// InsertRange</pre></td></tr>
+<tr class="nocodegen"><td>945</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>946</td><td><pre style="display:inline;"> &nbsp;AI.InsertRange( 0, TArray&lt;integer&gt;.Create(4,5,6) );</pre></td></tr>
+<tr class="nocodegen"><td>947</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 3) and (AI[2] = 6) );</pre></td></tr>
+<tr class="nocodegen"><td>948</td><td><pre style="display:inline;"> &nbsp;AI.InsertRange( 0, [10,11,12]);</pre></td></tr>
+<tr class="nocodegen"><td>949</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 6) and (AI[5] = 6) and (AI[0] = 10) );</pre></td></tr>
+<tr class="nocodegen"><td>950</td><td><pre style="display:inline;"> &nbsp;AI.InsertRange( 3,[21,22]);</pre></td></tr>
+<tr class="nocodegen"><td>951</td><td><pre style="display:inline;"> &nbsp;assert( (AI.Count = 8) and (AI[7] = 6) and (AI[0] = 10) and (AI[3] = 21) );</pre></td></tr>
+<tr class="nocodegen"><td>952</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>953</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>954</td><td><pre style="display:inline;"> &nbsp;// ForEach</pre></td></tr>
+<tr class="nocodegen"><td>955</td><td><pre style="display:inline;"> &nbsp;AI.Items := TArray&lt;integer&gt;.Create(5,4,3,2,1);</pre></td></tr>
+<tr class="nocodegen"><td>956</td><td><pre style="display:inline;"> &nbsp;AStr.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>957</td><td><pre style="display:inline;"> &nbsp;AI.ForEach(</pre></td></tr>
+<tr class="nocodegen"><td>958</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure(var Value: integer; Index: integer)</pre></td></tr>
+<tr class="nocodegen"><td>959</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>960</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Value := Value * 10;</pre></td></tr>
+<tr class="nocodegen"><td>961</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;AStr.Add(IntToStr(Value));</pre></td></tr>
+<tr class="nocodegen"><td>962</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>963</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>964</td><td><pre style="display:inline;"> &nbsp;// sort</pre></td></tr>
+<tr class="nocodegen"><td>965</td><td><pre style="display:inline;"> &nbsp;AI.Sort;</pre></td></tr>
+<tr class="nocodegen"><td>966</td><td><pre style="display:inline;"> &nbsp;AStr.Sort;</pre></td></tr>
+<tr class="nocodegen"><td>967</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([10,20,30,40,50]) );</pre></td></tr>
+<tr class="nocodegen"><td>968</td><td><pre style="display:inline;"> &nbsp;assert( AStr.Compare([&apos;10&apos;,&apos;20&apos;,&apos;30&apos;,&apos;40&apos;,&apos;50&apos;]) );</pre></td></tr>
+<tr class="nocodegen"><td>969</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>970</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>971</td><td><pre style="display:inline;"> &nbsp;// Find</pre></td></tr>
+<tr class="nocodegen"><td>972</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>973</td><td><pre style="display:inline;"> &nbsp;AStr.SetItems([&apos;4&apos;,&apos;king&apos;,&apos;joker&apos;,&apos;7&apos;,&apos;JOKER&apos;,&apos;joker&apos;,&apos;ace&apos;,&apos;joker&apos;]);</pre></td></tr>
+<tr class="nocodegen"><td>974</td><td><pre style="display:inline;"> &nbsp;I := -1;</pre></td></tr>
+<tr class="nocodegen"><td>975</td><td><pre style="display:inline;"> &nbsp;repeat</pre></td></tr>
+<tr class="nocodegen"><td>976</td><td><pre style="display:inline;"> &nbsp; &nbsp;I := AStr.Find(CompareJokerFunction, I+1);</pre></td></tr>
+<tr class="nocodegen"><td>977</td><td><pre style="display:inline;"> &nbsp; &nbsp;if I &gt;= 0 then AI.Add( I);</pre></td></tr>
+<tr class="nocodegen"><td>978</td><td><pre style="display:inline;"> &nbsp;until I &lt; 0;</pre></td></tr>
+<tr class="nocodegen"><td>979</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([2,4,5,7]) );</pre></td></tr>
+<tr class="nocodegen"><td>980</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>981</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>982</td><td><pre style="display:inline;"> &nbsp;// Map</pre></td></tr>
+<tr class="nocodegen"><td>983</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>984</td><td><pre style="display:inline;"> &nbsp;for I := 1 to 50 do AI.Add( I);</pre></td></tr>
+<tr class="nocodegen"><td>985</td><td><pre style="display:inline;"> &nbsp;AI := AI.Map(</pre></td></tr>
+<tr class="nocodegen"><td>986</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(var Value: integer; Index: integer): boolean</pre></td></tr>
+<tr class="nocodegen"><td>987</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>988</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := (Value &gt;= 10) and (Value &lt; 20);</pre></td></tr>
+<tr class="nocodegen"><td>989</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if Result then</pre></td></tr>
+<tr class="nocodegen"><td>990</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Value := Value + 100;</pre></td></tr>
+<tr class="nocodegen"><td>991</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>992</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>993</td><td><pre style="display:inline;"> &nbsp;assert( AI.Count = 10 );</pre></td></tr>
+<tr class="nocodegen"><td>994</td><td><pre style="display:inline;"> &nbsp;assert( AI[1] = 111 );</pre></td></tr>
+<tr class="nocodegen"><td>995</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>996</td><td><pre style="display:inline;"> &nbsp;// Map &lt;string&gt;</pre></td></tr>
+<tr class="nocodegen"><td>997</td><td><pre style="display:inline;"> &nbsp;AStr.SetItems(CWeek);</pre></td></tr>
+<tr class="nocodegen"><td>998</td><td><pre style="display:inline;"> &nbsp;AStr := AStr.Map(</pre></td></tr>
+<tr class="nocodegen"><td>999</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(var Value: string; Index: integer): boolean</pre></td></tr>
+<tr class="nocodegen"><td>1000</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>1001</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := Value &lt;&gt; &apos;Bug&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>1002</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Value := Value + &apos;day&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>1003</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>1004</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>1005</td><td><pre style="display:inline;"> &nbsp;assert( AStr.Contains(&apos;Monday&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1006</td><td><pre style="display:inline;"> &nbsp;assert( AStr.Contains(&apos;Sunday&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1007</td><td><pre style="display:inline;"> &nbsp;assert( not AStr.Contains(&apos;Bugday&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1008</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1009</td><td><pre style="display:inline;"> &nbsp;// enumerate</pre></td></tr>
+<tr class="nocodegen"><td>1010</td><td><pre style="display:inline;"> &nbsp;AI.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>1011</td><td><pre style="display:inline;"> &nbsp;AStr.SetItems(CWeek);</pre></td></tr>
+<tr class="nocodegen"><td>1012</td><td><pre style="display:inline;"> &nbsp;for S in AStr do</pre></td></tr>
+<tr class="nocodegen"><td>1013</td><td><pre style="display:inline;"> &nbsp; &nbsp;AI.Add(length(S));</pre></td></tr>
+<tr class="nocodegen"><td>1014</td><td><pre style="display:inline;"> &nbsp;assert( AI.Count = AStr.Count );</pre></td></tr>
+<tr class="nocodegen"><td>1015</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([3,4,6,3,5,3,5,3]) );</pre></td></tr>
+<tr class="nocodegen"><td>1016</td><td><pre style="display:inline;"> &nbsp;// check empty enumeration</pre></td></tr>
+<tr class="nocodegen"><td>1017</td><td><pre style="display:inline;"> &nbsp;AStr.Clear;</pre></td></tr>
+<tr class="nocodegen"><td>1018</td><td><pre style="display:inline;"> &nbsp;for S in AStr do</pre></td></tr>
+<tr class="nocodegen"><td>1019</td><td><pre style="display:inline;"> &nbsp; &nbsp;AI.Add(length(S));</pre></td></tr>
+<tr class="nocodegen"><td>1020</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([3,4,6,3,5,3,5,3]) );</pre></td></tr>
+<tr class="nocodegen"><td>1021</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1022</td><td><pre style="display:inline;"> &nbsp;// Unique</pre></td></tr>
+<tr class="nocodegen"><td>1023</td><td><pre style="display:inline;"> &nbsp;AI.Unique;</pre></td></tr>
+<tr class="nocodegen"><td>1024</td><td><pre style="display:inline;"> &nbsp;AI.Sort;</pre></td></tr>
+<tr class="nocodegen"><td>1025</td><td><pre style="display:inline;"> &nbsp;assert( AI.Compare([3,4,5,6]) );</pre></td></tr>
+<tr class="nocodegen"><td>1026</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1027</td><td><pre style="display:inline;"> &nbsp;// CopyArray</pre></td></tr>
+<tr class="nocodegen"><td>1028</td><td><pre style="display:inline;"> &nbsp;assert( AI.CopyArray(2).Compare([5,6]) );</pre></td></tr>
+<tr class="nocodegen"><td>1029</td><td><pre style="display:inline;"> &nbsp;assert( AI.CopyArray(0,2).Compare([3,4]) );</pre></td></tr>
+<tr class="nocodegen"><td>1030</td><td><pre style="display:inline;"> &nbsp;assert( AI.CopyArray(1,2).Compare([4,5]) );</pre></td></tr>
+<tr class="nocodegen"><td>1031</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1032</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1033</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>1034</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1035</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1036</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1037</td><td><pre style="display:inline;">procedure TestArrayHelper;</pre></td></tr>
+<tr class="nocodegen"><td>1038</td><td><pre style="display:inline;">var</pre></td></tr>
+<tr class="nocodegen"><td>1039</td><td><pre style="display:inline;"> &nbsp;AI: TArray&lt;integer&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>1040</td><td><pre style="display:inline;"> &nbsp;AStr: TArray&lt;string&gt;;</pre></td></tr>
+<tr class="nocodegen"><td>1041</td><td><pre style="display:inline;"> &nbsp;I: Integer;</pre></td></tr>
+<tr class="nocodegen"><td>1042</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>1043</td><td><pre style="display:inline;"> &nbsp;// Add</pre></td></tr>
+<tr class="nocodegen"><td>1044</td><td><pre style="display:inline;"> &nbsp;AI := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1045</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Add&lt;integer&gt;(AI,1) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>1046</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Add&lt;integer&gt;(AI,2) = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>1047</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Add&lt;integer&gt;(AI,3) = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>1048</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1049</td><td><pre style="display:inline;"> &nbsp;// IndexOf</pre></td></tr>
+<tr class="nocodegen"><td>1050</td><td><pre style="display:inline;"> &nbsp;assert( TArray.IndexOf&lt;integer&gt;(AI,1) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>1051</td><td><pre style="display:inline;"> &nbsp;assert( TArray.IndexOf&lt;integer&gt;(AI,2) = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>1052</td><td><pre style="display:inline;"> &nbsp;assert( TArray.IndexOf&lt;integer&gt;(AI,5) = -1 );</pre></td></tr>
+<tr class="nocodegen"><td>1053</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1054</td><td><pre style="display:inline;"> &nbsp;// Contains</pre></td></tr>
+<tr class="nocodegen"><td>1055</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;integer&gt;(AI,2) = TRUE );</pre></td></tr>
+<tr class="nocodegen"><td>1056</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;integer&gt;(AI,5) = FALSE );</pre></td></tr>
+<tr class="nocodegen"><td>1057</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;integer&gt;(AI,5, TComparer&lt;integer&gt;.Construct(</pre></td></tr>
+<tr class="nocodegen"><td>1058</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(const Left, Right: integer): Integer</pre></td></tr>
+<tr class="nocodegen"><td>1059</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>1060</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := Left - (Right + 4);</pre></td></tr>
+<tr class="nocodegen"><td>1061</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>1062</td><td><pre style="display:inline;"> &nbsp;)) = FALSE );</pre></td></tr>
+<tr class="nocodegen"><td>1063</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1064</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1065</td><td><pre style="display:inline;"> &nbsp;// Delete</pre></td></tr>
+<tr class="nocodegen"><td>1066</td><td><pre style="display:inline;"> &nbsp;TArray.Delete&lt;integer&gt;(AI,1);</pre></td></tr>
+<tr class="nocodegen"><td>1067</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;integer&gt;(AI,2) = FALSE );</pre></td></tr>
+<tr class="nocodegen"><td>1068</td><td><pre style="display:inline;"> &nbsp;assert( length(AI) = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>1069</td><td><pre style="display:inline;"> &nbsp;try TArray.Delete&lt;integer&gt;(AI,2); assert(TRUE); except end; &nbsp;// exception expected</pre></td></tr>
+<tr class="nocodegen"><td>1070</td><td><pre style="display:inline;"> &nbsp;TArray.Delete&lt;integer&gt;(AI,0); &nbsp;assert( length(AI) = 1 );</pre></td></tr>
+<tr class="nocodegen"><td>1071</td><td><pre style="display:inline;"> &nbsp;TArray.Delete&lt;integer&gt;(AI,0); &nbsp;assert( length(AI) = 0 );</pre></td></tr>
+<tr class="nocodegen"><td>1072</td><td><pre style="display:inline;"> &nbsp;try TArray.Delete&lt;integer&gt;(AI,0); assert(TRUE); except end; &nbsp;// exception expected</pre></td></tr>
+<tr class="nocodegen"><td>1073</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1074</td><td><pre style="display:inline;"> &nbsp;// Insert</pre></td></tr>
+<tr class="nocodegen"><td>1075</td><td><pre style="display:inline;"> &nbsp;AStr := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1076</td><td><pre style="display:inline;"> &nbsp;TArray.Insert&lt;string&gt;(AStr, 0, &apos;one&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>1077</td><td><pre style="display:inline;"> &nbsp;TArray.Insert&lt;string&gt;(AStr, 0, &apos;two&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>1078</td><td><pre style="display:inline;"> &nbsp;assert( length(AStr) = 2 );</pre></td></tr>
+<tr class="nocodegen"><td>1079</td><td><pre style="display:inline;"> &nbsp;assert( AStr[0] = &apos;two&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>1080</td><td><pre style="display:inline;"> &nbsp;assert( AStr[1] = &apos;one&apos; );</pre></td></tr>
+<tr class="nocodegen"><td>1081</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1082</td><td><pre style="display:inline;"> &nbsp;TArray.Insert&lt;string&gt;(AStr, 2, &apos;three&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>1083</td><td><pre style="display:inline;"> &nbsp;assert( (length(AStr) = 3) and (AStr[2] = &apos;three&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1084</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1085</td><td><pre style="display:inline;"> &nbsp;// AddRange</pre></td></tr>
+<tr class="nocodegen"><td>1086</td><td><pre style="display:inline;"> &nbsp;AI := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1087</td><td><pre style="display:inline;"> &nbsp;TArray.AddRange&lt;integer&gt;(AI, TArray&lt;integer&gt;.Create(4,5,6));</pre></td></tr>
+<tr class="nocodegen"><td>1088</td><td><pre style="display:inline;"> &nbsp;assert( (length(AI) = 3) and (AI[2] = 6) );</pre></td></tr>
+<tr class="nocodegen"><td>1089</td><td><pre style="display:inline;"> &nbsp;TArray.AddRange&lt;integer&gt;(AI, TArray&lt;integer&gt;.Create(10,11,12));</pre></td></tr>
+<tr class="nocodegen"><td>1090</td><td><pre style="display:inline;"> &nbsp;assert( (length(AI) = 6) and (AI[5] = 12) and (AI[0] = 4) );</pre></td></tr>
+<tr class="nocodegen"><td>1091</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1092</td><td><pre style="display:inline;"> &nbsp;// InsertRange</pre></td></tr>
+<tr class="nocodegen"><td>1093</td><td><pre style="display:inline;"> &nbsp;AI := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1094</td><td><pre style="display:inline;"> &nbsp;TArray.InsertRange&lt;integer&gt;(AI, 0, TArray&lt;integer&gt;.Create(4,5,6));</pre></td></tr>
+<tr class="nocodegen"><td>1095</td><td><pre style="display:inline;"> &nbsp;assert( (length(AI) = 3) and (AI[2] = 6) );</pre></td></tr>
+<tr class="nocodegen"><td>1096</td><td><pre style="display:inline;"> &nbsp;TArray.InsertRange&lt;integer&gt;(AI, 0, TArray&lt;integer&gt;.Create(10,11,12));</pre></td></tr>
+<tr class="nocodegen"><td>1097</td><td><pre style="display:inline;"> &nbsp;assert( (length(AI) = 6) and (AI[5] = 6) and (AI[0] = 10) );</pre></td></tr>
+<tr class="nocodegen"><td>1098</td><td><pre style="display:inline;"> &nbsp;TArray.InsertRange&lt;integer&gt;(AI, 3, TArray&lt;integer&gt;.Create(21,22));</pre></td></tr>
+<tr class="nocodegen"><td>1099</td><td><pre style="display:inline;"> &nbsp;assert( (length(AI) = 8) and (AI[7] = 6) and (AI[0] = 10) and (AI[3] = 21) );</pre></td></tr>
+<tr class="nocodegen"><td>1100</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1101</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1102</td><td><pre style="display:inline;"> &nbsp;// ForEach</pre></td></tr>
+<tr class="nocodegen"><td>1103</td><td><pre style="display:inline;"> &nbsp;AI := TArray&lt;integer&gt;.Create(5,4,3,2,1);</pre></td></tr>
+<tr class="nocodegen"><td>1104</td><td><pre style="display:inline;"> &nbsp;AStr := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1105</td><td><pre style="display:inline;"> &nbsp;TArray.ForEach&lt;integer&gt;( AI,</pre></td></tr>
+<tr class="nocodegen"><td>1106</td><td><pre style="display:inline;"> &nbsp; &nbsp;procedure(var Value: integer; Index: integer)</pre></td></tr>
+<tr class="nocodegen"><td>1107</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>1108</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Value := Value * 10;</pre></td></tr>
+<tr class="nocodegen"><td>1109</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;TArray.Add&lt;string&gt;(AStr, IntToStr(Value));</pre></td></tr>
+<tr class="nocodegen"><td>1110</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>1111</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>1112</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;integer&gt;(AI);</pre></td></tr>
+<tr class="nocodegen"><td>1113</td><td><pre style="display:inline;"> &nbsp;TArray.Sort&lt;string&gt;(AStr);</pre></td></tr>
+<tr class="nocodegen"><td>1114</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Compare&lt;integer&gt;(AI, TArray&lt;integer&gt;.Create(10,20,30,40,50)) );</pre></td></tr>
+<tr class="nocodegen"><td>1115</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Compare&lt;string&gt;(AStr, TArray&lt;string&gt;.Create(&apos;10&apos;,&apos;20&apos;,&apos;30&apos;,&apos;40&apos;,&apos;50&apos;)) );</pre></td></tr>
+<tr class="nocodegen"><td>1116</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1117</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1118</td><td><pre style="display:inline;"> &nbsp;// Find</pre></td></tr>
+<tr class="nocodegen"><td>1119</td><td><pre style="display:inline;"> &nbsp;AI := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1120</td><td><pre style="display:inline;"> &nbsp;AStr := TArray&lt;string&gt;.Create(&apos;4&apos;,&apos;king&apos;,&apos;joker&apos;,&apos;7&apos;,&apos;JOKER&apos;,&apos;joker&apos;,&apos;ace&apos;,&apos;joker&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>1121</td><td><pre style="display:inline;"> &nbsp;I := -1;</pre></td></tr>
+<tr class="nocodegen"><td>1122</td><td><pre style="display:inline;"> &nbsp;repeat</pre></td></tr>
+<tr class="nocodegen"><td>1123</td><td><pre style="display:inline;"> &nbsp; &nbsp;I := TArray.Find&lt;string&gt;(AStr, CompareJokerFunction, I+1);</pre></td></tr>
+<tr class="nocodegen"><td>1124</td><td><pre style="display:inline;"> &nbsp; &nbsp;if I &gt;= 0 then TArray.Add&lt;integer&gt;(AI, I);</pre></td></tr>
+<tr class="nocodegen"><td>1125</td><td><pre style="display:inline;"> &nbsp;until I &lt; 0;</pre></td></tr>
+<tr class="nocodegen"><td>1126</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Compare&lt;integer&gt;(AI, TArray&lt;integer&gt;.Create(2,4,5,7)) );</pre></td></tr>
+<tr class="nocodegen"><td>1127</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1128</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1129</td><td><pre style="display:inline;"> &nbsp;// Map</pre></td></tr>
+<tr class="nocodegen"><td>1130</td><td><pre style="display:inline;"> &nbsp;AI := NIL;</pre></td></tr>
+<tr class="nocodegen"><td>1131</td><td><pre style="display:inline;"> &nbsp;for I := 1 to 50 do TArray.Add&lt;integer&gt;(AI, I);</pre></td></tr>
+<tr class="nocodegen"><td>1132</td><td><pre style="display:inline;"> &nbsp;AI := TArray.Map&lt;integer&gt;(AI,</pre></td></tr>
+<tr class="nocodegen"><td>1133</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(var Value: integer; Index: integer): boolean</pre></td></tr>
+<tr class="nocodegen"><td>1134</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>1135</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := (Value &gt;= 10) and (Value &lt; 20);</pre></td></tr>
+<tr class="nocodegen"><td>1136</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;if Result then</pre></td></tr>
+<tr class="nocodegen"><td>1137</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp; &nbsp;Value := Value + 100;</pre></td></tr>
+<tr class="nocodegen"><td>1138</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>1139</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>1140</td><td><pre style="display:inline;"> &nbsp;assert( length(AI) = 10 );</pre></td></tr>
+<tr class="nocodegen"><td>1141</td><td><pre style="display:inline;"> &nbsp;assert( AI[1] = 111 );</pre></td></tr>
+<tr class="nocodegen"><td>1142</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1143</td><td><pre style="display:inline;"> &nbsp;// Map &lt;string&gt;</pre></td></tr>
+<tr class="nocodegen"><td>1144</td><td><pre style="display:inline;"> &nbsp;AStr := TArray&lt;string&gt;.Create(&apos;Mon&apos;,&apos;Tues&apos;,&apos;Wednes&apos;,&apos;Thurs&apos;,&apos;Fri&apos;,&apos;Satur&apos;,&apos;Sun&apos;);</pre></td></tr>
+<tr class="nocodegen"><td>1145</td><td><pre style="display:inline;"> &nbsp;AStr := TArray.Map&lt;string&gt;( AStr,</pre></td></tr>
+<tr class="nocodegen"><td>1146</td><td><pre style="display:inline;"> &nbsp; &nbsp;function(var Value: string; Index: integer): boolean</pre></td></tr>
+<tr class="nocodegen"><td>1147</td><td><pre style="display:inline;"> &nbsp; &nbsp;begin</pre></td></tr>
+<tr class="nocodegen"><td>1148</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Result := TRUE;</pre></td></tr>
+<tr class="nocodegen"><td>1149</td><td><pre style="display:inline;"> &nbsp; &nbsp; &nbsp;Value := Value + &apos;day&apos;;</pre></td></tr>
+<tr class="nocodegen"><td>1150</td><td><pre style="display:inline;"> &nbsp; &nbsp;end</pre></td></tr>
+<tr class="nocodegen"><td>1151</td><td><pre style="display:inline;"> &nbsp;);</pre></td></tr>
+<tr class="nocodegen"><td>1152</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;string&gt;(AStr, &apos;Monday&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1153</td><td><pre style="display:inline;"> &nbsp;assert( TArray.Contains&lt;string&gt;(AStr, &apos;Sunday&apos;) );</pre></td></tr>
+<tr class="nocodegen"><td>1154</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1155</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>1156</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1157</td><td><pre style="display:inline;">class procedure TArrayHelper.Test_All_Helper_Functions;</pre></td></tr>
+<tr class="nocodegen"><td>1158</td><td><pre style="display:inline;">begin</pre></td></tr>
+<tr class="nocodegen"><td>1159</td><td><pre style="display:inline;"> &nbsp;TestArrayHelper;</pre></td></tr>
+<tr class="nocodegen"><td>1160</td><td><pre style="display:inline;"> &nbsp;TestArrayContainer;</pre></td></tr>
+<tr class="nocodegen"><td>1161</td><td><pre style="display:inline;"> &nbsp;Test_TestRecord;</pre></td></tr>
+<tr class="nocodegen"><td>1162</td><td><pre style="display:inline;">end;</pre></td></tr>
+<tr class="nocodegen"><td>1163</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1164</td><td><pre style="display:inline;">{$ENDIF TEST_FUNCTION}</pre></td></tr>
+<tr class="nocodegen"><td>1165</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1166</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1167</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1168</td><td><pre style="display:inline;">end.</pre></td></tr>
+<tr class="nocodegen"><td>1169</td><td><pre style="display:inline;"></pre></td></tr>
+<tr class="nocodegen"><td>1170</td><td><pre style="display:inline;"></pre></td></tr>
+</table>
+</body>
+</html>
